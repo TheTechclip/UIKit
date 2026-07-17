@@ -10,13 +10,13 @@ import {
   useRef,
   useState,
 } from "react";
-import Icon from "@/packages/Components/Icon/Icon";
-import Label from "@/packages/Components/Label/Label";
-import Text from "@/packages/Components/Text/Text";
-import styles from "@/packages/Components/TimePicker/TimePicker.module.scss";
-import type { TimePickerProps } from "@/packages/Components/TimePicker/TimePicker.types";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+import Icon from "../Icon/Icon";
+import Label from "../Label/Label";
+import Text from "../Text/Text";
+import styles from "./TimePicker.module.scss";
+import type { TimePickerProps } from "./TimePicker.types";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 
 type Segment = "hour" | "minute" | "second" | "ampm";
 

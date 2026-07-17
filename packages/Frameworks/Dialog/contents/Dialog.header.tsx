@@ -1,12 +1,12 @@
 "use client";
 
 import type { ReactNode } from "react";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
-import { useDialog } from "@/packages/Frameworks/Dialog/Dialog";
-import type { DialogHeaderConfig } from "@/packages/Frameworks/Dialog/Dialog.types";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+import Icon from "../../../Components/Icon/Icon";
+import Text from "../../../Components/Text/Text";
+import { useDialog } from "../Dialog";
+import type { DialogHeaderConfig } from "../Dialog.types";
+import Pressable from "../../Pressable/Pressable";
+import View from "../../View/View";
 
 interface DialogHeaderProps {
   config?: DialogHeaderConfig & {

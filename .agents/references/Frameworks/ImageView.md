@@ -43,7 +43,7 @@ export interface ImageProps extends RadiusProps {
 ## Example Code
 
 ```tsx
-import View from "@/packages/Frameworks/View";
+import { View } from "@musecat/uikit";
 
 function PhotoGallery() {
   const images = [

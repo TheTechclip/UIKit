@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import Icon from "@/packages/Components/Icon/Icon";
+import Icon from "../../../Components/Icon/Icon";
 
 export type ImageControlProps = {
   onClick: () => void;

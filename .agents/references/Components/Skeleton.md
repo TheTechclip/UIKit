@@ -29,7 +29,7 @@ export interface SkeletonProps {
 ## Example Code
 
 ```tsx
-import Skeleton from "@/packages/Components/Skeleton/Skeleton";
+import { Skeleton } from "@musecat/uikit";
 
 export default function SkeletonExample() {
   return (

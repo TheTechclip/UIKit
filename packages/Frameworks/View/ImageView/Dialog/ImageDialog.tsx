@@ -1,19 +1,19 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { DialogImageFooter } from "@/packages/Frameworks/View/ImageView/Dialog/ImageDialog.footer";
-import { DialogImageHeader } from "@/packages/Frameworks/View/ImageView/Dialog/ImageDialog.header";
-import { DialogImageSlide } from "@/packages/Frameworks/View/ImageView/Dialog/ImageDialog.slide";
+import { DialogImageFooter } from "./ImageDialog.footer";
+import { DialogImageHeader } from "./ImageDialog.header";
+import { DialogImageSlide } from "./ImageDialog.slide";
 import {
   ImageLeftControl,
   ImageRightControl,
-} from "@/packages/Frameworks/View/ImageView/Image.controls";
-import { useImageDialog } from "@/packages/Frameworks/View/ImageView/Image.hooks";
+} from "../Image.controls";
+import { useImageDialog } from "../Image.hooks";
 import type {
   ImageItem,
   ImageProps,
-} from "@/packages/Frameworks/View/ImageView/Image.types";
-import View from "@/packages/Frameworks/View/View";
+} from "../Image.types";
+import View from "../../View";
 
 export type ImageDialogProps = {
   items: ImageItem[];

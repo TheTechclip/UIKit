@@ -13,12 +13,12 @@ import {
   useRef,
   useState,
 } from "react";
-import { Word } from "@/i18n/shared";
-import Box from "@/packages/Components/Box/Box";
-import styles from "@/packages/Components/ContributionGraph/ContributionGraph.module.scss";
-import type { ContributionGraphProps } from "@/packages/Components/ContributionGraph/ContributionGraph.types";
-import Text from "@/packages/Components/Text/Text";
-import View from "@/packages/Frameworks/View/View";
+import { Word } from "../../../i18n/shared";
+import Box from "../Box/Box";
+import styles from "./ContributionGraph.module.scss";
+import type { ContributionGraphProps } from "./ContributionGraph.types";
+import Text from "../Text/Text";
+import View from "../../Frameworks/View/View";
 
 const DAY_LABEL_KEYS = [
   "sun",

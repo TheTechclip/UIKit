@@ -49,7 +49,7 @@ export interface PillProps extends ThemeSystemProps, RadiusProps, BorderProps {
 ## Example Code
 
 ```tsx
-import Pill from "@/packages/Components/Pill/Pill";
+import { Pill } from "@musecat/uikit";
 
 export function TagList() {
   return (

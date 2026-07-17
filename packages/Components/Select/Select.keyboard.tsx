@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useRef } from "react";
-import type { Option } from "@/packages/Components/Select/Select.types";
+import type { Option } from "./Select.types";
 
 const TYPE_AHEAD_RESET_MS = 500;
 

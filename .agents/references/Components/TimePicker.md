@@ -41,7 +41,7 @@ export interface TimePickerProps {
 ## Example Code
 
 ```tsx
-import TimePicker from "@/packages/Components/TimePicker/TimePicker";
+import { TimePicker } from "@musecat/uikit";
 import { useState } from "react";
 
 export default function TimePickerExample() {

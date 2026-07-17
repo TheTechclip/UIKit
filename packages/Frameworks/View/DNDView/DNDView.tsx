@@ -33,15 +33,15 @@ import {
   useRef,
   useState,
 } from "react";
-import Icon from "@/packages/Components/Icon/Icon";
-import type { PressableProps } from "@/packages/Frameworks/Pressable/Pressable.types";
-import styles from "@/packages/Frameworks/View/DNDView/DNDView.module.scss";
+import Icon from "../../../Components/Icon/Icon";
+import type { PressableProps } from "../../Pressable/Pressable.types";
+import styles from "./DNDView.module.scss";
 import type {
   DNDViewItemState,
   DNDViewProps,
   DNDViewStrategy,
-} from "@/packages/Frameworks/View/DNDView/DNDView.types";
-import View from "@/packages/Frameworks/View/View";
+} from "./DNDView.types";
+import View from "../View";
 
 const SORTING_STRATEGY: Record<DNDViewStrategy, typeof rectSortingStrategy> = {
   horizontal: horizontalListSortingStrategy,

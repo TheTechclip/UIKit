@@ -1,4 +1,4 @@
-import type { LabelProps } from "@/packages/Components/Label/Label.types";
+import type { LabelProps } from "../Label/Label.types";
 
 export interface TimePickerProps {
   "data-color-mode"?: string;

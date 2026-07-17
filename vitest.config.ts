@@ -1,5 +1,4 @@
 import { defineConfig } from "vitest/config";
-import path from "path";
 
 export default defineConfig({
   test: {
@@ -12,11 +11,6 @@ export default defineConfig({
       include: ["packages/**/*.{ts,tsx}"],
       exclude: ["packages/**/*.types.ts"],
       reporter: ["text", "lcov"],
-    },
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./"),
     },
   },
 });

@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import View from "@/packages/Frameworks/View/View";
+import View from "../View/View";
 
 interface StopParentInteractionProps {
   children: React.ReactNode;

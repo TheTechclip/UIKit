@@ -33,7 +33,7 @@ export interface SquircleProps extends Omit<
 ## Example Code
 
 ```tsx
-import Squircle from "@/packages/Frameworks/Squircle";
+import { Squircle } from "@musecat/uikit";
 
 function Card() {
   return (

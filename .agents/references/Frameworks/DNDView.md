@@ -46,7 +46,7 @@ export interface DNDViewProps<T> extends ViewProps {
 ## Example Code
 
 ```tsx
-import View from "@/packages/Frameworks/View";
+import { View } from "@musecat/uikit";
 import { useState } from "react";
 
 function SortableList() {

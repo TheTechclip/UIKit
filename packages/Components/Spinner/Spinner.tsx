@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import type { CSSProperties } from "react";
-import styles from "@/packages/Components/Spinner/Spinner.module.scss";
-import type { SpinnerProps } from "@/packages/Components/Spinner/Spinner.types";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
-import { resolveThemeClasses } from "@/packages/Frameworks/Theme/Theme.types";
-import View from "@/packages/Frameworks/View/View";
+import styles from "./Spinner.module.scss";
+import type { SpinnerProps } from "./Spinner.types";
+import { Size } from "../../Frameworks/_shared/sizing";
+import { resolveThemeClasses } from "../../Frameworks/Theme/Theme.types";
+import View from "../../Frameworks/View/View";
 
 const SPINNER_SEGMENTS = 12;
 const SPINNER_VISUAL_SCALE_BY_TYPE = {

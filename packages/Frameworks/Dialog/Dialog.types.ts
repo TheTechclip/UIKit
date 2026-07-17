@@ -1,13 +1,13 @@
 import type { ReactNode, RefObject } from "react";
-import type { ButtonProps } from "@/packages/Components/Button/Button.types";
-import type { IconProps } from "@/packages/Components/Icon/Icon.types";
-import type { RadiusProps } from "@/packages/Frameworks/Theme/Radius.types";
+import type { ButtonProps } from "../../Components/Button/Button.types";
+import type { IconProps } from "../../Components/Icon/Icon.types";
+import type { RadiusProps } from "../Theme/Radius.types";
 import type {
   BackgroundBlurValue,
   BorderProps,
   ThemeBackgroundPaint,
   ThemeSystemProps,
-} from "@/packages/Frameworks/Theme/Theme.types";
+} from "../Theme/Theme.types";
 
 export type DialogMode = "popover" | "modal" | "sheet";
 export type DialogMobileMode = "modal" | "sheet";

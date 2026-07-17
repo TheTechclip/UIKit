@@ -1,12 +1,12 @@
 import { Children } from "react";
-import type { IconGroupProps } from "@/packages/Components/Icon/Icon.group.types";
-import Icon from "@/packages/Components/Icon/Icon";
-import type { IconProps } from "@/packages/Components/Icon/Icon.types";
+import type { IconGroupProps } from "./Icon.group.types";
+import Icon from "./Icon";
+import type { IconProps } from "./Icon.types";
 import {
   Size,
   type UIKitSizeValue,
-} from "@/packages/Frameworks/_shared/sizing";
-import View from "@/packages/Frameworks/View/View";
+} from "../../Frameworks/_shared/sizing";
+import View from "../../Frameworks/View/View";
 
 const GROUP_PADDING = 2;
 const ICON_PADDING = 6;

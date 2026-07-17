@@ -2,25 +2,25 @@
 
 import NextImage from "next/image";
 import { useCallback, useMemo, useState } from "react";
-import Dialog from "@/packages/Frameworks/Dialog/Dialog";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import HScrollView from "@/packages/Frameworks/View/HScrollView/HScrollView";
-import ImageDialog from "@/packages/Frameworks/View/ImageView/Dialog/ImageDialog";
+import Dialog from "../../Dialog/Dialog";
+import Pressable from "../../Pressable/Pressable";
+import HScrollView from "../HScrollView/HScrollView";
+import ImageDialog from "./Dialog/ImageDialog";
 import {
   ImageLeftControl,
   ImageRightControl,
-} from "@/packages/Frameworks/View/ImageView/Image.controls";
-import type { ImageOverlay, ImageProps } from "@/packages/Frameworks/View/ImageView/Image.types";
-import type { RadiusValue } from "@/packages/Frameworks/Theme/Radius.types";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
+} from "./Image.controls";
+import type { ImageOverlay, ImageProps } from "./Image.types";
+import type { RadiusValue } from "../../Theme/Radius.types";
+import type { UIKitSizeValue } from "../../_shared/sizing";
 import {
   resolveAtIndex,
   resolveBlurDataURL,
   resolveImageSrc,
   resolveItems,
   resolveOverlay,
-} from "@/packages/Frameworks/View/ImageView/Image.utils";
-import View from "@/packages/Frameworks/View/View";
+} from "./Image.utils";
+import View from "../View";
 
 const DEFAULT_GROUP_WIDTH = "auto";
 const DEFAULT_GROUP_HEIGHT = "29rem";

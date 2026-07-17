@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Squircle from "@/packages/Frameworks/Squircle/Squircle";
+import Squircle from "../../packages/Frameworks/Squircle/Squircle";
 
 vi.mock("figma-squircle", () => ({
   getSvgPath: () => "M0 0 L100 0 L100 100 L0 100 Z",

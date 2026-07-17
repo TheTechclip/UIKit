@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Toaster from "@/packages/Frameworks/Toaster/Toaster.boot";
+import Toaster from "../../packages/Frameworks/Toaster/Toaster.boot";
 
 vi.mock("sonner", () => ({
   Toaster: ({ theme, toastOptions }: any) => (
@@ -9,7 +9,7 @@ vi.mock("sonner", () => ({
   toast: { success: () => {}, error: () => {}, info: () => {}, warning: () => {}, loading: () => {} },
 }));
 
-vi.mock("@/packages/Components/Icon/Icon", () => ({
+vi.mock("../../packages/Components/Icon/Icon.tsx", () => ({
   default: () => <span data-testid="icon" />,
 }));
 
@@ -25,7 +25,7 @@ describe("Toaster", () => {
   });
 
   it("exports the toast function", async () => {
-    const { toast } = await import("@/packages/Frameworks/Toaster/Toaster.boot");
+    const { toast } = await import("../../packages/Frameworks/Toaster/Toaster.boot");
     expect(typeof toast.success).toBe("function");
   });
 });

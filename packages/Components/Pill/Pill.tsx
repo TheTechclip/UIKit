@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import Icon from "@/packages/Components/Icon/Icon";
-import type { PillProps } from "@/packages/Components/Pill/Pill.types";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
+import Icon from "../Icon/Icon";
+import type { PillProps } from "./Pill.types";
+import Text from "../Text/Text";
+import Pressable from "../../Frameworks/Pressable/Pressable";
 
 export function Pill({
   themePreset,

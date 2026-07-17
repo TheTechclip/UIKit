@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-import Pagination from "@/packages/Components/Pagination/Pagination";
+import Pagination from "../../packages/Components/Pagination/Pagination";
 
 global.ResizeObserver = class ResizeObserver {
   observe() {}
@@ -9,7 +9,7 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
 };
 
-vi.mock("@/i18n/shared", () => ({
+vi.mock("../../i18n/shared.ts", () => ({
   Word: () => ({
     UIKit: {
       ui: {

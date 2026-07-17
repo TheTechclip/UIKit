@@ -32,7 +32,7 @@ export interface DividerProps {
 ## 4. Example Code
 
 ```tsx
-import Divider from "@/packages/Components/Divider/Divider";
+import { Divider } from "@musecat/uikit";
 
 export default function Example() {
   return (

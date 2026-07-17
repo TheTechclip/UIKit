@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
+import type { UIKitSizeValue } from "./sizing";
 
 export interface WindProps {
   width?: UIKitSizeValue;

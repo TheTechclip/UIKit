@@ -1,7 +1,7 @@
 import type {
   BorderProps,
   ThemeSystemProps,
-} from "@/packages/Frameworks/Theme/Theme.types";
+} from "../../Frameworks/Theme/Theme.types";
 
 export interface PaginationProps extends ThemeSystemProps, BorderProps {
   "data-color-mode"?: string;

@@ -1,43 +1,43 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import Card from "@/packages/Components/Card/Card";
-import Icon from "@/packages/Components/Icon/Icon";
-import Pill from "@/packages/Components/Pill/Pill";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
-import StopParentInteraction from "@/packages/Frameworks/_shared/StopParentInteraction";
+import Card from "../../packages/Components/Card/Card";
+import Icon from "../../packages/Components/Icon/Icon";
+import Pill from "../../packages/Components/Pill/Pill";
+import Text from "../../packages/Components/Text/Text";
+import Pressable from "../../packages/Frameworks/Pressable/Pressable";
+import View from "../../packages/Frameworks/View/View";
+import StopParentInteraction from "../../packages/Frameworks/_shared/StopParentInteraction";
 
-vi.mock("@/packages/Components/Icon/Icon", () => ({
+vi.mock("../../packages/Components/Icon/Icon.tsx", () => ({
   default: ({ icon }: { icon?: string }) => (
     <span data-testid="icon" data-icon={icon} />
   ),
 }));
-vi.mock("@/packages/Components/Pill/Pill", () => ({
+vi.mock("../../packages/Components/Pill/Pill.tsx", () => ({
   default: ({ text }: { text?: React.ReactNode }) => (
     <span data-testid="pill">{text}</span>
   ),
 }));
-vi.mock("@/packages/Components/Text/Text", () => ({
+vi.mock("../../packages/Components/Text/Text.tsx", () => ({
   default: ({ children }: { children?: React.ReactNode }) => (
     <span data-testid="text">{children}</span>
   ),
 }));
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable.tsx", () => ({
   default: ({ children, onClick, ...rest }: any) => (
     <button type="button" data-testid="pressable" onClick={onClick} {...rest}>
       {children}
     </button>
   ),
 }));
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
   default: ({ children, ...rest }: any) => (
     <div data-testid="view" {...rest}>
       {children}
     </div>
   ),
 }));
-vi.mock("@/packages/Frameworks/_shared/StopParentInteraction", () => ({
+vi.mock("../../packages/Frameworks/_shared/StopParentInteraction.tsx", () => ({
   default: ({ children }: { children?: React.ReactNode }) => (
     <div data-testid="stop">{children}</div>
   ),

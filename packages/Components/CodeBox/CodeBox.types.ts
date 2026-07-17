@@ -1,8 +1,8 @@
-import type { RadiusProps } from "@/packages/Frameworks/Theme/Radius.types";
+import type { RadiusProps } from "../../Frameworks/Theme/Radius.types";
 import type {
   BorderProps,
   ThemeSystemProps,
-} from "@/packages/Frameworks/Theme/Theme.types";
+} from "../../Frameworks/Theme/Theme.types";
 
 export interface CodeBoxProps
   extends ThemeSystemProps,

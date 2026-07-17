@@ -1,8 +1,8 @@
 "use client";
 
 import { memo, useMemo } from "react";
-import type { EdgeEffectProps } from "@/packages/Frameworks/EdgeEffect/EdgeEffect.types";
-import View from "@/packages/Frameworks/View/View";
+import type { EdgeEffectProps } from "./EdgeEffect.types";
+import View from "../View/View";
 
 const OPPOSITE_SIDE: Record<
   "left" | "right" | "top" | "bottom",

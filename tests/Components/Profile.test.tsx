@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeAll } from "vitest";
-import Profile from "@/packages/Components/Profile/Profile";
+import Profile from "../../packages/Components/Profile/Profile";
 
 beforeAll(() => {
   global.ResizeObserver = class {

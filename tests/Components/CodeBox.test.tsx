@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-vi.mock("@/packages/Components/CodeBox/CodeBox", () => ({
+vi.mock("../../packages/Components/CodeBox/CodeBox.tsx", () => ({
   default: ({ code, language }: { code?: string; language?: string }) => (
     <div data-testid="codebox">
       <span>
@@ -17,7 +17,7 @@ vi.mock("@/packages/Components/CodeBox/CodeBox", () => ({
     </div>
   ),
 }));
-import CodeBox from "@/packages/Components/CodeBox/CodeBox";
+import CodeBox from "../../packages/Components/CodeBox/CodeBox";
 
 describe("CodeBox", () => {
   it("renders the code in a pre element", () => {

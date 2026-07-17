@@ -2,7 +2,7 @@
 
 import type { MotionValue } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
-import type { RadiusValue } from "@/packages/Frameworks/Theme/Radius.types";
+import type { RadiusValue } from "../../Theme/Radius.types";
 
 const EDGE_INSET_MAX_PX = 8;
 const BOTTOM_GAP_PX = 8;

@@ -3,13 +3,13 @@
 import clsx from "clsx";
 import type { MotionValue } from "motion/react";
 import { useEffect, useState } from "react";
-import { motionPresets } from "@/packages/Frameworks/Motion/Motion.presets";
+import { motionPresets } from "../Motion/Motion.presets";
 import type {
   BackgroundBlurValue,
   ThemeBackgroundPaint,
-} from "@/packages/Frameworks/Theme/Theme.types";
-import { BackgroundBlur } from "@/packages/Frameworks/Theme/Theme.types";
-import View from "@/packages/Frameworks/View/View";
+} from "../Theme/Theme.types";
+import { BackgroundBlur } from "../Theme/Theme.types";
+import View from "../View/View";
 
 interface BackgroundWrapperProps {
   open: boolean;

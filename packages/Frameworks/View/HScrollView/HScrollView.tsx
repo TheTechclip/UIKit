@@ -14,21 +14,21 @@ import {
   useRef,
   useState,
 } from "react";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
-import EdgeEffect from "@/packages/Frameworks/EdgeEffect/EdgeEffect";
-import { Radius } from "@/packages/Frameworks/Theme/Radius.types";
+import { Size } from "../../_shared/sizing";
+import EdgeEffect from "../../EdgeEffect/EdgeEffect";
+import { Radius } from "../../Theme/Radius.types";
 import {
   BackgroundBlur,
   Border,
   resolveThemeClasses,
-} from "@/packages/Frameworks/Theme/Theme.types";
-import styles from "@/packages/Frameworks/View/HScrollView/HScrollView.module.scss";
+} from "../../Theme/Theme.types";
+import styles from "./HScrollView.module.scss";
 import type {
   HScrollViewProps,
   HScrollViewViewport,
-} from "@/packages/Frameworks/View/HScrollView/HScrollView.types";
-import View from "@/packages/Frameworks/View/View";
-import viewStyles from "@/packages/Frameworks/View/View.module.scss";
+} from "./HScrollView.types";
+import View from "../View";
+import viewStyles from "../View.module.scss";
 
 type HScrollViewStyle = CSSProperties & {
   "--view-default-gap"?: string | number;

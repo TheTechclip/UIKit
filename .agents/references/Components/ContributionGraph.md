@@ -39,7 +39,7 @@ export interface ContributionGraphProps
 ## 4. Example Code
 
 ```tsx
-import ContributionGraph from "@/packages/Components/ContributionGraph/ContributionGraph";
+import { ContributionGraph } from "@musecat/uikit";
 
 export default function Example() {
   const data = [

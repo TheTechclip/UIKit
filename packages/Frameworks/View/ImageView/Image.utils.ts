@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import type {
   ImageItem,
   ImageOverlay,
-} from "@/packages/Frameworks/View/ImageView/Image.types";
+} from "./Image.types";
 
 export type ImageMode = "inline" | "dialog";
 

@@ -15,21 +15,21 @@ import {
   useRef,
   useState,
 } from "react";
-import { resolvePadding } from "@/packages/Frameworks/_shared/Padding.types";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
-import Dialog from "@/packages/Frameworks/Dialog/Dialog";
-import styles from "@/packages/Frameworks/Pressable/Pressable.module.scss";
-import type { PressableProps } from "@/packages/Frameworks/Pressable/Pressable.types";
-import Squircle from "@/packages/Frameworks/Squircle/Squircle";
-import { Radius } from "@/packages/Frameworks/Theme/Radius.types";
+import { resolvePadding } from "../_shared/Padding.types";
+import { Size } from "../_shared/sizing";
+import Dialog from "../Dialog/Dialog";
+import styles from "./Pressable.module.scss";
+import type { PressableProps } from "./Pressable.types";
+import Squircle from "../Squircle/Squircle";
+import { Radius } from "../Theme/Radius.types";
 import {
   BackgroundBlur,
   Border,
   resolveThemeClasses,
   resolveThemeHasBorder,
   Shadow,
-} from "@/packages/Frameworks/Theme/Theme.types";
-import View from "@/packages/Frameworks/View/View";
+} from "../Theme/Theme.types";
+import View from "../View/View";
 
 export const ButtonNestingContext = createContext(false);
 export const PopoverContext = createContext<{

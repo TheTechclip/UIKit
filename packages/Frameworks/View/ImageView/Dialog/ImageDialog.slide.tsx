@@ -4,12 +4,12 @@ import NextImage from "next/image";
 import type {
   ImageItem,
   ImageOverlay,
-} from "@/packages/Frameworks/View/ImageView/Image.types";
+} from "../Image.types";
 import {
   resolveImageSrc,
   resolveOverlay,
-} from "@/packages/Frameworks/View/ImageView/Image.utils";
-import View from "@/packages/Frameworks/View/View";
+} from "../Image.utils";
+import View from "../../View";
 
 export interface DialogImageSlideProps {
   item: ImageItem;

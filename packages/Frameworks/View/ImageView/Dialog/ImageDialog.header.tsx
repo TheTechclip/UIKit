@@ -1,8 +1,8 @@
 "use client";
 
-import Icon from "@/packages/Components/Icon/Icon";
-import type { ImageProps } from "@/packages/Frameworks/View/ImageView/Image.types";
-import View from "@/packages/Frameworks/View/View";
+import Icon from "../../../../Components/Icon/Icon";
+import type { ImageProps } from "../Image.types";
+import View from "../../View";
 
 export interface DialogImageHeaderProps {
   config?: NonNullable<ImageProps["dialog"]>["header"];

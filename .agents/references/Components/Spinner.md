@@ -37,7 +37,7 @@ export interface SpinnerProps {
 ## Example Code
 
 ```tsx
-import Spinner from "@/packages/Components/Spinner/Spinner";
+import { Spinner } from "@musecat/uikit";
 
 export default function SpinnerExample() {
   return (

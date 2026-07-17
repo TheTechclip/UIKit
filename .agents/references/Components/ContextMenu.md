@@ -40,7 +40,7 @@ interface ContextMenuProps {
 ## Example Code
 
 ```tsx
-import ContextMenu from "@/packages/Components/ContextMenu/ContextMenu";
+import { ContextMenu } from "@musecat/uikit";
 import { useRef, useState } from "react";
 
 export default function Example() {

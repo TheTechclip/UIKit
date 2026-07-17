@@ -54,7 +54,7 @@ export interface IconProps extends ThemeSystemProps, RadiusProps, BorderProps {
 ## 4. Example Code
 
 ```tsx
-import Icon from "@/packages/Components/Icon/Icon";
+import { Icon } from "@musecat/uikit";
 
 export default function Example() {
   return (

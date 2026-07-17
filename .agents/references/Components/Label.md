@@ -55,8 +55,8 @@ export type LabelSharedProps = Omit<
 ## 4. Example Code
 
 ```tsx
-import Label from "@/packages/Components/Label/Label";
-import Checkbox from "@/packages/Components/Checkbox/Checkbox"; // virtual import
+import { Label } from "@musecat/uikit";
+import { Checkbox } from "@musecat/uikit"; // virtual import
 
 export default function Example() {
   return (

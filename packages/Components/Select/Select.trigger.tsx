@@ -1,8 +1,8 @@
 "use client";
 import type { KeyboardEvent, ReactElement } from "react";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import Text from "@/packages/Components/Text/Text";
-import View from "@/packages/Frameworks/View/View";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import Text from "../Text/Text";
+import View from "../../Frameworks/View/View";
 
 interface SelectTriggerProps {
   selectId: string;

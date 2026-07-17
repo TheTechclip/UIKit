@@ -1,42 +1,42 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import Title from "@/packages/Components/Title/Title";
-import IconGroup from "@/packages/Components/Icon/Icon.group";
-import Icon from "@/packages/Components/Icon/Icon";
-import Pill from "@/packages/Components/Pill/Pill";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+import Title from "../../packages/Components/Title/Title";
+import IconGroup from "../../packages/Components/Icon/Icon.group";
+import Icon from "../../packages/Components/Icon/Icon";
+import Pill from "../../packages/Components/Pill/Pill";
+import Text from "../../packages/Components/Text/Text";
+import Pressable from "../../packages/Frameworks/Pressable/Pressable";
+import View from "../../packages/Frameworks/View/View";
 
-vi.mock("@/packages/Components/Icon/Icon.group", () => ({
+vi.mock("../../packages/Components/Icon/Icon.group.tsx", () => ({
   default: ({ icons }: { icons?: unknown[] }) => (
     <span data-testid="icon-group" data-count={icons?.length ?? 0} />
   ),
 }));
-vi.mock("@/packages/Components/Icon/Icon", () => ({
+vi.mock("../../packages/Components/Icon/Icon.tsx", () => ({
   IconInner: ({ icon }: { icon?: string }) => (
     <span data-testid="icon-inner" data-icon={icon} />
   ),
   default: () => null,
 }));
-vi.mock("@/packages/Components/Pill/Pill", () => ({
+vi.mock("../../packages/Components/Pill/Pill.tsx", () => ({
   default: ({ text }: { text?: React.ReactNode }) => (
     <span data-testid="pill">{text}</span>
   ),
 }));
-vi.mock("@/packages/Components/Text/Text", () => ({
+vi.mock("../../packages/Components/Text/Text.tsx", () => ({
   default: ({ children }: { children?: React.ReactNode }) => (
     <span data-testid="text">{children}</span>
   ),
 }));
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable.tsx", () => ({
   default: ({ children, onClick, ...rest }: any) => (
     <button type="button" data-testid="pressable" onClick={onClick} {...rest}>
       {children}
     </button>
   ),
 }));
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
   default: ({ children, ...rest }: any) => (
     <div data-testid="view" {...rest}>
       {children}

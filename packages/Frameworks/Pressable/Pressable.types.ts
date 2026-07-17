@@ -1,13 +1,13 @@
 import type { MotionProps } from "motion/react";
 import type { LinkProps } from "next/link";
-import type { PaddingProps } from "@/packages/Frameworks/_shared/Padding.types";
-import type { WindProps } from "@/packages/Frameworks/_shared/Wind.types";
-import type { PopoverConfig } from "@/packages/Frameworks/Dialog/Dialog.types";
-import type { RadiusProps } from "@/packages/Frameworks/Theme/Radius.types";
+import type { PaddingProps } from "../_shared/Padding.types";
+import type { WindProps } from "../_shared/Wind.types";
+import type { PopoverConfig } from "../Dialog/Dialog.types";
+import type { RadiusProps } from "../Theme/Radius.types";
 import type {
   BorderProps,
   ThemeSystemProps,
-} from "@/packages/Frameworks/Theme/Theme.types";
+} from "../Theme/Theme.types";
 export interface PressableProps
   extends Omit<
       React.HTMLAttributes<HTMLElement>,

@@ -1,20 +1,20 @@
 import clsx from "clsx";
 import { motion } from "motion/react";
 import { type CSSProperties, forwardRef } from "react";
-import { resolvePadding } from "@/packages/Frameworks/_shared/Padding.types";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
-import Squircle from "@/packages/Frameworks/Squircle/Squircle";
-import { Radius } from "@/packages/Frameworks/Theme/Radius.types";
+import { resolvePadding } from "../_shared/Padding.types";
+import { Size } from "../_shared/sizing";
+import Squircle from "../Squircle/Squircle";
+import { Radius } from "../Theme/Radius.types";
 import {
   BackgroundBlur,
   Border,
   resolveThemeClasses,
   resolveThemeHasBorder,
   Shadow,
-} from "@/packages/Frameworks/Theme/Theme.types";
-import DNDView from "@/packages/Frameworks/View/DNDView/DNDView";
-import styles from "@/packages/Frameworks/View/View.module.scss";
-import type { ViewProps } from "@/packages/Frameworks/View/View.types";
+} from "../Theme/Theme.types";
+import DNDView from "./DNDView/DNDView";
+import styles from "./View.module.scss";
+import type { ViewProps } from "./View.types";
 
 type ViewStyle = CSSProperties & {
   "--view-default-gap"?: string | number;

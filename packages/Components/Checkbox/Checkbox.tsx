@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "@/packages/Components/Checkbox/Checkbox.module.scss";
-import type { CheckboxProps } from "@/packages/Components/Checkbox/Checkbox.types";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
-import View from "@/packages/Frameworks/View/View";
+import styles from "./Checkbox.module.scss";
+import type { CheckboxProps } from "./Checkbox.types";
+import Icon from "../Icon/Icon";
+import Text from "../Text/Text";
+import { Size } from "../../Frameworks/_shared/sizing";
+import View from "../../Frameworks/View/View";
 
 export default function Checkbox({
   title,

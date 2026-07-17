@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-import DatePicker from "@/packages/Components/DatePicker/DatePicker";
+import DatePicker from "../../packages/Components/DatePicker/DatePicker";
 
 global.ResizeObserver = class {
   observe() {}

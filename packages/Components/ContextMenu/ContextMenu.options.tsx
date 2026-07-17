@@ -6,12 +6,12 @@ import {
   memo,
   type ReactElement,
 } from "react";
-import styles from "@/packages/Components/ContextMenu/ContextMenu.module.scss";
-import type { ContentItem } from "@/packages/Components/ContextMenu/ContextMenu.types";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+import styles from "./ContextMenu.module.scss";
+import type { ContentItem } from "./ContextMenu.types";
+import Icon from "../Icon/Icon";
+import Text from "../Text/Text";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 
 export interface ContextMenuOptionProps {
   item: ContentItem;

@@ -34,7 +34,7 @@ export interface ToasterBootstrapProps extends ToasterProps {
 
 ```tsx
 // 1. Render at the top level (App component, etc.)
-import ToasterBootstrap from "@/packages/Frameworks/Toaster/Toaster.boot";
+import { ToasterBootstrap } from "@musecat/uikit";
 
 export default function App() {
   return (
@@ -46,7 +46,7 @@ export default function App() {
 }
 
 // 2. Show toast
-import { toast } from "@/packages/Frameworks/Toaster/Toaster.boot";
+import { toast } from "@musecat/uikit";
 
 function MyComponents() {
   const handleSuccess = () => {

@@ -1,7 +1,7 @@
 "use client";
 
-import Text from "@/packages/Components/Text/Text";
-import View from "@/packages/Frameworks/View/View";
+import Text from "../../../../Components/Text/Text";
+import View from "../../View";
 
 export function DialogImageCounter({
   selectedIndex,

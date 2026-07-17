@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-import Nav from "@/packages/Components/Nav/Nav";
+import Nav from "../../packages/Components/Nav/Nav";
 import { useRouter } from "next/navigation";
 
 global.ResizeObserver = class ResizeObserver {

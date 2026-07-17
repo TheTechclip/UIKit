@@ -33,7 +33,7 @@ interface CheckboxProps
 ## Example Code
 
 ```tsx
-import Checkbox from "@/packages/Components/Checkbox/Checkbox";
+import { Checkbox } from "@musecat/uikit";
 
 export default function Example() {
   return (

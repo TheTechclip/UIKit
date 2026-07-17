@@ -1,6 +1,6 @@
-import type { TextProps } from "@/packages/Components/Text/Text.types";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
-import type { ThemeSystemProps } from "@/packages/Frameworks/Theme/Theme.types";
+import type { TextProps } from "../Text/Text.types";
+import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
+import type { ThemeSystemProps } from "../../Frameworks/Theme/Theme.types";
 
 export interface ToggleProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "color">,

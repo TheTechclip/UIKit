@@ -9,10 +9,10 @@ import {
   useMemo,
   useRef,
 } from "react";
-import Text from "@/packages/Components/Text/Text";
-import styles from "@/packages/Components/TimePicker/TimePicker.module.scss";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+import Text from "../Text/Text";
+import styles from "./TimePicker.module.scss";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 
 type Segment = "hour" | "minute" | "second" | "ampm";
 

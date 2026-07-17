@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import ContributionGraph from "@/packages/Components/ContributionGraph/ContributionGraph";
+import ContributionGraph from "../../packages/Components/ContributionGraph/ContributionGraph";
 
 describe("ContributionGraph", () => {
   const mockData = [

@@ -1,5 +1,5 @@
-import type { ProfileProps } from "@/packages/Components/Profile/Profile.types";
-import type { TextProps } from "@/packages/Components/Text/Text.types";
+import type { ProfileProps } from "../Profile/Profile.types";
+import type { TextProps } from "../Text/Text.types";
 
 export interface DocsLayoutProps {
   children?: React.ReactNode;

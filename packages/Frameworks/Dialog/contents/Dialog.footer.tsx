@@ -1,10 +1,10 @@
 "use client";
 
 import type { ReactNode } from "react";
-import Button from "@/packages/Components/Button/Button";
-import type { DialogFooterConfig } from "@/packages/Frameworks/Dialog/Dialog.types";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+import Button from "../../../Components/Button/Button";
+import type { DialogFooterConfig } from "../Dialog.types";
+import Pressable from "../../Pressable/Pressable";
+import View from "../../View/View";
 
 interface DialogFooterProps {
   config?: DialogFooterConfig;

@@ -54,7 +54,7 @@ export interface ProfileProps {
 ## Example Code
 
 ```tsx
-import Profile from "@/packages/Components/Profile/Profile";
+import { Profile } from "@musecat/uikit";
 
 export function UserHeader() {
   return (

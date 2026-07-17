@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Header from "@/packages/Components/Header/Header";
-import EdgeEffect from "@/packages/Frameworks/EdgeEffect/EdgeEffect";
-import View from "@/packages/Frameworks/View/View";
+import Header from "../../packages/Components/Header/Header";
+import EdgeEffect from "../../packages/Frameworks/EdgeEffect/EdgeEffect";
+import View from "../../packages/Frameworks/View/View";
 
-vi.mock("@/packages/Frameworks/EdgeEffect/EdgeEffect", () => ({
+vi.mock("../../packages/Frameworks/EdgeEffect/EdgeEffect.tsx", () => ({
   default: ({ side, className }: { side?: string; className?: string }) => (
     <div data-testid="edge-effect" data-side={side} className={className} />
   ),
 }));
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
   default: ({ children, ...rest }: any) => (
     <div data-testid="view" {...rest}>
       {children}

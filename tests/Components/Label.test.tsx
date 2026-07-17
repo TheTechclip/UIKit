@@ -1,18 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Label from "@/packages/Components/Label/Label";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+import Label from "../../packages/Components/Label/Label";
+import Icon from "../../packages/Components/Icon/Icon";
+import Text from "../../packages/Components/Text/Text";
+import Pressable from "../../packages/Frameworks/Pressable/Pressable";
+import View from "../../packages/Frameworks/View/View";
 
-vi.mock("@/packages/Components/Icon/Icon", () => ({
+vi.mock("../../packages/Components/Icon/Icon.tsx", () => ({
   default: ({ icon, color }: { icon?: string; color?: string }) => (
     <span data-testid="icon" data-icon={icon} data-color={color} />
   ),
 }));
 
-vi.mock("@/packages/Components/Text/Text", () => ({
+vi.mock("../../packages/Components/Text/Text.tsx", () => ({
   default: ({ children, color }: { children?: React.ReactNode; color?: string }) => (
     <span data-testid="text" data-color={color}>
       {children}
@@ -20,7 +20,7 @@ vi.mock("@/packages/Components/Text/Text", () => ({
   ),
 }));
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
   default: ({ children, ...rest }: { children?: React.ReactNode; [k: string]: unknown }) => (
     <div data-testid="view" {...rest}>
       {children}
@@ -28,7 +28,7 @@ vi.mock("@/packages/Frameworks/View/View", () => ({
   ),
 }));
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable.tsx", () => ({
   default: ({ children, ...rest }: any) => (
     <button type="button" data-testid="pressable" {...rest}>
       {children}

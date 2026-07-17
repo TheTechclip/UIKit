@@ -1,4 +1,4 @@
-import type { IconProps } from "@/packages/Components/Icon/Icon.types";
+import type { IconProps } from "../Icon/Icon.types";
 
 const DEFAULT_CARD_BOX_ICON_OUTER_SIZE = 40;
 

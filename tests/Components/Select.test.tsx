@@ -1,14 +1,14 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import Select from "@/packages/Components/Select/Select";
-import ContextMenu from "@/packages/Components/ContextMenu/ContextMenu";
-import Label from "@/packages/Components/Label/Label";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+import Select from "../../packages/Components/Select/Select";
+import ContextMenu from "../../packages/Components/ContextMenu/ContextMenu";
+import Label from "../../packages/Components/Label/Label";
+import Icon from "../../packages/Components/Icon/Icon";
+import Text from "../../packages/Components/Text/Text";
+import Pressable from "../../packages/Frameworks/Pressable/Pressable";
+import View from "../../packages/Frameworks/View/View";
 
-vi.mock("@/packages/Components/ContextMenu/ContextMenu", () => ({
+vi.mock("../../packages/Components/ContextMenu/ContextMenu.tsx", () => ({
   default: ({ open, contents, listId }: any) =>
     open ? (
       <ul role="listbox" id={listId}>
@@ -35,7 +35,7 @@ vi.mock("@/packages/Components/ContextMenu/ContextMenu", () => ({
     ) : null,
 }));
 
-vi.mock("@/packages/Components/Label/Label", () => ({
+vi.mock("../../packages/Components/Label/Label.tsx", () => ({
   default: ({ children, htmlFor, title }: any) => (
     <label htmlFor={htmlFor}>
       {title ? <span>{title}</span> : null}
@@ -44,19 +44,19 @@ vi.mock("@/packages/Components/Label/Label", () => ({
   ),
 }));
 
-vi.mock("@/packages/Components/Icon/Icon", () => ({
+vi.mock("../../packages/Components/Icon/Icon.tsx", () => ({
   default: ({ icon }: { icon?: string }) => (
     <span data-testid="icon" data-icon={icon} />
   ),
 }));
 
-vi.mock("@/packages/Components/Text/Text", () => ({
+vi.mock("../../packages/Components/Text/Text.tsx", () => ({
   default: ({ children }: { children?: React.ReactNode }) => (
     <span data-testid="text">{children}</span>
   ),
 }));
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable.tsx", () => ({
   default: ({ children, onClick, role, ...rest }: any) => (
     <button type="button" data-testid="pressable" role={role} onClick={onClick} {...rest}>
       {children}
@@ -64,7 +64,7 @@ vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
   ),
 }));
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
   default: ({ children, ...rest }: any) => (
     <div data-testid="view" {...rest}>
       {children}

@@ -51,7 +51,7 @@ export interface TextProps {
 ## Example Code
 
 ```tsx
-import Text from "@/packages/Components/Text/Text";
+import { Text } from "@musecat/uikit";
 
 export default function TextExample() {
   return (

@@ -63,7 +63,7 @@ export interface DatePickerProps {
 ## 4. Example Code
 
 ```tsx
-import DatePicker from "@/packages/Components/DatePicker/DatePicker";
+import { DatePicker } from "@musecat/uikit";
 
 export default function Example() {
   return (

@@ -1,4 +1,4 @@
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
+import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
 
 export interface DividerProps {
   "data-color-mode"?: string;

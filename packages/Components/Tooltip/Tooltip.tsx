@@ -12,12 +12,12 @@ import {
   useRef,
   useState,
 } from "react";
-import styles from "@/packages/Components/Tooltip/Tooltip.module.scss";
+import styles from "./Tooltip.module.scss";
 import type {
   TooltipPlacement,
   TooltipProps,
-} from "@/packages/Components/Tooltip/Tooltip.types";
-import View from "@/packages/Frameworks/View/View";
+} from "./Tooltip.types";
+import View from "../../Frameworks/View/View";
 
 const TOOLTIP_GAP = 8;
 const TOOLTIP_MARGIN = 4;

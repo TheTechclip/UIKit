@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Timeline from "@/packages/Components/Timeline/Timeline";
-import type { TimelineItemProps } from "@/packages/Components/Timeline/Timeline.types";
+import Timeline from "../../packages/Components/Timeline/Timeline";
+import type { TimelineItemProps } from "../../packages/Components/Timeline/Timeline.types";
 
 describe("Timeline Component", () => {
   const defaultItems: TimelineItemProps[] = [

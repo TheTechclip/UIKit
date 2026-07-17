@@ -3,13 +3,13 @@ import type {
   BoxContentProps,
   BoxFooterProps,
   BoxProps,
-} from "@/packages/Components/Box/Box.types";
-import Divider from "@/packages/Components/Divider/Divider";
-import Icon from "@/packages/Components/Icon/Icon";
-import Spinner from "@/packages/Components/Spinner/Spinner";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+} from "./Box.types";
+import Divider from "../Divider/Divider";
+import Icon from "../Icon/Icon";
+import Spinner from "../Spinner/Spinner";
+import Text from "../Text/Text";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 
 const BoxContentContext = createContext(false);
 

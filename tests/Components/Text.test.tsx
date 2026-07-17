@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Text from "@/packages/Components/Text/Text";
+import Text from "../../packages/Components/Text/Text";
 
 describe("Text", () => {
   it("renders children inside a span", () => {

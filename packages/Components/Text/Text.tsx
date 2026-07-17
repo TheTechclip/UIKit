@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import styles from "@/packages/Components/Text/Text.module.scss";
-import type { TextProps } from "@/packages/Components/Text/Text.types";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
+import styles from "./Text.module.scss";
+import type { TextProps } from "./Text.types";
+import { Size } from "../../Frameworks/_shared/sizing";
 
 export default function Text({
   children,

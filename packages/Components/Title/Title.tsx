@@ -1,15 +1,15 @@
 import clsx from "clsx";
-import IconGroup from "@/packages/Components/Icon/Icon.group";
-import { IconInner } from "@/packages/Components/Icon/Icon";
-import Pill from "@/packages/Components/Pill/Pill";
-import Text from "@/packages/Components/Text/Text";
+import IconGroup from "../Icon/Icon.group";
+import { IconInner } from "../Icon/Icon";
+import Pill from "../Pill/Pill";
+import Text from "../Text/Text";
 import type {
   TitleContextItem,
   TitleContextProps,
   TitleProps,
-} from "@/packages/Components/Title/Title.types";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+} from "./Title.types";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 
 const buildRenderKeys = <T,>(
   items: T[],

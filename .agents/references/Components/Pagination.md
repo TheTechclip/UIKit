@@ -40,7 +40,7 @@ export interface PaginationProps extends ThemeSystemProps, BorderProps {
 ## Example Code
 
 ```tsx
-import Pagination from "@/packages/Components/Pagination/Pagination";
+import { Pagination } from "@musecat/uikit";
 import { useState } from "react";
 
 export function DataList() {

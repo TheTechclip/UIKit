@@ -1,11 +1,11 @@
-import Divider from "@/packages/Components/Divider/Divider";
-import Icon from "@/packages/Components/Icon/Icon";
+import Divider from "../Divider/Divider";
+import Icon from "../Icon/Icon";
 import type {
   TimelineItemProps,
   TimelineProps,
-} from "@/packages/Components/Timeline/Timeline.types";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+} from "./Timeline.types";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 
 function TimelineItem({
   item,

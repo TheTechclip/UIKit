@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import TimePicker from "@/packages/Components/TimePicker/TimePicker";
+import TimePicker from "../../packages/Components/TimePicker/TimePicker";
 
 describe("TimePicker Component", () => {
   it("renders with default props", () => {

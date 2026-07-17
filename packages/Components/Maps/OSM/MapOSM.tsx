@@ -2,10 +2,10 @@
 
 import clsx from "clsx";
 import maplibregl from "maplibre-gl";
-import styles from "@/packages/Components/Maps/OSM/MapOSM.module.scss";
-import { resolveSafeMapStyle } from "@/packages/Components/Maps/OSM/MapOSM.shared";
-import type { MapOSMProps } from "@/packages/Components/Maps/OSM/MapOSM.types";
-import View from "@/packages/Frameworks/View/View";
+import styles from "./MapOSM.module.scss";
+import { resolveSafeMapStyle } from "./MapOSM.shared";
+import type { MapOSMProps } from "./MapOSM.types";
+import View from "../../../Frameworks/View/View";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useCallback, useEffect, useRef } from "react";
 

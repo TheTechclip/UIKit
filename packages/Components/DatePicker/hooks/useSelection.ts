@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { DatePickerMode } from "@/packages/Components/DatePicker/DatePicker.types";
+import type { DatePickerMode } from "../DatePicker.types";
 import {
   formatDisplay,
   formatRangeDisplay,
@@ -9,7 +9,7 @@ import {
   isSameDay,
   parseDate,
   toYMD,
-} from "@/packages/Components/DatePicker/DatePicker.utils";
+} from "../DatePicker.utils";
 
 interface UseSelectionOptions {
   mode: DatePickerMode;

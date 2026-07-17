@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useRef } from "react";
-import type { NavProps } from "@/packages/Components/Nav/Nav.types";
+import type { NavProps } from "../Nav.types";
 
 const DRAG_SELECTION_TOUCH_ACTIVATION_DISTANCE = 10;
 const DRAG_SELECTION_TOUCH_HORIZONTAL_RATIO = 1.75;

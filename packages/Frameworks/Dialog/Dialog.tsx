@@ -2,15 +2,15 @@
 
 import { buildContext, useViewportMatch } from "@musecat/functionkit";
 import { useMemo } from "react";
-import DialogFunnel from "@/packages/Frameworks/Dialog/contents/Dialog.funnel";
+import DialogFunnel from "./contents/Dialog.funnel";
 import type {
   DialogContextValue,
   DialogMode,
   DialogProps,
-} from "@/packages/Frameworks/Dialog/Dialog.types";
-import RenderModal from "@/packages/Frameworks/Dialog/renderers/renderModal";
-import RenderPopover from "@/packages/Frameworks/Dialog/renderers/renderPopover";
-import RenderSheet from "@/packages/Frameworks/Dialog/renderers/renderSheet";
+} from "./Dialog.types";
+import RenderModal from "./renderers/renderModal";
+import RenderPopover from "./renderers/renderPopover";
+import RenderSheet from "./renderers/renderSheet";
 
 const [DialogProvider, useRawDialogContext] =
   buildContext<DialogContextValue | null>(null);

@@ -1,7 +1,7 @@
 import type { UniqueIdentifier } from "@dnd-kit/core";
 import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
-import type { ViewProps } from "@/packages/Frameworks/View/View.types";
+import type { UIKitSizeValue } from "../../_shared/sizing";
+import type { ViewProps } from "../View.types";
 
 export type DNDViewItemState<T> = {
   item: T;
