@@ -1,0 +1,131 @@
+:root {
+  --color-pink-1: rgb(230, 114, 114);
+  --color-pink-2: rgb(226, 95, 95);
+  --color-pink-3: rgb(222, 78, 78);
+  --color-pink-4: rgb(220, 61, 61);
+  --color-pink-5: rgb(217, 43, 43);
+  --color-pink-6: rgb(203, 37, 37);
+  --color-red-1: rgb(255, 85, 85);
+  --color-red-2: rgb(255, 61, 61);
+  --color-red-3: rgb(255, 31, 31);
+  --color-red-4: rgb(255, 0, 0);
+  --color-red-5: rgb(224, 0, 0);
+  --color-red-6: rgb(194, 0, 0);
+  --color-brown-1: rgb(186, 145, 119);
+  --color-brown-2: rgb(178, 131, 102);
+  --color-brown-3: rgb(170, 118, 85);
+  --color-brown-4: rgb(153, 106, 77);
+  --color-brown-5: rgb(139, 96, 70);
+  --color-brown-6: rgb(126, 87, 63);
+  --color-orange-1: rgb(254, 180, 84);
+  --color-orange-2: rgb(254, 166, 52);
+  --color-orange-3: rgb(253, 153, 22);
+  --color-orange-4: rgb(243, 138, 2);
+  --color-orange-5: rgb(223, 127, 2);
+  --color-orange-6: rgb(208, 118, 1);
+  --color-yellow-1: rgb(255, 214, 64);
+  --color-yellow-2: rgb(255, 210, 46);
+  --color-yellow-3: rgb(255, 205, 26);
+  --color-yellow-4: rgb(255, 201, 5);
+  --color-yellow-5: rgb(240, 188, 0);
+  --color-yellow-6: rgb(224, 176, 0);
+  --color-green-1: rgb(98, 236, 107);
+  --color-green-2: rgb(73, 233, 84);
+  --color-green-3: rgb(46, 229, 58);
+  --color-green-4: rgb(27, 218, 39);
+  --color-green-5: rgb(23, 191, 34);
+  --color-green-6: rgb(20, 164, 30);
+  --color-mint-1: rgb(54, 224, 176);
+  --color-mint-2: rgb(39, 221, 170);
+  --color-mint-3: rgb(32, 207, 158);
+  --color-mint-4: rgb(30, 194, 148);
+  --color-mint-5: rgb(27, 177, 134);
+  --color-mint-6: rgb(25, 159, 121);
+  --color-cyan-1: rgb(24, 219, 245);
+  --color-cyan-2: rgb(10, 213, 240);
+  --color-cyan-3: rgb(10, 200, 225);
+  --color-cyan-4: rgb(9, 182, 205);
+  --color-cyan-5: rgb(8, 165, 186);
+  --color-cyan-6: rgb(7, 148, 166);
+  --color-blue-1: rgb(74, 156, 255);
+  --color-blue-2: rgb(51, 143, 255);
+  --color-blue-3: rgb(26, 129, 255);
+  --color-blue-4: rgb(0, 115, 255);
+  --color-blue-5: rgb(0, 103, 229);
+  --color-blue-6: rgb(0, 92, 204);
+  --color-indigo-1: rgb(95, 95, 228);
+  --color-indigo-2: rgb(76, 76, 225);
+  --color-indigo-3: rgb(59, 59, 222);
+  --color-indigo-4: rgb(41, 41, 219);
+  --color-indigo-5: rgb(35, 35, 205);
+  --color-indigo-6: rgb(32, 32, 188);
+  --color-purple-1: rgb(172, 116, 255);
+  --color-purple-2: rgb(157, 92, 255);
+  --color-purple-3: rgb(145, 71, 255);
+  --color-purple-4: rgb(133, 51, 255);
+  --color-purple-5: rgb(120, 31, 255);
+  --color-purple-6: rgb(108, 10, 255);
+  --color-magenta-1: rgb(249, 89, 255);
+  --color-magenta-2: rgb(249, 61, 255);
+  --color-magenta-3: rgb(248, 36, 255);
+  --color-magenta-4: rgb(247, 15, 255);
+  --color-magenta-5: rgb(237, 0, 245);
+  --color-magenta-6: rgb(217, 0, 224);
+  --color-base-light-1: rgb(255, 255, 255);
+  --color-base-light-2: rgb(245, 245, 245);
+  --color-base-light-3: rgb(235, 235, 235);
+  --color-base-light-4: rgb(224, 224, 224);
+  --color-base-light-5: rgb(214, 214, 214);
+  --color-base-light-6: rgb(204, 204, 204);
+  --color-background-system-light: rgb(242, 241, 246);
+  --color-background-modal-light: rgb(242, 241, 246);
+  --color-background-system-dark: rgb(0, 0, 0);
+  --color-background-modal-dark: rgb(0, 0, 0);
+  --color-base-dark-1: rgb(29, 29, 31);
+  --color-base-dark-2: rgb(39, 39, 42);
+  --color-base-dark-3: rgb(49, 49, 53);
+  --color-base-dark-4: rgb(59, 59, 63);
+  --color-base-dark-5: rgb(69, 69, 74);
+  --color-base-dark-6: rgb(79, 79, 84);
+}
+
+:root {
+  --color-text-base-light: var(--color-base-dark-1);
+  --color-icon-base-light: var(--color-base-dark-1);
+  --color-border-base-light: var(--color-base-dark-1);
+  --color-background-base-light: var(--color-background-system-light);
+
+  --color-text-base-dark: var(--color-base-light-4);
+  --color-icon-base-dark: var(--color-base-light-2);
+  --color-border-base-dark: var(--color-base-light-1);
+  --color-background-base-dark: var(--color-background-system-dark);
+}
+
+:root,
+[data-color-mode="light"] {
+  color-scheme: light;
+
+  --color-text-base: var(--color-text-base-light);
+  --color-icon-base: var(--color-icon-base-light);
+  --color-border-base: var(--color-border-base-light);
+  --color-background-base: var(--color-background-base-light);
+
+  @for $level from 1 through 6 {
+    --color-base-#{$level}: var(--color-base-light-#{$level});
+    --color-base-reversed-#{$level}: var(--color-base-dark-#{$level});
+  }
+}
+
+[data-color-mode="dark"] {
+  color-scheme: dark;
+
+  --color-text-base: var(--color-text-base-dark);
+  --color-icon-base: var(--color-icon-base-dark);
+  --color-border-base: var(--color-border-base-dark);
+  --color-background-base: var(--color-background-base-dark);
+
+  @for $level from 1 through 6 {
+    --color-base-#{$level}: var(--color-base-dark-#{$level});
+    --color-base-reversed-#{$level}: var(--color-base-light-#{$level});
+  }
+}

@@ -1,0 +1,8 @@
+.Handle {
+  cursor: grab;
+  touch-action: none;
+}
+
+.Handle:active {
+  cursor: grabbing;
+}

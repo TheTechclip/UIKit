@@ -1,0 +1,42 @@
+:root {
+  --transition-surface-duration: 420ms; // keep in sync with THEME_COLOR_TRANSITION_MS
+  --transition-surface-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-background: background var(--transition-surface-duration)
+    var(--transition-surface-ease);
+  --transition-color: color 250ms ease-out;
+  --transition-font-size: font-size 250ms ease-out;
+  --transition-opacity: opacity 250ms ease-out;
+  --transition-border: border var(--transition-surface-duration)
+    var(--transition-surface-ease);
+  --transition-transform: transform 250ms ease-out;
+  --transition-shadow: box-shadow 250ms ease-out;
+  --transition-radius: border-radius 250ms ease-out;
+  --transition-filter: filter 250ms ease-out, backdrop-filter 250ms ease-out;
+  --transition-fill: fill 250ms ease-out;
+  --transition-stroke: stroke 250ms ease-out;
+  --transition-icon:
+    var(--transition-fill), var(--transition-stroke), var(--transition-color);
+  --transition-surface:
+    var(--transition-border), var(--transition-background),
+    var(--transition-outline);
+  --transition-default:
+    var(--transition-background), var(--transition-color),
+    var(--transition-font-size), var(--transition-outline),
+    var(--transition-opacity), var(--transition-border),
+    var(--transition-transform);
+  --transition-fade: opacity 250ms ease-in-out;
+  --transition-pressable:
+    background 200ms ease, opacity 200ms ease, transform 200ms ease,
+    box-shadow 200ms ease;
+  --transition-pressable-content: opacity 200ms ease, color 200ms ease;
+  --transition-slide:
+    left 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    width 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease;
+  --transition-image:
+    transform 150ms ease, box-shadow 150ms ease, outline-color 150ms ease;
+  --transition-image-thumbnail:
+    opacity 150ms ease, border-color 150ms ease, transform 150ms ease;
+  --transition-color-fast: color 150ms ease;
+  --s-shallow: scaleX(0.99) scaleY(0.99);
+  --s: scaleX(0.96) scaleY(0.96);
+}

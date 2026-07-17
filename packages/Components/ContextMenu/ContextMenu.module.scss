@@ -1,0 +1,8 @@
+.OptionItem {
+  padding: 0.6rem 1.6rem;
+  width: 100%;
+
+  &[data-active="true"] {
+    background: color-mix(in srgb, currentcolor 10%, transparent);
+  }
+}

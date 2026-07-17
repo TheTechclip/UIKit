@@ -1,0 +1,30 @@
+.Field {
+  background: transparent;
+  border: 0;
+  outline: 0 !important;
+  text-align: center;
+  width: 2rem;
+  padding: 0;
+  caret-color: transparent;
+  cursor: default;
+
+  &:focus {
+    background: var(--color-base-3);
+  }
+}
+
+.FieldButton {
+  appearance: none;
+}
+
+.FieldAmpm {
+  width: 2.6rem;
+  transition: var(--transition-color);
+}
+
+.Sep {
+  opacity: 0.4;
+  user-select: none;
+  pointer-events: none;
+  margin-top: -0.15rem;
+}

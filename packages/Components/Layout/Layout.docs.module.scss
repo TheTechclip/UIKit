@@ -1,0 +1,42 @@
+.DocsLayoutInner {
+  max-width: 892px !important;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  padding-inline: 3.6rem;
+  padding-top: 10.8rem;
+  padding-bottom: 3.6rem;
+
+  .DocsLayoutGroupTitle {
+    &[data-layout-title-source="true"] {
+      opacity: var(--layout-title-handoff-opacity, 1);
+      filter: blur(var(--layout-title-handoff-blur, 0));
+      transform: translateY(var(--layout-title-handoff-y, 0));
+      will-change: opacity, filter, transform;
+    }
+  }
+
+  .DocsLayoutGroupTitleMobileOnly {
+    display: none !important;
+
+    @media (max-width: 767.98px) {
+      display: flex !important;
+    }
+  }
+
+  .DocsLayoutTitleText {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal !important;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 767.98px) {
+    max-width: 768px;
+    padding-inline: 1.6rem;
+    padding-top: 8.4rem;
+  }
+}

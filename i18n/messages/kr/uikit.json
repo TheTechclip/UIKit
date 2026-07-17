@@ -1,0 +1,50 @@
+{
+  "UIKit": {
+    "presets": {
+      "alert": {
+        "title": "안내",
+        "caption": "내용을 확인해 주세요.",
+        "confirm": "확인"
+      },
+      "confirm": {
+        "title": "정말 진행하시겠습니까?",
+        "caption": "계속 진행할지 선택해 주세요.",
+        "confirm": "진행",
+        "cancel": "취소"
+      },
+      "error": {
+        "title": "문제가 발생했습니다.",
+        "caption": "잠시 후 다시 시도해 주세요.",
+        "confirm": "확인"
+      },
+      "success": {
+        "title": "완료되었습니다.",
+        "caption": "요청이 정상적으로 처리되었습니다.",
+        "confirm": "확인"
+      }
+    },
+    "actions": {
+      "cancel": "취소",
+      "close": "닫기",
+      "confirm": "확인",
+      "submit": "제출",
+      "submitting": "처리 중...",
+      "required": "필수"
+    },
+    "ui": {
+      "select": "선택",
+      "noResults": "결과 없음",
+      "imageGallery": "이미지 갤러리",
+      "dateSelect": "날짜 선택",
+      "dateRangeSelect": "날짜 범위 선택",
+      "pagination": "페이지 이동",
+      "previous": "이전",
+      "next": "다음",
+      "goToPage": "페이지로 이동",
+      "currentPage": "현재 페이지 {value}",
+      "goToPageItem": "{value}페이지로 이동",
+      "less": "적음",
+      "more": "많음"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "UIKit": {
+    "presets": {
+      "alert": {
+        "title": "Heads up.",
+        "caption": "Review the information and continue.",
+        "confirm": "Confirm"
+      },
+      "confirm": {
+        "title": "Confirmation required.",
+        "caption": "Review the details and choose how to proceed.",
+        "confirm": "Continue",
+        "cancel": "Cancel"
+      },
+      "error": {
+        "title": "Something went wrong.",
+        "caption": "Please try again in a moment.",
+        "confirm": "Confirm"
+      },
+      "success": {
+        "title": "Completed.",
+        "caption": "Your request was completed successfully.",
+        "confirm": "Confirm"
+      }
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "close": "Close",
+      "confirm": "Confirm",
+      "submit": "Submit",
+      "submitting": "Processing...",
+      "required": "Required"
+    },
+    "ui": {
+      "select": "Select",
+      "noResults": "No results",
+      "imageGallery": "Image gallery",
+      "dateSelect": "Select date",
+      "dateRangeSelect": "Select date range",
+      "pagination": "Pagination",
+      "previous": "Previous",
+      "next": "Next",
+      "goToPage": "Go to page",
+      "currentPage": "Current page {value}",
+      "goToPageItem": "Go to page {value}",
+      "less": "Less",
+      "more": "More"
+    }
+  }
+}

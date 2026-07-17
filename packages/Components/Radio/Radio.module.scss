@@ -1,0 +1,11 @@
+.RadioWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: max-content;
+  background: transparent;
+
+  .Input {
+    display: none;
+  }
+}

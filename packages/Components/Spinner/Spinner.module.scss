@@ -1,0 +1,78 @@
+.Spinner {
+  display: block;
+  flex-shrink: 0;
+  width: var(--spinner-size, 1.5rem);
+  height: var(--spinner-size, 1.5rem);
+  animation: spinner-rotate var(--spinner-duration, 1s) steps(12, end) infinite;
+  transform-origin: center;
+}
+
+.Segment {
+  stroke: currentcolor;
+  stroke-width: var(--spinner-segment-width, 2.4);
+}
+
+.MaterialSpinner {
+  display: block;
+  flex-shrink: 0;
+  width: var(--spinner-size, 1.5rem);
+  height: var(--spinner-size, 1.5rem);
+  animation: spinner-rotate calc(var(--spinner-duration, 1s) * 4 / 3) linear
+    infinite;
+  transform-origin: center;
+}
+
+.MaterialTrack {
+  stroke: currentcolor;
+  animation: spinner-dash var(--spinner-duration, 1s) ease-in-out infinite;
+  transform-origin: center;
+}
+
+.WheelSpinner {
+  display: block;
+  flex-shrink: 0;
+  width: var(--spinner-size, 1.5rem);
+  height: var(--spinner-size, 1.5rem);
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 20%, currentcolor 100%);
+  mask: radial-gradient(farthest-side, transparent 62%, black 64%);
+  -webkit-mask: radial-gradient(farthest-side, transparent 62%, black 64%);
+  animation: spinner-rotate var(--spinner-duration, 1s) linear infinite;
+  transform-origin: center;
+}
+
+@keyframes spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-dash {
+  0% {
+    stroke-dasharray: 1 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89 200;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 89 200;
+    stroke-dashoffset: -124;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Spinner,
+  .MaterialSpinner,
+  .WheelSpinner,
+  .MaterialTrack {
+    animation: none;
+  }
+}

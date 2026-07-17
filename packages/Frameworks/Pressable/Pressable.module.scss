@@ -1,0 +1,19 @@
+.Pressable {
+  text-decoration: none !important;
+  touch-action: manipulation;
+
+  &:is([href], button, [role="button"], label) {
+    -webkit-appearance: none;
+    appearance: none;
+
+    &:disabled,
+    &[disabled],
+    &[aria-disabled="true"],
+    &[data-disabled="true"] {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+  }
+}
+
+

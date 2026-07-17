@@ -1,0 +1,32 @@
+.ToggleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: max-content;
+  background: transparent;
+
+  .Input {
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.ToggleCircle {
+  position: absolute;
+  top: var(--toggle-padding, 0.2rem);
+  left: var(--toggle-padding, 0.2rem);
+  width: calc(
+    (var(--toggle-circle-size, 2rem) - var(--toggle-padding, 0.2rem)) * 1.5
+  );
+  height: calc(var(--toggle-circle-size, 2rem));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transform: scale(1);
+  transform-origin: center;
+  will-change: transform, background;
+  cursor: default;
+  touch-action: pan-x;
+}

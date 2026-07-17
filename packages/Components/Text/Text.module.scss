@@ -1,0 +1,7 @@
+.Text {
+  color: inherit;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  transition: var(--transition-color), var(--transition-opacity);
+}

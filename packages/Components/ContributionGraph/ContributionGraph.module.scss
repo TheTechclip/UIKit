@@ -1,0 +1,42 @@
+.ScrollArea {
+  width: 100%;
+  overflow: auto hidden;
+  overscroll-behavior-x: contain;
+  padding: 1.2rem 1.2rem 0 !important;
+
+  @media (pointer: fine) {
+    cursor: grab;
+  }
+}
+
+.Grid {
+  .Cell[data-in-range="false"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.Cell,
+.LegendCell {
+  width: var(--contribution-cell-size);
+  height: var(--contribution-cell-size);
+
+  &[data-level="1"] {
+    background: var(--color-green-2);
+    opacity: 0.4;
+  }
+
+  &[data-level="2"] {
+    background: var(--color-green-3);
+    opacity: 0.6;
+  }
+
+  &[data-level="3"] {
+    background: var(--color-green-4);
+    opacity: 0.8;
+  }
+
+  &[data-level="4"] {
+    background: var(--color-green-5);
+  }
+}

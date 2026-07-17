@@ -1,0 +1,44 @@
+.Wrapper {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
+
+  &:focus-visible {
+    outline: 2px solid
+      color-mix(in srgb, var(--color-base-light-3) 70%, transparent);
+    outline-offset: 2px;
+    border-radius: var(--radius-system-light);
+  }
+}
+
+.Bubble {
+  position: absolute;
+  max-width: 100%;
+  opacity: 1;
+  visibility: visible;
+  transform-origin: center;
+  transition:
+    opacity 120ms ease-out,
+    visibility 120ms ease-out;
+  filter: drop-shadow(
+    0 6px 24px color-mix(in srgb, var(--color-base-dark-6) 18%, transparent)
+  );
+
+  &.BubbleClosed {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.Arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  border: inherit;
+  border-top: none;
+  border-left: none;
+}
+
+

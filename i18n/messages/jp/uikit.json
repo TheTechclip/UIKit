@@ -1,0 +1,50 @@
+{
+  "UIKit": {
+    "presets": {
+      "alert": {
+        "title": "ご案内します。",
+        "caption": "内容を確認してから続行してください。",
+        "confirm": "確認"
+      },
+      "confirm": {
+        "title": "確認が必要です。",
+        "caption": "内容を確認して、進行するかどうか選択してください。",
+        "confirm": "続ける",
+        "cancel": "キャンセル"
+      },
+      "error": {
+        "title": "問題が発生しました。",
+        "caption": "しばらくしてから再度お試しください。",
+        "confirm": "確認"
+      },
+      "success": {
+        "title": "完了しました。",
+        "caption": "リクエストは正常に処理されました。",
+        "confirm": "確認"
+      }
+    },
+    "actions": {
+      "cancel": "キャンセル",
+      "close": "閉じる",
+      "confirm": "確認",
+      "submit": "送信",
+      "submitting": "処理中...",
+      "required": "必須"
+    },
+    "ui": {
+      "select": "選択",
+      "noResults": "結果なし",
+      "imageGallery": "画像ギャラリー",
+      "dateSelect": "日付を選択",
+      "dateRangeSelect": "期間を選択",
+      "pagination": "ページ移動",
+      "previous": "前へ",
+      "next": "次へ",
+      "goToPage": "ページへ移動",
+      "currentPage": "現在のページ {value}",
+      "goToPageItem": "{value}ページへ移動",
+      "less": "少ない",
+      "more": "多い"
+    }
+  }
+}

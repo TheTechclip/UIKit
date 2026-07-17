@@ -1,0 +1,11 @@
+.MapWrapper {
+  position: relative;
+  overflow: hidden;
+  z-index: 1 !important;
+  min-width: 0;
+
+  .Map {
+    z-index: 1 !important;
+    position: relative;
+  }
+}

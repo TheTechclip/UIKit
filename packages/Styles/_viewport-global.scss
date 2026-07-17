@@ -1,0 +1,99 @@
+/**
+ * W1: 320px
+ * W2: 410px
+ * W3: 768px
+ * W4: 1280px
+ */
+
+@use "sass:list";
+@use "viewport" as viewport;
+
+:root {
+  --viewport-w1-min: 0px;
+  --viewport-w1-max: 319.98px;
+  --viewport-w1-next: 320px;
+  --viewport-w2-min: 320px;
+  --viewport-w2-max: 409.98px;
+  --viewport-w2-next: 410px;
+  --viewport-w3-min: 410px;
+  --viewport-w3-max: 767.98px;
+  --viewport-w3-next: 768px;
+  --viewport-w4-min: 768px;
+  --viewport-w4-max: 1279.98px;
+  --viewport-w4-next: 1280px;
+}
+
+@each $key in viewport.$viewport-order {
+  $max: viewport.viewport-range($key, max);
+  $next: viewport.viewport-range($key, next);
+
+  @include viewport.viewport-selector("#{$key}-h") {
+    @include viewport.viewport-max($max) {
+      display: none !important;
+    }
+  }
+
+  @include viewport.viewport-selector("#{$key}-s") {
+    @include viewport.viewport-min($next) {
+      display: none !important;
+    }
+  }
+
+  @include viewport.viewport-selector("#{$key}-scrollX") {
+    @include viewport.viewport-max($max) {
+      overflow: auto hidden !important;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  @include viewport.viewport-selector("#{$key}-col") {
+    @include viewport.viewport-max($max) {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+  }
+}
+
+@for $start-index from 1 through list.length(viewport.$viewport-order) {
+  $start-key: list.nth(viewport.$viewport-order, $start-index);
+  $start-min: viewport.viewport-range($start-key, min);
+  $start-previous-max: viewport.viewport-previous-max($start-key);
+
+  @if $start-index < list.length(viewport.$viewport-order) {
+    @for $end-index
+      from $start-index +
+      1
+      through list.length(viewport.$viewport-order)
+    {
+      $end-key: list.nth(viewport.$viewport-order, $end-index);
+      $end-max: viewport.viewport-range($end-key, max);
+      $end-next: viewport.viewport-range($end-key, next);
+      $name: "#{$start-key}#{$end-key}";
+
+      @include viewport.viewport-selector("#{$name}-h") {
+        @if not $start-min {
+          @include viewport.viewport-max($end-max) {
+            display: none !important;
+          }
+        } @else {
+          @include viewport.viewport-between($start-min, $end-max) {
+            display: none !important;
+          }
+        }
+      }
+
+      @include viewport.viewport-selector("#{$name}-s") {
+        @if $start-previous-max {
+          @include viewport.viewport-max($start-previous-max) {
+            display: none !important;
+          }
+        }
+
+        @include viewport.viewport-min($end-next) {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

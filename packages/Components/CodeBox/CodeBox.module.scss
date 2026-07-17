@@ -1,0 +1,72 @@
+.CodeBox {
+  overflow: hidden;
+  position: relative;
+}
+
+.Pre {
+  margin: 0;
+  padding: 1.2rem 1.6rem 1.6rem;
+  overflow: auto;
+
+  .Code {
+    display: block;
+    word-break: break-all;
+    font-size: var(--font-caption1-size);
+    line-height: 1.6;
+    letter-spacing: -0.02rem;
+    white-space: pre-wrap;
+  }
+}
+
+/* Prism token - 컬러 스킴 변수 기준 */
+.CodeBox :global(.token.comment),
+.CodeBox :global(.token.prolog),
+.CodeBox :global(.token.doctype),
+.CodeBox :global(.token.cdata) {
+  color: var(--color-text-base-light);
+  opacity: 0.8;
+}
+
+.CodeBox :global(.token.punctuation),
+.CodeBox :global(.token.operator) {
+  color: var(--color-text-base-light);
+}
+
+.CodeBox :global(.token.keyword),
+.CodeBox :global(.token.atrule) {
+  color: var(--color-purple-3);
+}
+
+.CodeBox :global(.token.function),
+.CodeBox :global(.token.class-name) {
+  color: var(--color-blue-3);
+}
+
+.CodeBox :global(.token.string),
+.CodeBox :global(.token.char),
+.CodeBox :global(.token.attr-value) {
+  color: var(--color-green-3);
+}
+
+.CodeBox :global(.token.number),
+.CodeBox :global(.token.boolean),
+.CodeBox :global(.token.constant) {
+  color: var(--color-orange-3);
+}
+
+.CodeBox :global(.token.property),
+.CodeBox :global(.token.selector),
+.CodeBox :global(.token.tag),
+.CodeBox :global(.token.builtin) {
+  color: var(--color-blue-3);
+}
+
+.CodeBox :global(.token.variable),
+.CodeBox :global(.token.parameter) {
+  color: var(--color-yellow-3);
+}
+
+.CodeBox :global(.token.regex),
+.CodeBox :global(.token.important) {
+  color: var(--color-red-3);
+}

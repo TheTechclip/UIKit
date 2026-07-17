@@ -1,0 +1,137 @@
+.Nav {
+  padding: 0.2rem;
+  position: relative;
+  width: max-content;
+  overflow: visible;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  cursor: default;
+
+  &.SizeFull {
+    width: 100% !important;
+
+    .Item {
+      flex: 1 1 0;
+      min-width: 0;
+      width: auto !important;
+    }
+  }
+
+  &.DragSelection {
+    touch-action: pan-y;
+
+    .Item {
+      min-width: 3.6rem;
+    }
+  }
+
+  .ActiveIndicator {
+    --nav-indicator-scale: 1;
+
+    position: absolute;
+    top: 0.2rem;
+    bottom: 0.2rem;
+    left: 0;
+    width: 0;
+    opacity: 0;
+    transition:
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      width 180ms ease,
+      opacity 140ms ease,
+      var(--transition-surface);
+    transform: translate3d(0, 0, 0) scale(var(--nav-indicator-scale, 1));
+    transform-origin: center;
+    will-change: transform, width, opacity;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .ActiveIndicatorDragging {
+    --nav-indicator-scale: 1.4;
+
+    transition:
+      opacity 120ms ease,
+      var(--transition-surface);
+  }
+
+  .ActiveIndicatorPressed {
+    --nav-indicator-scale: 1.4;
+
+    transition:
+      transform 120ms linear,
+      width 180ms ease,
+      opacity 120ms ease,
+      var(--transition-surface);
+  }
+
+  .ActiveIndicatorReleasing {
+    --nav-indicator-scale: 1;
+
+    transition:
+      transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+      width 180ms ease,
+      opacity 140ms ease,
+      var(--transition-surface);
+  }
+
+  .Item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    cursor: default;
+    z-index: 2;
+    user-select: none;
+    text-align: center;
+    width: auto !important;
+    min-width: 0;
+    background: transparent !important;
+
+    & > span {
+      color: var(--color-base-dark-1) !important;
+    }
+
+    & i::before {
+      color: var(--color-base-dark-1) !important;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: transparent !important;
+      }
+    }
+
+    &:active {
+      background: transparent !important;
+    }
+
+    &:not(&.Checked) > span,
+    &:not(&.Checked) i::before {
+      opacity: 0.6;
+    }
+
+    &.Checked {
+      background: transparent !important;
+      box-shadow: none !important;
+      cursor: default;
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background: transparent !important;
+        }
+      }
+
+      &:active {
+        background: transparent !important;
+      }
+    }
+  }
+
+  &.Dragging .Item {
+    cursor: default;
+  }
+
+  &.Dragging .Item.Checked {
+    cursor: default;
+  }
+}

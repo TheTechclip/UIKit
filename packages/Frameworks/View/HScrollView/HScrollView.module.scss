@@ -1,0 +1,59 @@
+.Viewport {
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+[data-h-scroll-active="true"] .Viewport {
+  width: 100%;
+  overflow: auto hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+[data-h-scroll-active="true"].SingleChild .Viewport {
+  width: 100%;
+  margin-inline: 0;
+  padding-inline: 0;
+  cursor: grab;
+}
+
+.Viewport[data-embla-active="true"] {
+  overflow: hidden;
+}
+
+.Container {
+  display: flex;
+  min-width: 0;
+  gap: var(--view-default-gap, 1.2rem);
+}
+
+[data-h-scroll-active="true"] .Container {
+  touch-action: pan-y pinch-zoom;
+}
+
+.Container > * {
+  min-width: 0;
+}
+
+[data-h-scroll-active="true"] .Container > * {
+  flex: 0 0 auto;
+  width: var(--h-scroll-item-width, auto);
+  height: var(--h-scroll-item-height, auto);
+}
+
+.FullWidth .Container > * {
+  width: 100%;
+}
+
+/* Hide scrollbars */
+.Viewport::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.Viewport {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

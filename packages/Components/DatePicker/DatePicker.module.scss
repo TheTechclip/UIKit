@@ -1,0 +1,26 @@
+.Field {
+  background: transparent;
+  border: 0;
+  outline: 0 !important;
+  padding: 0;
+  caret-color: transparent;
+  cursor: default;
+
+  &:focus {
+    background: var(--color-base-3);
+  }
+}
+
+.Sep {
+  opacity: 0.4;
+  user-select: none;
+  pointer-events: none;
+  margin: 0 0.1rem;
+}
+
+.RangeSep {
+  margin: 0 0.4rem;
+  opacity: 0.6;
+  user-select: none;
+  pointer-events: none;
+}

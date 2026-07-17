@@ -1,0 +1,23 @@
+.Card {
+  padding: 1.2rem 1.6rem;
+
+  &.Contained {
+    padding: 1.6rem 2rem;
+
+    @media (max-width: 409.98px) {
+      padding: 1.2rem 1.6rem;
+    }
+  }
+}
+
+.containedInnerChildren {
+  padding: 1.6rem 2rem;
+
+  @media (max-width: 409.98px) {
+    padding: 1.2rem 1.6rem;
+  }
+}
+
+.InnerChildren {
+  padding: 1.2rem 1.6rem;
+}

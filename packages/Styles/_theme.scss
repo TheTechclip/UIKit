@@ -1,0 +1,452 @@
+@use "sass:string";
+@use "sass:map";
+@use "sass:math";
+
+$colors: (
+  "Pink": "pink",
+  "Red": "red",
+  "Brown": "brown",
+  "Orange": "orange",
+  "Yellow": "yellow",
+  "Green": "green",
+  "Mint": "mint",
+  "Cyan": "cyan",
+  "Blue": "blue",
+  "Indigo": "indigo",
+  "Purple": "purple",
+  "Magenta": "magenta",
+);
+$paint-colors: map.merge(
+  (
+    "Base": "base",
+    "BaseLight": "base-light",
+    "BaseDark": "base-dark",
+    "Reversed": "reversed",
+  ),
+  $colors
+);
+
+$not-disabled: ':not(:disabled, [disabled], [readonly], [aria-disabled="true"], [data-disabled="true"], [data-readonly="true"], .disabled)';
+$tp-bg: (
+  1: 70%,
+  2: 65%,
+  3: 60%,
+  4: 55%,
+  5: 50%,
+  6: 45%,
+);
+$tp-border: (
+  1: 20%,
+  2: 25%,
+  3: 30%,
+  4: 35%,
+  5: 40%,
+  6: 45%,
+);
+$border-widths: (
+  "Light": 0.05rem,
+  "Regular": 0.1rem,
+  "Bold": 0.15rem,
+);
+$border-directions: (
+  1: (
+    "border-top",
+    "border-right",
+    "border-bottom",
+    "border-left",
+  ),
+  2: (
+    "border-right",
+    "border-left",
+  ),
+  3: ("border-bottom"),
+  4: ("border-left"),
+);
+$shadow-blur: (
+  1: 0.125rem,
+  2: 0.25rem,
+  3: 0.5rem,
+);
+$shadow-opacity: (
+  1: 0.15,
+  2: 0.2,
+  3: 0.35,
+);
+$radius: (
+  "circle": 25.6rem,
+  "system-extra-light": 0.6rem,
+  "system-light": 1.2rem,
+  "system": 1.6rem,
+  "system-bold": 2rem,
+  "system-extra-bold": 2.4rem,
+  "system-heavy": 3.6rem,
+);
+
+@function bg-color($color, $level) {
+  @if $color == "base" {
+    @return var(--color-base-#{$level});
+  } @else if $color == "reversed" {
+    @return var(--color-base-reversed-#{$level});
+  } @else if $color == "base-light" {
+    @return var(--color-base-light-#{$level});
+  } @else if $color == "base-dark" {
+    @return var(--color-base-dark-#{$level});
+  } @else {
+    @return var(--color-#{$color}-#{$level});
+  }
+}
+
+@function fg-color($color, $level) {
+  @if $color == "base" {
+    @return var(--color-base-reversed-#{$level});
+  } @else if $color == "reversed" {
+    @return var(--color-base-#{$level});
+  } @else if $color == "base-light" {
+    @return var(--color-base-light-#{$level});
+  } @else if $color == "base-dark" {
+    @return var(--color-base-dark-#{$level});
+  } @else {
+    @return var(--color-#{$color}-#{$level});
+  }
+}
+
+@mixin apply-fg($value) {
+  color: $value;
+
+  &,
+  & * {
+    color: $value;
+    stroke: $value;
+  }
+}
+
+@mixin bg-paint-base($cls, $color, $level) {
+  .ThemeBg-#{$cls} {
+    --theme-bg: #{bg-color($color, $level)};
+
+    background: var(--theme-bg) !important;
+
+    @if $level <= 4 {
+      &.ThemeInteractive {
+        @media (hover: hover) and (pointer: fine) {
+          &:hover#{$not-disabled} {
+            --theme-bg: #{bg-color($color, math.min($level + 1, 6))};
+
+            background: var(--theme-bg) !important;
+          }
+        }
+        &:active#{$not-disabled} {
+          --theme-bg: #{bg-color($color, math.min($level + 2, 6))};
+
+          background: var(--theme-bg) !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin bg-paint-state($state, $cls, $value) {
+  .ThemeBg#{$state}-#{$cls} {
+    &.ThemeInteractive {
+      @if $state == "Hover" {
+        @media (hover: hover) and (pointer: fine) {
+          &:hover#{$not-disabled} {
+            --theme-bg: #{$value};
+
+            background: var(--theme-bg) !important;
+          }
+        }
+      } @else if $state == "Active" {
+        &:active#{$not-disabled} {
+          --theme-bg: #{$value};
+
+          background: var(--theme-bg) !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin bg-paint-tp($cls, $base-color, $level, $alpha) {
+  .ThemeBg-#{$cls} {
+    --theme-bg: color-mix(in srgb, #{$base-color} #{$alpha}, transparent);
+
+    background: var(--theme-bg) !important;
+  }
+}
+
+@each $color-name, $color in $paint-colors {
+  @for $level from 1 through 6 {
+    @include bg-paint-base("#{$color-name}#{$level}", $color, $level);
+    @include bg-paint-state(
+      "Hover",
+      "#{$color-name}#{$level}",
+      bg-color($color, $level)
+    );
+    @include bg-paint-state(
+      "Active",
+      "#{$color-name}#{$level}",
+      bg-color($color, $level)
+    );
+
+    @each $tp, $alpha in $tp-bg {
+      $base-c: bg-color($color, $level);
+
+      @include bg-paint-tp(
+        "#{$color-name}#{$level}TP#{$tp}",
+        $base-c,
+        $level,
+        $alpha
+      );
+      @include bg-paint-state(
+        "Hover",
+        "#{$color-name}#{$level}TP#{$tp}",
+        color-mix(in srgb, #{$base-c} #{$alpha}, transparent)
+      );
+      @include bg-paint-state(
+        "Active",
+        "#{$color-name}#{$level}TP#{$tp}",
+        color-mix(in srgb, #{$base-c} #{$alpha}, transparent)
+      );
+    }
+  }
+}
+
+@each $color-name, $color in $paint-colors {
+  @for $level from 1 through 6 {
+    .ThemeColor-#{$color-name}#{$level} {
+      @include apply-fg(fg-color($color, $level));
+    }
+  }
+}
+
+.ThemeBorder-None {
+  border-color: transparent !important;
+}
+
+@mixin border-width-color($properties, $width, $color) {
+  @each $property in $properties {
+    #{$property}: $width solid $color !important;
+  }
+}
+
+@mixin border-color-only($properties, $color) {
+  @each $property in $properties {
+    #{$property}-color: $color !important;
+  }
+}
+
+@mixin border-paint($prefix, $cls, $width-name, $width, $color, $properties) {
+  .#{$prefix}-#{$cls}-#{$width-name} {
+    @if $width-name == "None" {
+      @include border-color-only($properties, transparent);
+    } @else {
+      @include border-width-color($properties, $width, $color);
+    }
+  }
+}
+
+@each $color-name, $color in $paint-colors {
+  @for $level from 1 through 6 {
+    @each $width-name, $width in $border-widths {
+      @include border-paint(
+        "ThemeBorder",
+        "#{$color-name}#{$level}",
+        $width-name,
+        $width,
+        bg-color($color, $level),
+        ("border")
+      );
+    }
+
+    @include border-paint(
+      "ThemeBorder",
+      "#{$color-name}#{$level}",
+      "None",
+      0,
+      bg-color($color, $level),
+      ("border")
+    );
+
+    @each $direction, $properties in $border-directions {
+      @each $width-name, $width in $border-widths {
+        @include border-paint(
+          "ThemeBorder#{$direction}",
+          "#{$color-name}#{$level}",
+          $width-name,
+          $width,
+          bg-color($color, $level),
+          $properties
+        );
+      }
+
+      @include border-paint(
+        "ThemeBorder#{$direction}",
+        "#{$color-name}#{$level}",
+        "None",
+        0,
+        bg-color($color, $level),
+        $properties
+      );
+    }
+
+    @each $tp, $alpha in $tp-border {
+      $border-color: color-mix(
+        in srgb,
+        #{bg-color($color, $level)} #{$alpha},
+        transparent
+      );
+
+      @each $width-name, $width in $border-widths {
+        @include border-paint(
+          "ThemeBorder",
+          "#{$color-name}#{$level}TP#{$tp}",
+          $width-name,
+          $width,
+          $border-color,
+          ("border")
+        );
+      }
+
+      @include border-paint(
+        "ThemeBorder",
+        "#{$color-name}#{$level}TP#{$tp}",
+        "None",
+        0,
+        $border-color,
+        ("border")
+      );
+
+      @each $direction, $properties in $border-directions {
+        @each $width-name, $width in $border-widths {
+          @include border-paint(
+            "ThemeBorder#{$direction}",
+            "#{$color-name}#{$level}TP#{$tp}",
+            $width-name,
+            $width,
+            $border-color,
+            $properties
+          );
+        }
+
+        @include border-paint(
+          "ThemeBorder#{$direction}",
+          "#{$color-name}#{$level}TP#{$tp}",
+          "None",
+          0,
+          $border-color,
+          $properties
+        );
+      }
+    }
+  }
+}
+
+.ThemeInteractive {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover#{$not-disabled} {
+      --theme-bg: color-mix(in srgb, currentcolor 6%, transparent);
+
+      background: var(--theme-bg);
+    }
+  }
+  &:active#{$not-disabled} {
+    --theme-bg: color-mix(in srgb, currentcolor 10%, transparent);
+
+    background: var(--theme-bg);
+  }
+}
+
+:root {
+  @each $name, $value in $radius {
+    --radius-#{$name}: #{$value};
+  }
+
+  --radius-system-alt: var(--radius-circle);
+
+  @each $level, $blur in $shadow-blur {
+    $alpha: map.get($shadow-opacity, $level);
+
+    --shadow-base-light-#{$level}: 0 0 #{$blur} rgba(0, 0, 0, #{$alpha});
+    --shadow-base-dark-#{$level}: 0 0 #{$blur} rgba(255, 255, 255, #{$alpha});
+    --shadow-base-#{$level}: var(--shadow-base-light-#{$level});
+  }
+}
+
+[data-color-mode="dark"] {
+  @each $level, $blur in $shadow-blur {
+    --shadow-base-#{$level}: var(--shadow-base-dark-#{$level});
+  }
+}
+
+.ThemeShadow-1 {
+  box-shadow: var(--shadow-base-1) !important;
+}
+
+.ThemeShadow-2 {
+  box-shadow: var(--shadow-base-2) !important;
+}
+
+.ThemeShadow-3 {
+  box-shadow: var(--shadow-base-3) !important;
+}
+
+.ThemeShadow-None {
+  box-shadow: none !important;
+}
+
+$background-blur: (
+  "ExtraLight": 0.4rem,
+  "Light": 0.8rem,
+  "Regular": 1.2rem,
+  "Bold": 1.6rem,
+  "ExtraBold": 2rem,
+  "Heavy": 3.2rem,
+);
+@each $name, $value in $background-blur {
+  .BackgroundBlur-#{$name} {
+    --theme-backdrop-filter: blur(#{$value});
+
+    -webkit-backdrop-filter: var(--theme-backdrop-filter);
+    backdrop-filter: var(--theme-backdrop-filter);
+  }
+}
+
+:is(
+  :disabled,
+  [disabled],
+  [readonly],
+  [aria-disabled="true"],
+  [data-disabled="true"],
+  [data-readonly="true"],
+  .disabled,
+  .ThemeDisabled,
+  .ThemeReadonly
+) {
+  cursor: not-allowed !important;
+  opacity: 0.4 !important;
+  pointer-events: none !important;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible {
+    pointer-events: none !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+[data-squircle] {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: inherit;
+    clip-path: var(--squircle-clip, none);
+  }
+}

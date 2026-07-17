@@ -1,0 +1,108 @@
+@use "sass:list";
+@use "sass:map";
+
+$viewport-order: w1, w2, w3, w4;
+$viewport-ranges: (
+  w1: (
+    min: null,
+    max: 319.98px,
+    next: 320px,
+  ),
+  w2: (
+    min: 320px,
+    max: 409.98px,
+    next: 410px,
+  ),
+  w3: (
+    min: 410px,
+    max: 767.98px,
+    next: 768px,
+  ),
+  w4: (
+    min: 768px,
+    max: 1279.98px,
+    next: 1280px,
+  ),
+);
+
+@function viewport-range($key, $property) {
+  @return map.get(map.get($viewport-ranges, $key), $property);
+}
+
+@function viewport-previous-key($key) {
+  $index: list.index($viewport-order, $key);
+
+  @if not $index or $index <= 1 {
+    @return null;
+  }
+
+  @return list.nth($viewport-order, $index - 1);
+}
+
+@function viewport-previous-max($key) {
+  $previous-key: viewport-previous-key($key);
+
+  @if not $previous-key {
+    @return null;
+  }
+
+  @return viewport-range($previous-key, max);
+}
+
+@mixin viewport-max($max) {
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin viewport-min($min) {
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin viewport-between($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin down($key) {
+  @include viewport-max(viewport-range($key, max)) {
+    @content;
+  }
+}
+
+@mixin up($key) {
+  $min: viewport-range($key, min);
+
+  @if not $min {
+    @content;
+  } @else {
+    @include viewport-min($min) {
+      @content;
+    }
+  }
+}
+
+@mixin only($key) {
+  $min: viewport-range($key, min);
+  $max: viewport-range($key, max);
+
+  @if not $min {
+    @include viewport-max($max) {
+      @content;
+    }
+  } @else {
+    @include viewport-between($min, $max) {
+      @content;
+    }
+  }
+}
+
+@mixin viewport-selector($name) {
+  .#{$name},
+  .--#{$name} {
+    @content;
+  }
+}

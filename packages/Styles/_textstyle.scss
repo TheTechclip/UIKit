@@ -1,0 +1,111 @@
+:root {
+  --font-largetitle-size: 3.8rem;
+  --font-largetitle-line-height: 4.1rem;
+  --font-title1-size: 2.6rem;
+  --font-title1-line-height: 3.3rem;
+  --font-title2-size: 2.2rem;
+  --font-title2-line-height: 2.8rem;
+  --font-title3-size: 2rem;
+  --font-title3-line-height: 2.5rem;
+  --font-headline-size: 1.8rem;
+  --font-headline-line-height: 2.2rem;
+  --font-body-size: 1.8rem;
+  --font-body-line-height: 2.2rem;
+  --font-callout-size: 1.7rem;
+  --font-callout-line-height: 2.1rem;
+  --font-subheadline-size: 1.6rem;
+  --font-subheadline-line-height: 2rem;
+  --font-footnote-size: 1.3rem;
+  --font-footnote-line-height: 1.8rem;
+  --font-caption1-size: 1.2rem;
+  --font-caption1-line-height: 1.7rem;
+  --font-caption2-size: 1.1rem;
+  --font-caption2-line-height: 1.3rem;
+}
+
+/* 통합 클래스 */
+.LargeTitle {
+  font-size: var(--font-largetitle-size);
+  line-height: var(--font-largetitle-line-height);
+  font-weight: 700;
+  letter-spacing: -0.1rem;
+}
+
+.Title1,
+h1 {
+  font-size: var(--font-title1-size);
+  line-height: var(--font-title1-line-height);
+  font-weight: 600;
+  letter-spacing: -0.06rem;
+}
+
+.Title2,
+h2 {
+  font-size: var(--font-title2-size);
+  line-height: var(--font-title2-line-height);
+  font-weight: 600;
+  letter-spacing: -0.05rem;
+}
+
+.Title3,
+h3 {
+  font-size: var(--font-title3-size);
+  line-height: var(--font-title3-line-height);
+  font-weight: 600;
+  letter-spacing: -0.04rem;
+}
+
+.Headline,
+h4 {
+  font-size: var(--font-headline-size);
+  line-height: var(--font-headline-line-height);
+  font-weight: 500;
+  letter-spacing: -0.03rem;
+}
+
+.Body,
+p {
+  font-size: var(--font-body-size);
+  line-height: var(--font-body-line-height);
+  font-weight: 400;
+  letter-spacing: -0.02rem;
+}
+
+.Callout,
+blockquote {
+  font-size: var(--font-callout-size);
+  line-height: var(--font-callout-line-height);
+  font-weight: 400;
+  letter-spacing: -0.02rem;
+}
+
+.Subheadline,
+h5 {
+  font-size: var(--font-subheadline-size);
+  line-height: var(--font-subheadline-line-height);
+  font-weight: 400;
+  letter-spacing: -0.02rem;
+}
+
+.Footnote,
+h6 {
+  font-size: var(--font-footnote-size);
+  line-height: var(--font-footnote-line-height);
+  font-weight: 400;
+  letter-spacing: -0.01rem;
+}
+
+.Caption1,
+small {
+  font-size: var(--font-caption1-size);
+  line-height: var(--font-caption1-line-height);
+  font-weight: 300;
+  letter-spacing: 0.01rem;
+}
+
+.Caption2 {
+  font-size: var(--font-caption2-size);
+  line-height: var(--font-caption2-line-height);
+  font-weight: 300;
+  letter-spacing: 0.02rem;
+}

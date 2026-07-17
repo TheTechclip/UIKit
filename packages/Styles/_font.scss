@@ -1,0 +1,30 @@
+@import "https://cdn.jsdelivr.net/gh/TheTechclip/UIKit-Fonts@main/AstaSans/AstaSans.css";
+@import "https://cdn.jsdelivr.net/gh/TheTechclip/UIKit-Fonts@main/MinIcon/MinIcon.css";
+@import "https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css";
+@import "https://cdn.jsdelivr.net/gh/TheTechclip/UIKit-Fonts@main/JetBrainsMono/JetBrainsMono.css";
+@import "https://cdn.jsdelivr.net/gh/TheTechclip/UIKit-Fonts@main/SourceHanSerifKR/SourceHanSerifKR.css";
+@import "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css";
+
+:root {
+  --font-size: 10px;
+  --font-emoji:
+    "Tossface", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-monospace:
+    "JetBrains Mono", var(--font-emoji), "Asta Sans Variable", monospace !important;
+  --font-icon: "Min Icon VF", "Min Icon Brand" !important;
+  --font-sans-serif:
+    "Pretendard Variable", "Asta Sans Variable", blinkmacsystemfont, system-ui,
+    "Apple SD Gothic Neo", "Roboto", "Helvetica Neue", "Segoe UI",
+    "Noto Sans KR", "Malgun Gothic", var(--font-emoji), sans-serif;
+  --font-serif: "Source Han Serif KR", "Noto Serif KR", georgia, serif;
+}
+
+.FontSerif {
+  font-family: var(--font-serif) !important;
+}
+
+.FontCode,
+code,
+code * {
+  font-family: var(--font-monospace) !important;
+}

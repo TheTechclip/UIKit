@@ -1,0 +1,19 @@
+.Label {
+  &.ReadOnly,
+  &.Disabled,
+  &:has(
+    input:disabled,
+    textarea:disabled,
+    select:disabled,
+    button:disabled,
+    [role="combobox"]:disabled
+  ) {
+    pointer-events: none;
+    opacity: 0.4;
+
+    &,
+    & * {
+      cursor: not-allowed;
+    }
+  }
+}

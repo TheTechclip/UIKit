@@ -1,0 +1,34 @@
+@use "../../Styles/viewport" as viewport;
+
+.View {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+:where(.View) {
+  gap: var(--view-default-gap, 2.4rem);
+}
+
+.MobileStrict {
+  @media (max-width: 679.98px) {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 469.98px) {
+    display: grid !important;
+    grid-template-columns: 1fr;
+  }
+}
+
+@include viewport.down(w3) {
+  .MobileOrder {
+    order: var(--view-mobile-order);
+  }
+}
+
+.FullWidth,
+.FullWidth > * {
+  width: 100%;
+}
