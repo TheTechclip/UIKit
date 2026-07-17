@@ -51,9 +51,9 @@ export function useScrollLock(locked?: boolean): { lockScroll: () => void, openS
 ## Example Code
 
 ```tsx
-import { Size } from "@/packages/Frameworks/_shared/sizing";
-import { useScrollLock } from "@/packages/Frameworks/_shared/bodyScrollLock";
-import { useControllableState } from "@/packages/Frameworks/_shared/useControllableState";
+import { Size } from "@musecat/uikit";
+import { useScrollLock } from "@musecat/uikit";
+import { useControllableState } from "@musecat/uikit";
 
 function MyComponent({ value, defaultValue, width }) {
   // Scroll lock

@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import Image from "next/image";
-import Icon from "@/packages/Components/Icon/Icon";
-import styles from "@/packages/Components/Layout/Layout.docs.module.scss";
-import type { DocsLayoutProps } from "@/packages/Components/Layout/Layout.docs.types";
-import Profile from "@/packages/Components/Profile/Profile";
-import Text from "@/packages/Components/Text/Text";
-import View from "@/packages/Frameworks/View/View";
+import Icon from "../Icon/Icon";
+import styles from "./Layout.docs.module.scss";
+import type { DocsLayoutProps } from "./Layout.docs.types";
+import Profile from "../Profile/Profile";
+import Text from "../Text/Text";
+import View from "../../Frameworks/View/View";
 export default function DocsLayout({
   children,
   image,

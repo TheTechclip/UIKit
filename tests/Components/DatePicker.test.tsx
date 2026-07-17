@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
-import DatePicker from "@/packages/Components/DatePicker/DatePicker";
+import { describe, it, expect, vi } from "vitest";
+import DatePicker from "../../packages/Components/DatePicker/DatePicker";
 
 global.ResizeObserver = class {
   observe() {}
@@ -8,9 +8,9 @@ global.ResizeObserver = class {
   disconnect() {}
 } as any;
 
-Object.defineProperty(window, "matchMedia", {
+Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: vi.fn().mockImplementation((query) => ({
+  value: vi.fn().mockImplementation(query => ({
     matches: false,
     media: query,
     onchange: null,
@@ -29,7 +29,7 @@ describe("DatePicker", () => {
   });
 
   it("handles empty date correctly", () => {
-    const { container } = render(<DatePicker />);
+    const { container } = render(<DatePicker value={undefined} />);
     // The placeholder or "Select Date" text should be displayed or input rendered
     expect(container).not.toBeNull();
   });

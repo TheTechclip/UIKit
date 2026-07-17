@@ -9,19 +9,19 @@ import {
   useRef,
   useState,
 } from "react";
-import { Word } from "@/i18n/shared";
-import ContextMenuOption from "@/packages/Components/ContextMenu/ContextMenu.options";
+import { Word } from "../../../i18n/shared";
+import ContextMenuOption from "./ContextMenu.options";
 import type {
   ContentItem,
   ContextMenuProps,
-} from "@/packages/Components/ContextMenu/ContextMenu.types";
+} from "./ContextMenu.types";
 import {
   handleEndKey,
   handleHomeKey,
-} from "@/packages/Components/Select/Select.keyboard";
-import Text from "@/packages/Components/Text/Text";
-import Dialog from "@/packages/Frameworks/Dialog/Dialog";
-import View from "@/packages/Frameworks/View/View";
+} from "../Select/Select.keyboard";
+import Text from "../Text/Text";
+import Dialog from "../../Frameworks/Dialog/Dialog";
+import View from "../../Frameworks/View/View";
 
 const clampScrollTop = (element: HTMLElement, nextScrollTop: number) => {
   const maxScrollTop = Math.max(0, element.scrollHeight - element.clientHeight);

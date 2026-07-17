@@ -14,9 +14,9 @@ import {
 import {
   getComputedPixelValue,
   SizePX,
-} from "@/packages/Frameworks/_shared/sizing";
-import type { SquircleProps } from "@/packages/Frameworks/Squircle/Squircle.types";
-import { Radius as resolveRadius } from "@/packages/Frameworks/Theme/Radius.types";
+} from "../_shared/sizing";
+import type { SquircleProps } from "./Squircle.types";
+import { Radius as resolveRadius } from "../Theme/Radius.types";
 
 function resolveCornerRadius(
   radius: SquircleProps["radius"],

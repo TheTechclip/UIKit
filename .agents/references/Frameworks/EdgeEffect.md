@@ -23,8 +23,8 @@ export interface EdgeEffectProps extends Omit<ViewProps, "children"> {
 ## Example Code
 
 ```tsx
-import EdgeEffect from "@/packages/Frameworks/EdgeEffect";
-import View from "@/packages/Frameworks/View";
+import { EdgeEffect } from "@musecat/uikit";
+import { View } from "@musecat/uikit";
 
 function ScrollContainer() {
   return (

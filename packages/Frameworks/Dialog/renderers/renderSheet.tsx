@@ -13,29 +13,29 @@ import {
   useRef,
   useState,
 } from "react";
-import { useScrollLock } from "@/packages/Frameworks/_shared/bodyScrollLock";
-import { LAYER_Z_INDEX } from "@/packages/Frameworks/_shared/layer.constants";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
-import DialogFooter from "@/packages/Frameworks/Dialog/contents/Dialog.footer";
-import DialogHeader from "@/packages/Frameworks/Dialog/contents/Dialog.header";
-import BackgroundWrapper from "@/packages/Frameworks/Dialog/Dialog.background";
+import { useScrollLock } from "../../_shared/bodyScrollLock";
+import { LAYER_Z_INDEX } from "../../_shared/layer.constants";
+import { Size } from "../../_shared/sizing";
+import DialogFooter from "../contents/Dialog.footer";
+import DialogHeader from "../contents/Dialog.header";
+import BackgroundWrapper from "../Dialog.background";
 import type {
   DialogOutsideOptions,
   SheetConfig,
-} from "@/packages/Frameworks/Dialog/Dialog.types";
+} from "../Dialog.types";
 import {
   DialogPortal,
   useEscapeClose,
-} from "@/packages/Frameworks/Dialog/Dialog.utils";
-import { useSheetDrag } from "@/packages/Frameworks/Dialog/hooks/useSheetDrag";
+} from "../Dialog.utils";
+import { useSheetDrag } from "../hooks/useSheetDrag";
 import {
   resolveInitialSnapIndex,
   useSheetGeometry,
-} from "@/packages/Frameworks/Dialog/hooks/useSheetGeometry";
-import { useSheetProgressive } from "@/packages/Frameworks/Dialog/hooks/useSheetProgressive";
-import { motionTransitions } from "@/packages/Frameworks/Motion/Motion.presets";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+} from "../hooks/useSheetGeometry";
+import { useSheetProgressive } from "../hooks/useSheetProgressive";
+import { motionTransitions } from "../../Motion/Motion.presets";
+import Pressable from "../../Pressable/Pressable";
+import View from "../../View/View";
 
 interface RenderSheetProps {
   open: boolean;

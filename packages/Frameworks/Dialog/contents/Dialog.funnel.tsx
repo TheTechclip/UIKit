@@ -1,16 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Button from "@/packages/Components/Button/Button";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
+import Button from "../../../Components/Button/Button";
+import Icon from "../../../Components/Icon/Icon";
+import Text from "../../../Components/Text/Text";
 import type {
   FunnelConfig,
   FunnelHistory,
   FunnelStepConfig,
-} from "@/packages/Frameworks/Dialog/Dialog.types";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+} from "../Dialog.types";
+import Pressable from "../../Pressable/Pressable";
+import View from "../../View/View";
 
 interface DialogFunnelProps {
   config: FunnelConfig;

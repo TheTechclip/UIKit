@@ -2,28 +2,28 @@
 
 import NextImage from "next/image";
 import { useCallback, useMemo, useState } from "react";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
-import Dialog from "@/packages/Frameworks/Dialog/Dialog";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import HScrollView from "@/packages/Frameworks/View/HScrollView/HScrollView";
-import ImageDialog from "@/packages/Frameworks/View/ImageView/Dialog/ImageDialog";
+import type { UIKitSizeValue } from "../../_shared/sizing";
+import Dialog from "../../Dialog/Dialog";
+import Pressable from "../../Pressable/Pressable";
+import HScrollView from "../HScrollView/HScrollView";
+import ImageDialog from "./Dialog/ImageDialog";
 import {
   ImageLeftControl,
   ImageRightControl,
-} from "@/packages/Frameworks/View/ImageView/Image.controls";
+} from "./Image.controls";
 import type {
   ImageItem,
   ImageOverlay,
   ImageProps,
-} from "@/packages/Frameworks/View/ImageView/Image.types";
+} from "./Image.types";
 import {
   resolveAtIndex,
   resolveBlurDataURL,
   resolveImageSrc,
   resolveItems,
   resolveOverlay,
-} from "@/packages/Frameworks/View/ImageView/Image.utils";
-import View from "@/packages/Frameworks/View/View";
+} from "./Image.utils";
+import View from "../View";
 
 const DEFAULT_GROUP_WIDTH = "auto";
 const DEFAULT_GROUP_HEIGHT = "29rem";
@@ -71,7 +71,7 @@ function ImageGroupItem({
   index: number;
   dialog?: ImageProps["dialog"];
   className?: string;
-  radius?: import("@/packages/Frameworks/Theme/Radius.types").RadiusValue;
+  radius?: import("../../Theme/Radius.types").RadiusValue;
   width?: UIKitSizeValue | UIKitSizeValue[];
   height?: UIKitSizeValue | UIKitSizeValue[];
   overlay?: ImageOverlay;

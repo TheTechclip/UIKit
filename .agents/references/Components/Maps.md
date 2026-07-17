@@ -38,7 +38,7 @@ export interface MapOSMProps {
 ## Example Code
 
 ```tsx
-import MapOSM from "@/packages/Components/Maps/OSM/MapOSM";
+import { MapOSM } from "@musecat/uikit";
 import { useState } from "react";
 
 export function LocationPicker() {

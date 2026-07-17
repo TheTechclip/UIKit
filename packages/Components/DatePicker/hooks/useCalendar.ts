@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useMemo, useState } from "react";
-import { getCalendarDays } from "@/packages/Components/DatePicker/DatePicker.utils";
+import { getCalendarDays } from "../DatePicker.utils";
 
 interface UseCalendarOptions {
   initialYear: number;

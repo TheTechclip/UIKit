@@ -1,7 +1,7 @@
 import {
   Size,
   type UIKitSizeValue,
-} from "@/packages/Frameworks/_shared/sizing";
+} from "../_shared/sizing";
 
 export type RadiusScale =
   | "None"

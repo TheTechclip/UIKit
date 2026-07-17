@@ -1,15 +1,15 @@
 "use client";
 
-import styles from "@/packages/Components/DatePicker/DatePicker.module.scss";
+import styles from "./DatePicker.module.scss";
 import {
   isDateDisabled,
   isSameDay,
   toYMD,
-} from "@/packages/Components/DatePicker/DatePicker.utils";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+} from "./DatePicker.utils";
+import Icon from "../Icon/Icon";
+import Text from "../Text/Text";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 
 function NavBtn({
   onClick,

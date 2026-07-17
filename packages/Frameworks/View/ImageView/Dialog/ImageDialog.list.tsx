@@ -2,14 +2,14 @@
 
 import NextImage from "next/image";
 import type { MutableRefObject } from "react";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import styles from "@/packages/Frameworks/View/ImageView/Image.module.scss";
-import type { ImageItem } from "@/packages/Frameworks/View/ImageView/Image.types";
+import Pressable from "../../../Pressable/Pressable";
+import styles from "../Image.module.scss";
+import type { ImageItem } from "../Image.types";
 import {
   resolveBlurDataURL,
   resolveImageSrc,
-} from "@/packages/Frameworks/View/ImageView/Image.utils";
-import View from "@/packages/Frameworks/View/View";
+} from "../Image.utils";
+import View from "../../View";
 
 export interface DialogImageListProps {
   items: ImageItem[];

@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import type { CSSProperties } from "react";
-import styles from "@/packages/Components/Progress/Progress.module.scss";
-import type { ProgressProps } from "@/packages/Components/Progress/Progress.types";
-import Spinner from "@/packages/Components/Spinner/Spinner";
-import { resolveThemeClasses } from "@/packages/Frameworks/Theme/Theme.types";
-import View from "@/packages/Frameworks/View/View";
+import styles from "./Progress.module.scss";
+import type { ProgressProps } from "./Progress.types";
+import Spinner from "../Spinner/Spinner";
+import { resolveThemeClasses } from "../../Frameworks/Theme/Theme.types";
+import View from "../../Frameworks/View/View";
 
 function clampValue(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value));

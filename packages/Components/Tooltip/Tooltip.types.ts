@@ -1,10 +1,10 @@
-import type { RadiusValue } from "@/packages/Frameworks/Theme/Radius.types";
+import type { RadiusValue } from "../../Frameworks/Theme/Radius.types";
 import type {
   BorderProps,
   ThemeBackgroundPaint,
   ThemePaint,
   ThemePreset,
-} from "@/packages/Frameworks/Theme/Theme.types";
+} from "../../Frameworks/Theme/Theme.types";
 
 export type TooltipPlacement =
   | "top"

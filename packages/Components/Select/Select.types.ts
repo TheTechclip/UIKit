@@ -18,7 +18,7 @@ export type SelectChangeEvent<Multiple extends boolean = false> =
   | React.ChangeEvent<HTMLSelectElement>
   | { target: { value: SelectValue<Multiple> } };
 
-import type { LabelSharedProps } from "@/packages/Components/Label/Label.types";
+import type { LabelSharedProps } from "../Label/Label.types";
 
 export interface SelectProps<Multiple extends boolean = false>
   extends LabelSharedProps {

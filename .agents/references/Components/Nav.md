@@ -42,7 +42,7 @@ export interface NavProps extends RadiusProps {
 ## Example Code
 
 ```tsx
-import Nav from "@/packages/Components/Nav/Nav";
+import { Nav } from "@musecat/uikit";
 import { useState } from "react";
 
 export function TabNavigation() {

@@ -1,18 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import Icon from "@/packages/Components/Icon/Icon";
+import Icon from "../../packages/Components/Icon/Icon";
+import Spinner from "../../packages/Components/Spinner/Spinner";
+import Text from "../../packages/Components/Text/Text";
+import Pressable from "../../packages/Frameworks/Pressable/Pressable";
 
-vi.mock("@/packages/Components/Spinner/Spinner", () => ({
+vi.mock("../../packages/Components/Spinner/Spinner.tsx", () => ({
   default: () => <span data-testid="spinner" />,
 }));
 
-vi.mock("@/packages/Components/Text/Text", () => ({
+vi.mock("../../packages/Components/Text/Text.tsx", () => ({
   default: ({ children }: { children?: React.ReactNode }) => (
     <span data-testid="text">{children}</span>
   ),
 }));
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable.tsx", () => ({
   default: ({ children, onClick, ...rest }: any) => (
     <button type="button" data-testid="pressable" onClick={onClick} {...rest}>
       {children}

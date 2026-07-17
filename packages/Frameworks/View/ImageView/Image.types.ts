@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
-import type { RadiusProps } from "@/packages/Frameworks/Theme/Radius.types";
+import type { UIKitSizeValue } from "../../_shared/sizing";
+import type { RadiusProps } from "../../Theme/Radius.types";
 
 export type ImageItem = {
   id: number;

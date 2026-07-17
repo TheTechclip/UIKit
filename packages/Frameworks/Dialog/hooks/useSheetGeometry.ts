@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { SheetConfig } from "@/packages/Frameworks/Dialog/Dialog.types";
+import type { SheetConfig } from "../Dialog.types";
 
 function toPx(
   value: number | string | undefined,

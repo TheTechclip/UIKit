@@ -4,13 +4,13 @@ import type {
   ReactElement,
   MouseEvent as ReactMouseEvent,
 } from "react";
-import Pill from "@/packages/Components/Pill/Pill";
-import type { SelectNavigation } from "@/packages/Components/Select/hooks/useSelectNavigation";
-import type { SelectState } from "@/packages/Components/Select/hooks/useSelectState";
-import SelectTrigger from "@/packages/Components/Select/Select.trigger";
-import type { SelectValue } from "@/packages/Components/Select/Select.types";
-import { filterOptionsByQuery } from "@/packages/Components/Select/Select.utils";
-import View from "@/packages/Frameworks/View/View";
+import Pill from "../Pill/Pill";
+import type { SelectNavigation } from "./hooks/useSelectNavigation";
+import type { SelectState } from "./hooks/useSelectState";
+import SelectTrigger from "./Select.trigger";
+import type { SelectValue } from "./Select.types";
+import { filterOptionsByQuery } from "./Select.utils";
+import View from "../../Frameworks/View/View";
 
 interface SelectControlProps {
   state: SelectState;

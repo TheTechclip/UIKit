@@ -27,9 +27,9 @@ export interface HeaderProps {
 ## 4. Example Code
 
 ```tsx
-import Header from "@/packages/Components/Header/Header";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
+import { Header } from "@musecat/uikit";
+import { Icon } from "@musecat/uikit";
+import { Text } from "@musecat/uikit";
 
 export default function Example() {
   return (

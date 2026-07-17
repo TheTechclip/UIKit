@@ -5,16 +5,16 @@ import {
   type MouseEvent as ReactMouseEvent,
   useMemo,
 } from "react";
-import ContextMenu from "@/packages/Components/ContextMenu/ContextMenu";
-import Icon from "@/packages/Components/Icon/Icon";
-import Label from "@/packages/Components/Label/Label";
-import { useSelectNavigation } from "@/packages/Components/Select/hooks/useSelectNavigation";
-import { useSelectSelection } from "@/packages/Components/Select/hooks/useSelectSelection";
-import { useSelectState } from "@/packages/Components/Select/hooks/useSelectState";
-import type { SelectProps } from "@/packages/Components/Select/Select.types";
-import { filterOptionsByQuery } from "@/packages/Components/Select/Select.utils";
-import SelectControl from "@/packages/Components/Select/select.control";
-import View from "@/packages/Frameworks/View/View";
+import ContextMenu from "../ContextMenu/ContextMenu";
+import Icon from "../Icon/Icon";
+import Label from "../Label/Label";
+import { useSelectNavigation } from "./hooks/useSelectNavigation";
+import { useSelectSelection } from "./hooks/useSelectSelection";
+import { useSelectState } from "./hooks/useSelectState";
+import type { SelectProps } from "./Select.types";
+import { filterOptionsByQuery } from "./Select.utils";
+import SelectControl from "./select.control";
+import View from "../../Frameworks/View/View";
 
 export default function SelectInner(props: SelectProps<boolean>): ReactElement {
   const state = useSelectState(props);

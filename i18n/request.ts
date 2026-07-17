@@ -1,5 +1,5 @@
 import { getRequestConfig } from "next-intl/server";
-import type { Locale } from "@/i18n/shared";
+import type { Locale } from "./shared.ts";
 
 const locales: Locale[] = ["en", "kr", "jp"];
 const defaultLocale: Locale = "en";

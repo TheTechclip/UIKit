@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Spinner from "@/packages/Components/Spinner/Spinner";
+import Spinner from "../../packages/Components/Spinner/Spinner";
 
 describe("Spinner", () => {
   it("renders a wheel spinner (progressbar) by default", () => {

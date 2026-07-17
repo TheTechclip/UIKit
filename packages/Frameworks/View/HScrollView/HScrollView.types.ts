@@ -1,6 +1,6 @@
 import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
-import type { ViewProps } from "@/packages/Frameworks/View/View.types";
+import type { UIKitSizeValue } from "../../_shared/sizing";
+import type { ViewProps } from "../View.types";
 
 export type HScrollViewViewport = "w1" | "w2" | "w3" | "w4";
 export type HScrollViewActive = boolean | HScrollViewViewport;

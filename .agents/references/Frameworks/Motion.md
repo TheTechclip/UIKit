@@ -37,7 +37,7 @@ export const motionPresets = {
 
 ```tsx
 import { motion } from "motion/react";
-import { motionPresets } from "@/packages/Frameworks/Motion";
+import { motionPresets } from "@musecat/uikit";
 
 function AnimatedModal({ isOpen, children }) {
   return (

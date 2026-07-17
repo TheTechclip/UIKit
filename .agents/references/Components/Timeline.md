@@ -41,8 +41,8 @@ export interface TimelineProps {
 ## Example Code
 
 ```tsx
-import Timeline from "@/packages/Components/Timeline/Timeline";
-import Text from "@/packages/Components/Text/Text";
+import { Timeline } from "@musecat/uikit";
+import { Text } from "@musecat/uikit";
 
 export default function TimelineExample() {
   const events = [

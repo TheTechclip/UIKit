@@ -4,7 +4,7 @@ import type {
   ExitConfig,
   PopoverConfig,
   SheetConfig,
-} from "@/packages/Frameworks/Dialog/Dialog.types";
+} from "../../Frameworks/Dialog/Dialog.types";
 
 export interface ContentItem {
   type: "option";

@@ -1,42 +1,34 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Label from "@/packages/Components/Label/Label";
+import Label from "../../packages/Components/Label/Label";
+import Icon from "../../packages/Components/Icon/Icon";
+import Text from "../../packages/Components/Text/Text";
+import Pressable from "../../packages/Frameworks/Pressable/Pressable";
+import View from "../../packages/Frameworks/View/View";
 
-vi.mock("@/packages/Components/Icon/Icon", () => ({
+vi.mock("../../packages/Components/Icon/Icon.tsx", () => ({
   default: ({ icon, color }: { icon?: string; color?: string }) => (
     <span data-testid="icon" data-icon={icon} data-color={color} />
   ),
 }));
 
-vi.mock("@/packages/Components/Text/Text", () => ({
-  default: ({
-    children,
-    color,
-  }: {
-    children?: React.ReactNode;
-    color?: string;
-  }) => (
+vi.mock("../../packages/Components/Text/Text.tsx", () => ({
+  default: ({ children, color }: { children?: React.ReactNode; color?: string }) => (
     <span data-testid="text" data-color={color}>
       {children}
     </span>
   ),
 }));
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
-  default: ({
-    children,
-    ...rest
-  }: {
-    children?: React.ReactNode;
-    [k: string]: unknown;
-  }) => (
+vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
+  default: ({ children, ...rest }: { children?: React.ReactNode; [k: string]: unknown }) => (
     <div data-testid="view" {...rest}>
       {children}
     </div>
   ),
 }));
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable.tsx", () => ({
   default: ({ children, ...rest }: any) => (
     <button type="button" data-testid="pressable" {...rest}>
       {children}
@@ -75,10 +67,7 @@ describe("Label", () => {
   it("renders an error hint with an error icon", () => {
     render(<Label hint={{ type: "error", text: "Invalid value" }} />);
     expect(screen.getByText("Invalid value")).toBeInTheDocument();
-    expect(screen.getByTestId("icon")).toHaveAttribute(
-      "data-icon",
-      "iCloseCircle",
-    );
+    expect(screen.getByTestId("icon")).toHaveAttribute("data-icon", "iCloseCircle");
   });
 
   it("renders a warning hint with a warning icon", () => {
@@ -91,10 +80,7 @@ describe("Label", () => {
 
   it("renders an info hint with an info icon", () => {
     render(<Label hint={{ type: "info", text: "Details" }} />);
-    expect(screen.getByTestId("icon")).toHaveAttribute(
-      "data-icon",
-      "iInfoCircle",
-    );
+    expect(screen.getByTestId("icon")).toHaveAttribute("data-icon", "iInfoCircle");
   });
 
   it("renders a success hint with a check icon", () => {
@@ -122,10 +108,7 @@ describe("Label", () => {
 
   it("uses Regular radius by default", () => {
     render(<Label title="Field" />);
-    expect(screen.getByTestId("pressable")).toHaveAttribute(
-      "radius",
-      "Regular",
-    );
+    expect(screen.getByTestId("pressable")).toHaveAttribute("radius", "Regular");
   });
 
   it("forwards a custom className", () => {

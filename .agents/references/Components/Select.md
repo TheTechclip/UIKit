@@ -55,7 +55,7 @@ export interface SelectProps<
 ## Example Code
 
 ```tsx
-import Select from "@/packages/Components/Select/Select";
+import { Select } from "@musecat/uikit";
 import { useState } from "react";
 
 export default function SelectExample() {

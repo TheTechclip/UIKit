@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Dialog from "@/packages/Frameworks/Dialog/Dialog";
+import Dialog from "./Dialog";
 import {
   type DialogInstance,
   DialogStore,
-} from "@/packages/Frameworks/Dialog/Dialog.store";
+} from "./Dialog.store";
 
 interface DialogBootstrapProps {
   "data-color-mode"?: string;

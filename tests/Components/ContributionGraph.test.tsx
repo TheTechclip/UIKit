@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
-import ContributionGraph from "@/packages/Components/ContributionGraph/ContributionGraph";
+import { describe, it, expect } from "vitest";
+import ContributionGraph from "../../packages/Components/ContributionGraph/ContributionGraph";
 
 describe("ContributionGraph", () => {
   const mockData = [
@@ -10,36 +10,18 @@ describe("ContributionGraph", () => {
   ];
 
   it("renders without crashing", () => {
-    const { container } = render(
-      <ContributionGraph
-        data={mockData}
-        endDate="2024-01-31"
-        visibleDays={30}
-      />,
-    );
+    const { container } = render(<ContributionGraph data={mockData} endDate="2024-01-31" visibleDays={30} />);
     expect(container).not.toBeNull();
   });
 
   it("renders legend cells", () => {
-    const { container } = render(
-      <ContributionGraph
-        data={mockData}
-        endDate="2024-01-31"
-        visibleDays={30}
-      />,
-    );
+    const { container } = render(<ContributionGraph data={mockData} endDate="2024-01-31" visibleDays={30} />);
     const legendCells = container.querySelectorAll("[data-level]");
     expect(legendCells.length).toBeGreaterThan(0);
   });
 
   it("renders the correct number of graph cells", () => {
-    const { container } = render(
-      <ContributionGraph
-        data={mockData}
-        endDate="2024-01-31"
-        visibleDays={10}
-      />,
-    );
+    const { container } = render(<ContributionGraph data={mockData} endDate="2024-01-31" visibleDays={10} />);
     // Grid cells should be rendered
     const cells = container.querySelectorAll("[data-level]");
     // Visible days + alignment can result in a bit more cells, but at least > 0

@@ -1,12 +1,12 @@
-import type { IconProps } from "@/packages/Components/Icon/Icon.types";
-import type { TextProps } from "@/packages/Components/Text/Text.types";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
-import type { PressableProps } from "@/packages/Frameworks/Pressable/Pressable.types";
-import type { RadiusProps } from "@/packages/Frameworks/Theme/Radius.types";
+import type { IconProps } from "../Icon/Icon.types";
+import type { TextProps } from "../Text/Text.types";
+import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
+import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
+import type { RadiusProps } from "../../Frameworks/Theme/Radius.types";
 import type {
   BorderProps,
   ThemeSystemProps,
-} from "@/packages/Frameworks/Theme/Theme.types";
+} from "../../Frameworks/Theme/Theme.types";
 
 export type ButtonIconEndProps = Pick<
   IconProps,

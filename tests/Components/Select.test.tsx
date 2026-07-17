@@ -1,38 +1,41 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import Select from "@/packages/Components/Select/Select";
+import Select from "../../packages/Components/Select/Select";
+import ContextMenu from "../../packages/Components/ContextMenu/ContextMenu";
+import Label from "../../packages/Components/Label/Label";
+import Icon from "../../packages/Components/Icon/Icon";
+import Text from "../../packages/Components/Text/Text";
+import Pressable from "../../packages/Frameworks/Pressable/Pressable";
+import View from "../../packages/Frameworks/View/View";
 
-vi.mock("@/packages/Components/ContextMenu/ContextMenu", () => ({
+vi.mock("../../packages/Components/ContextMenu/ContextMenu.tsx", () => ({
   default: ({ open, contents, listId }: any) =>
     open ? (
-      <div role="listbox" id={listId}>
+      <ul role="listbox" id={listId}>
         {contents.length === 0 ? (
-          <div role="presentation">No results</div>
+          <li role="presentation">No results</li>
         ) : (
           contents.map((item: any, index: number) => (
-            <div
-              role="option"
-              tabIndex={-1}
-              // biome-ignore lint/suspicious/noArrayIndexKey: test mock
+            <li
               key={`${item.value}-${index}`}
+              role="option"
               id={`${listId}-${index}`}
               data-selected={item.selected ? "true" : undefined}
               data-disabled={item.disabled ? "true" : undefined}
               onClick={item.onClick}
-              onKeyDown={() => {}}
             >
               {item.label}
               {item.description ? (
                 <span data-testid="option-desc">{item.description}</span>
               ) : null}
-            </div>
+            </li>
           ))
         )}
-      </div>
+      </ul>
     ) : null,
 }));
 
-vi.mock("@/packages/Components/Label/Label", () => ({
+vi.mock("../../packages/Components/Label/Label.tsx", () => ({
   default: ({ children, htmlFor, title }: any) => (
     <label htmlFor={htmlFor}>
       {title ? <span>{title}</span> : null}
@@ -41,33 +44,27 @@ vi.mock("@/packages/Components/Label/Label", () => ({
   ),
 }));
 
-vi.mock("@/packages/Components/Icon/Icon", () => ({
+vi.mock("../../packages/Components/Icon/Icon.tsx", () => ({
   default: ({ icon }: { icon?: string }) => (
     <span data-testid="icon" data-icon={icon} />
   ),
 }));
 
-vi.mock("@/packages/Components/Text/Text", () => ({
+vi.mock("../../packages/Components/Text/Text.tsx", () => ({
   default: ({ children }: { children?: React.ReactNode }) => (
     <span data-testid="text">{children}</span>
   ),
 }));
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable.tsx", () => ({
   default: ({ children, onClick, role, ...rest }: any) => (
-    <button
-      type="button"
-      data-testid="pressable"
-      role={role}
-      onClick={onClick}
-      {...rest}
-    >
+    <button type="button" data-testid="pressable" role={role} onClick={onClick} {...rest}>
       {children}
     </button>
   ),
 }));
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
   default: ({ children, ...rest }: any) => (
     <div data-testid="view" {...rest}>
       {children}
@@ -125,9 +122,7 @@ describe("Select", () => {
     const listbox = screen.getByRole("listbox");
     expect(listbox).toBeInTheDocument();
     expect(screen.getByRole("option", { name: "Gamma" })).toBeInTheDocument();
-    expect(
-      screen.queryByRole("option", { name: "Alpha" }),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByRole("option", { name: "Alpha" })).not.toBeInTheDocument();
   });
 
   it("does not open when disabled", () => {
@@ -154,14 +149,7 @@ describe("Select", () => {
 
   it("supports multiple selection", () => {
     const onChange = vi.fn();
-    render(
-      <Select
-        multiple
-        options={options}
-        onChange={onChange}
-        placeholder="Pick"
-      />,
-    );
+    render(<Select multiple options={options} onChange={onChange} placeholder="Pick" />);
     fireEvent.click(screen.getByRole("combobox"));
     fireEvent.click(screen.getByRole("option", { name: "Alpha" }));
     fireEvent.click(screen.getByRole("option", { name: "Beta" }));

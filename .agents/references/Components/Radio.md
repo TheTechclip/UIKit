@@ -13,7 +13,7 @@ The `Radio` component provides a radio button UI that lets the user select a sin
 ## Type Signatures
 
 ```typescript
-import type { RadiusProps } from "@/packages/Frameworks/Theme/Radius.types";
+import type { RadiusProps } from "@musecat/uikit";
 import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
 import type {
   BorderProps,
@@ -39,7 +39,7 @@ export interface RadioProps
 ## Example Code
 
 ```tsx
-import Radio from "@/packages/Components/Radio/Radio";
+import { Radio } from "@musecat/uikit";
 import { useState } from "react";
 
 export default function RadioExample() {

@@ -47,8 +47,8 @@ export interface HScrollViewProps extends Omit<
 ## Example Code
 
 ```tsx
-import HScrollView from "@/packages/Frameworks/View/HScrollView/HScrollView";
-import View from "@/packages/Frameworks/View";
+import { HScrollView } from "@musecat/uikit";
+import { View } from "@musecat/uikit";
 
 function HorizontalList() {
   return (

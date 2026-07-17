@@ -45,7 +45,7 @@ type CardProps = CardDefaultProps | CardFoldableProps;
 ## Example Code
 
 ```tsx
-import Card from "@/packages/Components/Card/Card";
+import { Card } from "@musecat/uikit";
 
 export default function Example() {
   return (

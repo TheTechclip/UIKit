@@ -44,7 +44,7 @@ export interface PressableProps
 ## Example Code
 
 ```tsx
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
+import { Pressable } from "@musecat/uikit";
 
 function Example() {
   return (

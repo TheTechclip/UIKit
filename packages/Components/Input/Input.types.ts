@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { LabelSharedProps } from "@/packages/Components/Label/Label.types";
+import type { LabelSharedProps } from "../Label/Label.types";
 
 export interface InputProps
   extends Omit<

@@ -1,8 +1,8 @@
 import type { CSSProperties } from "react";
-import type { TextProps } from "@/packages/Components/Text/Text.types";
-import type { TitleProps } from "@/packages/Components/Title/Title.types";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
-import type { ViewProps } from "@/packages/Frameworks/View/View.types";
+import type { TextProps } from "../Text/Text.types";
+import type { TitleProps } from "../Title/Title.types";
+import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
+import type { ViewProps } from "../../Frameworks/View/View.types";
 
 type BackgroundMarginUnitValue = UIKitSizeValue;
 

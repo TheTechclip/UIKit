@@ -9,8 +9,8 @@ import {
   useMemo,
   useRef,
 } from "react";
-import styles from "@/packages/Components/DatePicker/DatePicker.module.scss";
-import Text from "@/packages/Components/Text/Text";
+import styles from "./DatePicker.module.scss";
+import Text from "../Text/Text";
 
 type SingleSegment = "year" | "month" | "day";
 type RangeSegment =

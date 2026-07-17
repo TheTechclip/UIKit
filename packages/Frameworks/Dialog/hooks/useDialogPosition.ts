@@ -1,7 +1,7 @@
 import { useViewportHeight } from "@musecat/functionkit";
 import { useCallback, useLayoutEffect, useState } from "react";
-import { SizePX } from "@/packages/Frameworks/_shared/sizing";
-import type { OffsetConfig } from "@/packages/Frameworks/Dialog/Dialog.types";
+import { SizePX } from "../../_shared/sizing";
+import type { OffsetConfig } from "../Dialog.types";
 
 export type PopoverPlacement =
   | "top"

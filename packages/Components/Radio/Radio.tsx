@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "@/packages/Components/Radio/Radio.module.scss";
-import type { RadioProps } from "@/packages/Components/Radio/Radio.types";
-import Text from "@/packages/Components/Text/Text";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
-import View from "@/packages/Frameworks/View/View";
+import styles from "./Radio.module.scss";
+import type { RadioProps } from "./Radio.types";
+import Text from "../Text/Text";
+import { Size } from "../../Frameworks/_shared/sizing";
+import View from "../../Frameworks/View/View";
 
 export default function Radio({
   title,

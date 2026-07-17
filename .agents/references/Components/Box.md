@@ -40,7 +40,7 @@ interface BoxFooterProps extends ThemeSystemProps, BorderProps, RadiusProps {
 ## Example Code
 
 ```tsx
-import Box from "@/packages/Components/Box/Box";
+import { Box } from "@musecat/uikit";
 
 export default function Example() {
   return (

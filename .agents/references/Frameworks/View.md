@@ -57,7 +57,7 @@ export interface ViewProps
 ## Example Code
 
 ```tsx
-import View from "@/packages/Frameworks/View/View";
+import { View } from "@musecat/uikit";
 
 function Card() {
   return (

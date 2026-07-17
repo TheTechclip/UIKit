@@ -6,19 +6,19 @@ import {
   useCallback,
   useEffect,
 } from "react";
-import type { SelectState } from "@/packages/Components/Select/hooks/useSelectState";
+import type { SelectState } from "./useSelectState";
 import {
   handleEndKey,
   handleHomeKey,
   isPrintableCharacter,
   useTypeAhead,
-} from "@/packages/Components/Select/Select.keyboard";
-import type { Option } from "@/packages/Components/Select/Select.types";
+} from "../Select.keyboard";
+import type { Option } from "../Select.types";
 import {
   findScrollableAncestor,
   lockScrollElementSafe,
   unlockScrollElementSafe,
-} from "@/packages/Components/Select/Select.utils";
+} from "../Select.utils";
 
 export function useSelectNavigation(
   state: SelectState,

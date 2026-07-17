@@ -3,23 +3,23 @@
 import { getFloatingTransformOrigin } from "@musecat/functionkit";
 import { AnimatePresence } from "motion/react";
 import { type ReactNode, useCallback, useEffect, useRef } from "react";
-import { useScrollLock } from "@/packages/Frameworks/_shared/bodyScrollLock";
-import { LAYER_Z_INDEX } from "@/packages/Frameworks/_shared/layer.constants";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
-import DialogFooter from "@/packages/Frameworks/Dialog/contents/Dialog.footer";
-import DialogHeader from "@/packages/Frameworks/Dialog/contents/Dialog.header";
-import BackgroundWrapper from "@/packages/Frameworks/Dialog/Dialog.background";
+import { useScrollLock } from "../../_shared/bodyScrollLock";
+import { LAYER_Z_INDEX } from "../../_shared/layer.constants";
+import { Size } from "../../_shared/sizing";
+import DialogFooter from "../contents/Dialog.footer";
+import DialogHeader from "../contents/Dialog.header";
+import BackgroundWrapper from "../Dialog.background";
 import type {
   DialogOutsideOptions,
   PopoverConfig,
-} from "@/packages/Frameworks/Dialog/Dialog.types";
+} from "../Dialog.types";
 import {
   DialogPortal,
   useEscapeClose,
-} from "@/packages/Frameworks/Dialog/Dialog.utils";
-import { useDialogPosition } from "@/packages/Frameworks/Dialog/hooks/useDialogPosition";
-import { motionPresets } from "@/packages/Frameworks/Motion/Motion.presets";
-import View from "@/packages/Frameworks/View/View";
+} from "../Dialog.utils";
+import { useDialogPosition } from "../hooks/useDialogPosition";
+import { motionPresets } from "../../Motion/Motion.presets";
+import View from "../../View/View";
 
 interface RenderPopoverProps {
   open: boolean;

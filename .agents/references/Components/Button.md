@@ -33,7 +33,7 @@ interface ButtonProps extends ThemeSystemProps, RadiusProps, BorderProps {
 ## Example Code
 
 ```tsx
-import Button from "@/packages/Components/Button/Button";
+import { Button } from "@musecat/uikit";
 
 export default function Example() {
   return (

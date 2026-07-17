@@ -2,13 +2,13 @@
 
 import { useTimeout } from "@musecat/functionkit";
 import { useEffect, useState } from "react";
-import { Word } from "@/i18n/shared";
-import Icon from "@/packages/Components/Icon/Icon";
-import type { IconProps } from "@/packages/Components/Icon/Icon.types";
-import type { PaginationProps } from "@/packages/Components/Pagination/Pagination.types";
-import Text from "@/packages/Components/Text/Text";
-import type { PressableProps } from "@/packages/Frameworks/Pressable/Pressable.types";
-import View from "@/packages/Frameworks/View/View";
+import { Word } from "../../../i18n/shared";
+import Icon from "../Icon/Icon";
+import type { IconProps } from "../Icon/Icon.types";
+import type { PaginationProps } from "./Pagination.types";
+import Text from "../Text/Text";
+import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
+import View from "../../Frameworks/View/View";
 
 function clampPage(page: number, total: number) {
   return Math.min(total, Math.max(1, page));

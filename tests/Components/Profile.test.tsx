@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react";
-import { beforeAll, describe, expect, it, vi } from "vitest";
-import Profile from "@/packages/Components/Profile/Profile";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi, beforeAll } from "vitest";
+import Profile from "../../packages/Components/Profile/Profile";
 
 beforeAll(() => {
   global.ResizeObserver = class {
@@ -8,9 +8,9 @@ beforeAll(() => {
     unobserve() {}
     disconnect() {}
   };
-  Object.defineProperty(window, "matchMedia", {
+  Object.defineProperty(window, 'matchMedia', {
     writable: true,
-    value: vi.fn().mockImplementation((query) => ({
+    value: vi.fn().mockImplementation(query => ({
       matches: false,
       media: query,
       onchange: null,
@@ -40,9 +40,7 @@ describe("Profile Component", () => {
   });
 
   it("renders certified badge when isCertified is true", () => {
-    const { container } = render(
-      <Profile displayName="Test User" isCertified />,
-    );
+    const { container } = render(<Profile displayName="Test User" isCertified />);
     // ProfileCertifiedBadge renders an Icon with iCheckCircle
     const icon = container.querySelector(".iCheckCircle");
     expect(icon).toBeInTheDocument();
@@ -59,16 +57,11 @@ describe("Profile Component", () => {
 
   it("renders avatar when avatarUrl is provided", () => {
     const { container } = render(
-      <Profile
-        displayName="Test User"
-        avatarUrl="https://example.com/avatar.jpg"
-      />,
+      <Profile displayName="Test User" avatarUrl="https://example.com/avatar.jpg" />
     );
     // getProfileAvatarIconProps will return an image props for Icon
     // The image should be rendered
-    const img = container.querySelector(
-      'img[src="https://example.com/avatar.jpg"]',
-    );
+    const img = container.querySelector('img[src="https://example.com/avatar.jpg"]');
     expect(img).toBeInTheDocument();
   });
 });

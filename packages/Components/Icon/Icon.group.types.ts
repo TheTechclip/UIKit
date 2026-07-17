@@ -1,10 +1,10 @@
-import type { IconProps } from "@/packages/Components/Icon/Icon.types";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
-import type { RadiusProps } from "@/packages/Frameworks/Theme/Radius.types";
+import type { IconProps } from "./Icon.types";
+import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
+import type { RadiusProps } from "../../Frameworks/Theme/Radius.types";
 import type {
   BorderProps,
   ThemeSystemProps,
-} from "@/packages/Frameworks/Theme/Theme.types";
+} from "../../Frameworks/Theme/Theme.types";
 
 export interface IconGroupProps extends BorderProps, RadiusProps {
   children?: React.ReactNode;

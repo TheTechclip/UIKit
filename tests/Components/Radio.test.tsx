@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import Radio from "@/packages/Components/Radio/Radio";
+import Radio from "../../packages/Components/Radio/Radio";
 
 describe("Radio", () => {
   it("renders an unchecked radio input by default", () => {

@@ -1,5 +1,5 @@
-import type { TextProps } from "@/packages/Components/Text/Text.types";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
+import type { TextProps } from "../Text/Text.types";
+import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
 
 export interface SkeletonProps {
   "data-color-mode"?: string;

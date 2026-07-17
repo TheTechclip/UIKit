@@ -1,5 +1,5 @@
 import type { ToasterProps } from "sonner";
-import type { IconProps } from "@/packages/Components/Icon/Icon.types";
+import type { IconProps } from "../../Components/Icon/Icon.types";
 
 export type { ToasterProps };
 

@@ -51,7 +51,7 @@ import {
   resolveThemeClasses,
   Border,
   Shadow,
-} from "@/packages/Frameworks/Theme/Theme.types";
+} from "@musecat/uikit";
 import clsx from "clsx";
 
 function CustomBox(props: ThemeSystemProps) {

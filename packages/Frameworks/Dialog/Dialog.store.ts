@@ -1,6 +1,6 @@
 "use client";
 
-import type { DialogProps } from "@/packages/Frameworks/Dialog/Dialog.types";
+import type { DialogProps } from "./Dialog.types";
 
 export interface DialogInstance extends Promise<any> {
   id: string;

@@ -36,7 +36,7 @@ _(LabelSharedProps includes `title`, `required`, `hint`, ThemeSystemProps, etc.)
 ## 4. Example Code
 
 ```tsx
-import Input from "@/packages/Components/Input/Input";
+import { Input } from "@musecat/uikit";
 
 export default function Example() {
   return (

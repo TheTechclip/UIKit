@@ -63,8 +63,8 @@ dialog.popover = (anchor: HTMLElement, props: Omit<DialogProps, "mode">) =>
 ## Example Code
 
 ```tsx
-import Dialog, { dialog } from "@/packages/Frameworks/Dialog/Dialog";
-import Pressable from "@/packages/Frameworks/Pressable";
+import { Dialog, dialog } from "@musecat/uikit";
+import { Pressable } from "@musecat/uikit";
 import { useState } from "react";
 
 function Example() {

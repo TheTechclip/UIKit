@@ -1,6 +1,6 @@
-import enUIKitMessages from "@/i18n/messages/en/uikit.json";
-import jpUIKitMessages from "@/i18n/messages/jp/uikit.json";
-import krUIKitMessages from "@/i18n/messages/kr/uikit.json";
+import enUIKitMessages from "./messages/en/uikit.json";
+import jpUIKitMessages from "./messages/jp/uikit.json";
+import krUIKitMessages from "./messages/kr/uikit.json";
 
 export type Locale = "en" | "kr" | "jp";
 

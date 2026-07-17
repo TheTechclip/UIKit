@@ -1,6 +1,7 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
-import Layout from "@/packages/Components/Layout/Layout";
+import { describe, it, expect } from "vitest";
+import Layout from "../../packages/Components/Layout/Layout";
 
 global.ResizeObserver = class ResizeObserver {
   observe() {}
@@ -31,7 +32,9 @@ describe("Layout Component", () => {
 
   it("renders Layout.Section with title", () => {
     render(
-      <Layout.Section title="Section Title">Section Content</Layout.Section>,
+      <Layout.Section title="Section Title">
+        Section Content
+      </Layout.Section>
     );
     expect(screen.getByText("Section Title")).toBeInTheDocument();
     expect(screen.getByText("Section Content")).toBeInTheDocument();
@@ -43,7 +46,7 @@ describe("Layout Component", () => {
         <Layout.Section group="Group1" title="Group Title">
           Grid Item
         </Layout.Section>
-      </Layout.Grid>,
+      </Layout.Grid>
     );
     expect(screen.getByText("Group Title")).toBeInTheDocument();
     expect(screen.getByText("Grid Item")).toBeInTheDocument();

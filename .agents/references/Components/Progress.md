@@ -14,7 +14,7 @@ A linear progress bar component that visualizes task progress as a percentage. I
 
 ```tsx
 // Progress.types.ts
-import { RadiusProps } from "@/packages/Frameworks/Theme/Radius.types";
+import { RadiusProps } from "@musecat/uikit";
 import type {
   ThemeBackgroundPaint,
   ThemePaint,
@@ -38,7 +38,7 @@ export interface ProgressProps extends RadiusProps {
 ## Example Code
 
 ```tsx
-import Progress from "@/packages/Components/Progress/Progress";
+import { Progress } from "@musecat/uikit";
 
 export function FileUploadStatus({
   progressPercentage,

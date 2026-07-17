@@ -8,17 +8,17 @@ import {
   useRef,
   useState,
 } from "react";
-import { Word } from "@/i18n/shared";
+import { Word } from "../../../../i18n/shared";
 import type {
   Option,
   SelectProps,
-} from "@/packages/Components/Select/Select.types";
+} from "../Select.types";
 import {
   filterOptionsByQuery,
   findScrollableAncestor,
   getStringValues,
   isOptGroup,
-} from "@/packages/Components/Select/Select.utils";
+} from "../Select.utils";
 
 export function useSelectState(props: SelectProps<boolean>) {
   const t = Word();

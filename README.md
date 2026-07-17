@@ -50,6 +50,8 @@ This package includes `.agents/references/` directory with detailed documentatio
 - [es-hangul](https://es-hangul.toss.im/)
 - [MapLibre GL JS](https://maplibre.org/)
 
+Built with [tsup](https://tsup.egoist.dev/) and [TypeScript](https://www.typescriptlang.org/).
+
 ## License
 
 [MIT License](./LICENSE) © Musecat Team.

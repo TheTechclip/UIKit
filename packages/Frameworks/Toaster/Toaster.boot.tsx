@@ -2,10 +2,10 @@
 
 import clsx from "clsx";
 import { Toaster, toast } from "sonner";
-import Icon from "@/packages/Components/Icon/Icon";
-import type { IconProps } from "@/packages/Components/Icon/Icon.types";
-import styles from "@/packages/Frameworks/Toaster/Toaster.module.scss";
-import type { ToasterBootstrapProps } from "@/packages/Frameworks/Toaster/Toaster.types";
+import Icon from "../../Components/Icon/Icon";
+import type { IconProps } from "../../Components/Icon/Icon.types";
+import styles from "./Toaster.module.scss";
+import type { ToasterBootstrapProps } from "./Toaster.types";
 
 export type { ToasterBootstrapProps };
 export { toast };

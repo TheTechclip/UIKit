@@ -1,7 +1,7 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
-import Timeline from "@/packages/Components/Timeline/Timeline";
-import type { TimelineItemProps } from "@/packages/Components/Timeline/Timeline.types";
+import { describe, it, expect, vi } from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
+import Timeline from "../../packages/Components/Timeline/Timeline";
+import type { TimelineItemProps } from "../../packages/Components/Timeline/Timeline.types";
 
 describe("Timeline Component", () => {
   const defaultItems: TimelineItemProps[] = [
@@ -27,8 +27,7 @@ describe("Timeline Component", () => {
       },
     ];
     render(<Timeline items={items} />);
-    const item = screen.getByText("Clickable Step")
-      .parentElement as HTMLElement;
+    const item = screen.getByText("Clickable Step").parentElement as HTMLElement;
     fireEvent.click(item);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
@@ -70,14 +69,12 @@ describe("Timeline Component", () => {
       },
     ];
     const { container } = render(
-      <Timeline items={items} nodePreset="UIPrimary" />,
+      <Timeline items={items} nodePreset="UIPrimary" />
     );
 
-    const step1 = screen.getByText("Item 1").parentElement
-      ?.parentElement as HTMLElement;
-    const step2 = screen.getByText("Item 2").parentElement
-      ?.parentElement as HTMLElement;
-
+    const step1 = screen.getByText("Item 1").parentElement?.parentElement as HTMLElement;
+    const step2 = screen.getByText("Item 2").parentElement?.parentElement as HTMLElement;
+    
     // The node is the first child of the item container, which is a View
     // View resolves themePreset into className, usually containing specific ThemeBg classes
     expect(step1.innerHTML).not.toEqual(step2.innerHTML);

@@ -1,16 +1,16 @@
 "use client";
 
-import Divider from "@/packages/Components/Divider/Divider";
-import Icon from "@/packages/Components/Icon/Icon";
-import { getProfileAvatarIconProps } from "@/packages/Components/Profile/Profile.shared";
+import Divider from "../Divider/Divider";
+import Icon from "../Icon/Icon";
+import { getProfileAvatarIconProps } from "./Profile.shared";
 import type {
   ProfileProps,
   ProfileRole,
   ProfileSizeOptions,
-} from "@/packages/Components/Profile/Profile.types";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
+} from "./Profile.types";
+import Text from "../Text/Text";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 
 type ResolvedProfileSize = Required<
   Pick<ProfileSizeOptions, "avatar" | "textType" | "badge" | "gap">

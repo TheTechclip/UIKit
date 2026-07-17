@@ -1,5 +1,5 @@
-import type { DividerProps } from "@/packages/Components/Divider/Divider.types";
-import { Size } from "@/packages/Frameworks/_shared/sizing";
+import type { DividerProps } from "./Divider.types";
+import { Size } from "../../Frameworks/_shared/sizing";
 
 export default function Divider({
   vertical = false,

@@ -22,7 +22,7 @@ interface CodeBoxProps extends ThemeSystemProps, RadiusProps, BorderProps {
 ## Example Code
 
 ```tsx
-import CodeBox from "@/packages/Components/CodeBox/CodeBox";
+import { CodeBox } from "@musecat/uikit";
 
 export default function Example() {
   const sampleCode = `const hello = 'world';\nconsole.log(hello);`;

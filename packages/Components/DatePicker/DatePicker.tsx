@@ -7,28 +7,28 @@ import {
   useRef,
   useState,
 } from "react";
-import { normalizeLocale } from "@/i18n/shared";
-import { Calendar } from "@/packages/Components/DatePicker/DatePicker.calendar";
+import { normalizeLocale } from "../../../i18n/shared";
+import { Calendar } from "./DatePicker.calendar";
 import DatePickerCore, {
   type DatePickerCoreRef,
-} from "@/packages/Components/DatePicker/DatePicker.core";
-import styles from "@/packages/Components/DatePicker/DatePicker.module.scss";
-import type { DatePickerProps } from "@/packages/Components/DatePicker/DatePicker.types";
+} from "./DatePicker.core";
+import styles from "./DatePicker.module.scss";
+import type { DatePickerProps } from "./DatePicker.types";
 import {
   isBefore,
   parseDate,
   toYMD,
-} from "@/packages/Components/DatePicker/DatePicker.utils";
-import { useCalendar } from "@/packages/Components/DatePicker/hooks/useCalendar";
-import { useSelection } from "@/packages/Components/DatePicker/hooks/useSelection";
-import Icon from "@/packages/Components/Icon/Icon";
-import Label from "@/packages/Components/Label/Label";
-import Text from "@/packages/Components/Text/Text";
+} from "./DatePicker.utils";
+import { useCalendar } from "./hooks/useCalendar";
+import { useSelection } from "./hooks/useSelection";
+import Icon from "../Icon/Icon";
+import Label from "../Label/Label";
+import Text from "../Text/Text";
 import TimePickerCore, {
   type TimePickerCoreRef,
-} from "@/packages/Components/TimePicker/TimePicker.core";
-import Dialog from "@/packages/Frameworks/Dialog/Dialog";
-import View from "@/packages/Frameworks/View/View";
+} from "../TimePicker/TimePicker.core";
+import Dialog from "../../Frameworks/Dialog/Dialog";
+import View from "../../Frameworks/View/View";
 
 function isValidDate(y: number, m: number, d: number): boolean {
   if (y < 1000 || y > 9999) return false;

@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import EdgeEffect from "@/packages/Frameworks/EdgeEffect/EdgeEffect";
+import EdgeEffect from "../../packages/Frameworks/EdgeEffect/EdgeEffect";
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
   default: ({ children, style, ...rest }: any) => (
     <div data-testid="view" style={style} {...rest}>
       {children}

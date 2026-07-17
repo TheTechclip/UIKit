@@ -63,8 +63,8 @@ export interface DocsLayoutProps {
 ## Example Code
 
 ```tsx
-import Layout from "@/packages/Components/Layout/Layout";
-import DocsLayout from "@/packages/Components/Layout/Layout.docs";
+import { Layout } from "@musecat/uikit";
+import { DocsLayout } from "@musecat/uikit";
 
 // Basic layout and section split
 export function MyPage() {

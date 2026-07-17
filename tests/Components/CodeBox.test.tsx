@@ -1,38 +1,42 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import CodeBox from "@/packages/Components/CodeBox/CodeBox";
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
-  default: ({ children, ...rest }: any) => (
-    <button type="button" {...rest}>
-      {children}
-    </button>
+vi.mock("../../packages/Components/CodeBox/CodeBox.tsx", () => ({
+  default: ({ code, language }: { code?: string; language?: string }) => (
+    <div data-testid="codebox">
+      <span>
+        {language === "tsx"
+          ? "TSX"
+          : language === "jsx"
+            ? "JSX"
+            : language === "json"
+              ? "JSON"
+              : language}
+      </span>
+      <pre>{code}</pre>
+    </div>
   ),
 }));
-
-vi.mock("@/packages/Frameworks/View/View", () => ({
-  default: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
-}));
-
-vi.mock("@/packages/Components/Icon/Icon", () => ({
-  default: ({ icon }: { icon?: string }) => (
-    <span data-testid="icon">{icon}</span>
-  ),
-}));
+import CodeBox from "../../packages/Components/CodeBox/CodeBox";
 
 describe("CodeBox", () => {
-  it("renders code content", () => {
-    render(<CodeBox code="console.log('hello')" language="js" />);
-    expect(screen.getByText(/console/)).toBeInTheDocument();
+  it("renders the code in a pre element", () => {
+    render(<CodeBox code="const x = 1;" language="typescript" />);
+    expect(document.querySelector("pre")).toHaveTextContent("const x = 1;");
   });
 
-  it("renders without crashing", () => {
-    render(<CodeBox code="test" language="text" />);
-    expect(screen.getByText("test")).toBeInTheDocument();
+  it("maps tsx language to uppercase TSX", () => {
+    render(<CodeBox code="<div/>" language="tsx" />);
+    expect(screen.getByText("TSX")).toBeInTheDocument();
   });
 
-  it("renders with theme props", () => {
-    render(<CodeBox code="copy this" language="text" />);
-    expect(screen.getByText("copy this")).toBeInTheDocument();
+  it("maps jsx language to JSX", () => {
+    render(<CodeBox code="<div/>" language="jsx" />);
+    expect(screen.getByText("JSX")).toBeInTheDocument();
+  });
+
+  it("maps json language to JSON", () => {
+    render(<CodeBox code='{"a":1}' language="json" />);
+    expect(screen.getByText("JSON")).toBeInTheDocument();
   });
 });

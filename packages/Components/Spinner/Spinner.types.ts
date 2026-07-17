@@ -1,6 +1,6 @@
 import type { AriaRole, CSSProperties, SVGAttributes } from "react";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
-import type { ThemePaint } from "@/packages/Frameworks/Theme/Theme.types";
+import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
+import type { ThemePaint } from "../../Frameworks/Theme/Theme.types";
 
 export interface SpinnerProps {
   "data-color-mode"?: string;

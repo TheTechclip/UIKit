@@ -3,26 +3,26 @@
 import clsx from "clsx";
 import { animate, useMotionValue } from "motion/react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useInBoxContent } from "@/packages/Components/Box/Box";
-import styles from "@/packages/Components/Card/Card.module.scss";
-import type { CardFoldableProps } from "@/packages/Components/Card/Card.types";
-import { resolveState } from "@/packages/Components/Card/Card.types";
+import { useInBoxContent } from "../Box/Box";
+import styles from "./Card.module.scss";
+import type { CardFoldableProps } from "./Card.types";
+import { resolveState } from "./Card.types";
 import {
   buildRenderKeys,
   normalizeCardIcon,
-} from "@/packages/Components/Card/Card.utils";
-import Icon from "@/packages/Components/Icon/Icon";
-import Pill from "@/packages/Components/Pill/Pill";
-import Text from "@/packages/Components/Text/Text";
-import StopParentInteraction from "@/packages/Frameworks/_shared/StopParentInteraction";
+} from "./Card.utils";
+import Icon from "../Icon/Icon";
+import Pill from "../Pill/Pill";
+import Text from "../Text/Text";
+import StopParentInteraction from "../../Frameworks/_shared/StopParentInteraction";
 import {
   getComputedPixelValue,
   SizePX,
   type UIKitSizeValue,
-} from "@/packages/Frameworks/_shared/sizing";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import type { RadiusValue } from "@/packages/Frameworks/Theme/Radius.types";
-import View from "@/packages/Frameworks/View/View";
+} from "../../Frameworks/_shared/sizing";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import type { RadiusValue } from "../../Frameworks/Theme/Radius.types";
+import View from "../../Frameworks/View/View";
 
 function useFoldProgress(
   activated: boolean,
