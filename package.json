@@ -1,6 +1,6 @@
 {
   "name": "@musecat/uikit",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "private": false,
   "type": "module",
   "description": "High-performance Next.js React UI component library with Squircle shapes, theme tokens, and gesture-driven overlays",
