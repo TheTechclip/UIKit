@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getProfileAvatarIconProps } from "@/packages/Components/Profile/Profile.shared";
+import { getProfileAvatarIconProps } from "../../packages/Components/Profile/Profile.shared";
 
 describe("getProfileAvatarIconProps", () => {
   it("returns icon props for avatar", () => {

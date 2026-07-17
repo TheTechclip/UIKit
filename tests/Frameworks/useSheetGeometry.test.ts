@@ -4,7 +4,7 @@ import {
   resolveInitialSnapIndex,
   toPx,
   useSheetGeometry,
-} from "@/packages/Frameworks/Dialog/hooks/useSheetGeometry";
+} from "../../packages/Frameworks/Dialog/hooks/useSheetGeometry";
 
 describe("toPx", () => {
   it("converts undefined to fallback", () => {

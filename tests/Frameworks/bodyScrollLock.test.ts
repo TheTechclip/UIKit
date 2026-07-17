@@ -1,6 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { useScrollLock } from "@/packages/Frameworks/_shared/bodyScrollLock";
+import { useScrollLock } from "../../packages/Frameworks/_shared/bodyScrollLock";
 
 describe("useScrollLock", () => {
   it("locks body when locked is true", () => {

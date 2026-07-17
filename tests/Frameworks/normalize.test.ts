@@ -3,7 +3,7 @@ import {
   normalizeBrandIconClass,
   normalizeLang,
   normalizeUIKitImageSrc,
-} from "@/packages/Frameworks/_shared/normalize";
+} from "../../packages/Frameworks/_shared/normalize";
 
 describe("normalizeUIKitImageSrc", () => {
   it("returns empty for undefined/empty", () => {

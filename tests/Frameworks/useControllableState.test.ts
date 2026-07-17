@@ -1,6 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { useControllableState } from "@/packages/Frameworks/_shared/useControllableState";
+import { useControllableState } from "../../packages/Frameworks/_shared/useControllableState";
 
 describe("useControllableState", () => {
   it("uses controlled value when provided", () => {

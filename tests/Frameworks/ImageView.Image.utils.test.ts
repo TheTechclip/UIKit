@@ -4,7 +4,7 @@ import {
   resolveBlurDataURL,
   resolveImageSrc,
   resolveItems,
-} from "@/packages/Frameworks/View/ImageView/Image.utils";
+} from "../../packages/Frameworks/View/ImageView/Image.utils";
 
 describe("resolveItems", () => {
   it("converts string src to item", () => {

@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import type React from "react";
 import { describe, expect, it, vi } from "vitest";
-import { useNavDrag } from "@/packages/Components/Nav/hooks/useNavDrag";
+import { useNavDrag } from "../../packages/Components/Nav/hooks/useNavDrag";
 
 describe("useNavDrag", () => {
   const itemRefs = { current: [] } as React.MutableRefObject<

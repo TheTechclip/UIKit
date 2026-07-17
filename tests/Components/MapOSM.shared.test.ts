@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   resolveSafeMapStyle,
   sanitizeStyleFilterExpression,
-} from "@/packages/Components/Maps/OSM/MapOSM.shared";
+} from "../../packages/Components/Maps/OSM/MapOSM.shared";
 
 describe("sanitizeStyleFilterExpression", () => {
   it("returns undefined for undefined input", () => {

@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { useSheetProgressive } from "@/packages/Frameworks/Dialog/hooks/useSheetProgressive";
+import { useSheetProgressive } from "../../packages/Frameworks/Dialog/hooks/useSheetProgressive";
 
 describe("useSheetProgressive", () => {
   it("returns default state", () => {

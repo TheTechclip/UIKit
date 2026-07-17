@@ -3,7 +3,7 @@ import {
   getComputedPixelValue,
   Size,
   SizePX,
-} from "@/packages/Frameworks/_shared/sizing";
+} from "../../packages/Frameworks/_shared/sizing";
 
 describe("Size", () => {
   it("returns undefined for null/undefined/empty", () => {

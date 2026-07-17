@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import ImageView from "@/packages/Frameworks/View/ImageView/Image";
-import { resolveOverlay } from "@/packages/Frameworks/View/ImageView/Image.utils";
+import ImageView from "../../packages/Frameworks/View/ImageView/Image";
+import { resolveOverlay } from "../../packages/Frameworks/View/ImageView/Image.utils";
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View", () => ({
   default: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
 }));
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable", () => ({
   default: ({ children, ...rest }: any) => (
     <button type="button" {...rest}>
       {children}
@@ -15,7 +15,7 @@ vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
   ),
 }));
 
-vi.mock("@/packages/Frameworks/View/HScrollView/HScrollView", () => ({
+vi.mock("../../packages/Frameworks/View/HScrollView/HScrollView", () => ({
   default: ({ children }: any) => <div data-testid="hscroll">{children}</div>,
 }));
 

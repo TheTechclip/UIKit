@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import DialogFunnel from "@/packages/Frameworks/Dialog/contents/Dialog.funnel";
+import DialogFunnel from "../../packages/Frameworks/Dialog/contents/Dialog.funnel";
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View", () => ({
   default: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
 }));
 

@@ -1,12 +1,14 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { createRef } from "react";
 import { describe, expect, it, vi } from "vitest";
-import TimePickerCore from "@/packages/Components/TimePicker/TimePicker.core";
+import TimePickerCore, {
+  TimePickerCoreRef,
+} from "../../packages/Components/TimePicker/TimePicker.core";
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable", () => ({
   default: ({ children, ...rest }: any) => <button type="button" {...rest}>{children}</button>,
 }));
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View", () => ({
   default: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
 }));
 
@@ -109,8 +111,8 @@ describe("TimePickerCore", () => {
   });
 
   it("focuses the last visible numeric field without AM/PM", () => {
-    const secondsRef = createRef<{ focusLast: () => void }>();
-    const minutesRef = createRef<{ focusLast: () => void }>();
+    const secondsRef = createRef<TimePickerCoreRef>();
+    const minutesRef = createRef<TimePickerCoreRef>();
     const { unmount } = render(<TimePickerCore ref={secondsRef} {...props} showSeconds />);
     secondsRef.current?.focusLast();
     expect(screen.getAllByRole("textbox")[2]).toHaveFocus();

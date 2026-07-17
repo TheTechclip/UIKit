@@ -3,9 +3,9 @@ import { describe, expect, it } from "vitest";
 import {
   ImageLeftControl,
   ImageRightControl,
-} from "@/packages/Frameworks/View/ImageView/Image.controls";
+} from "../../packages/Frameworks/View/ImageView/Image.controls";
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable", () => ({
   default: ({ children, onClick, ...rest }: any) => (
     <button type="button" onClick={onClick} {...rest}>
       {children}

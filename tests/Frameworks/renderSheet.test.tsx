@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 describe("renderSheet utilities", () => {
   it("can import renderSheet module", async () => {
     const mod = await import(
-      "@/packages/Frameworks/Dialog/renderers/renderSheet"
+      "../../packages/Frameworks/Dialog/renderers/renderSheet"
     );
     expect(mod.default).toBeDefined();
   });

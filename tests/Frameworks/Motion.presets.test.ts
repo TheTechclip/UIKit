@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   motionPresets,
   motionTransitions,
-} from "@/packages/Frameworks/Motion/Motion.presets";
+} from "../../packages/Frameworks/Motion/Motion.presets";
 
 describe("motionTransitions", () => {
   it("has sheet transitions defined", () => {

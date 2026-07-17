@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { resolveState } from "@/packages/Components/Card/Card.types";
+import { resolveState } from "../../packages/Components/Card/Card.types";
 
 describe("resolveState", () => {
   it("returns value directly when not Stateful", () => {

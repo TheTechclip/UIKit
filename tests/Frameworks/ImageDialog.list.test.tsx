@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { DialogImageList } from "@/packages/Frameworks/View/ImageView/Dialog/ImageDialog.list";
+import { DialogImageList } from "../../packages/Frameworks/View/ImageView/Dialog/ImageDialog.list";
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View", () => ({
   default: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
 }));
 

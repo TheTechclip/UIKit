@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
-import StopParentInteraction from "@/packages/Frameworks/_shared/StopParentInteraction";
+import StopParentInteraction from "../../packages/Frameworks/_shared/StopParentInteraction";
 
 describe("StopParentInteraction", () => {
   it("renders children", () => {

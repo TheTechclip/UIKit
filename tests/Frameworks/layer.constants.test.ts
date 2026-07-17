@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { LAYER_Z_INDEX } from "@/packages/Frameworks/_shared/layer.constants";
+import { LAYER_Z_INDEX } from "../../packages/Frameworks/_shared/layer.constants";
 
 describe("LAYER_Z_INDEX", () => {
   it("has expected z-index values", () => {

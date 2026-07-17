@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import MapOSM from "@/packages/Components/Maps/OSM/MapOSM";
+import MapOSM from "../../packages/Components/Maps/OSM/MapOSM";
 
 vi.mock("maplibre-gl", () => ({
   default: class {
@@ -13,7 +13,7 @@ vi.mock("maplibre-gl", () => ({
   },
 }));
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View", () => ({
   default: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
 }));
 

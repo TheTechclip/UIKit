@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import IconGroup from "@/packages/Components/Icon/Icon.group";
+import IconGroup from "../../packages/Components/Icon/Icon.group";
 
-vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+vi.mock("../../packages/Frameworks/Pressable/Pressable", () => ({
   default: ({ children, ...rest }: any) => (
     <button type="button" {...rest}>
       {children}
@@ -10,11 +10,11 @@ vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
   ),
 }));
 
-vi.mock("@/packages/Frameworks/View/View", () => ({
+vi.mock("../../packages/Frameworks/View/View", () => ({
   default: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
 }));
 
-vi.mock("@/packages/Components/Icon/Icon", () => ({
+vi.mock("../../packages/Components/Icon/Icon", () => ({
   default: ({ icon }: { icon?: string }) => (
     <span data-testid="mock-icon">{icon}</span>
   ),

@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { useSheetDrag } from "@/packages/Frameworks/Dialog/hooks/useSheetDrag";
+import { useSheetDrag } from "../../packages/Frameworks/Dialog/hooks/useSheetDrag";
 
 describe("useSheetDrag", () => {
   const base = {
