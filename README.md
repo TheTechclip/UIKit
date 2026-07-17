@@ -5,7 +5,29 @@ A Next.js 16 + React 19 + TypeScript UI Design component library.
 ## Installation
 
 ```bash
-npm install @musecat/uikit
+npm install @musecat/uikit @musecat/functionkit
+```
+
+This package ships **raw TypeScript + SCSS source** (no prebuilt bundle), so your app must transpile it.
+
+### Next.js setup
+
+Add the packages to `transpilePackages` in `next.config.ts`:
+
+```ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  transpilePackages: ["@musecat/uikit", "@musecat/functionkit"],
+};
+
+export default nextConfig;
+```
+
+Install the Sass compiler so the bundled `*.module.scss` styles are compiled:
+
+```bash
+npm install -D sass
 ```
 
 ## Usage
@@ -50,7 +72,7 @@ This package includes `.agents/references/` directory with detailed documentatio
 - [es-hangul](https://es-hangul.toss.im/)
 - [MapLibre GL JS](https://maplibre.org/)
 
-Built with [tsup](https://tsup.egoist.dev/) and [TypeScript](https://www.typescriptlang.org/).
+Published as raw TypeScript + SCSS source and built with [TypeScript](https://www.typescriptlang.org/).
 
 ## License
 
