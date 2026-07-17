@@ -1,8 +1,6 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import Nav from "@/packages/Components/Nav/Nav";
-import { useRouter } from "next/navigation";
 
 global.ResizeObserver = class ResizeObserver {
   observe() {}
@@ -22,7 +20,7 @@ describe("Nav Component", () => {
           { title: "Home", value: "home" },
           { title: "Profile", value: "profile" },
         ]}
-      />
+      />,
     );
     expect(screen.getByText("Home")).toBeInTheDocument();
     expect(screen.getByText("Profile")).toBeInTheDocument();
@@ -38,11 +36,10 @@ describe("Nav Component", () => {
           { title: "Profile", value: "profile" },
         ]}
         onChange={onChange}
-      />
+      />,
     );
 
     fireEvent.click(screen.getByText("Profile"));
     expect(onChange).toHaveBeenCalledWith("profile");
   });
-
 });

@@ -37,8 +37,6 @@ describe("Skeleton", () => {
 
   it("sets data-color-mode when provided", () => {
     const { container } = render(<Skeleton data-color-mode="dark" />);
-    expect(
-      container.querySelector('[data-color-mode="dark"]'),
-    ).toBeTruthy();
+    expect(container.querySelector('[data-color-mode="dark"]')).toBeTruthy();
   });
 });

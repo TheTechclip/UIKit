@@ -1,9 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import Icon from "@/packages/Components/Icon/Icon";
-import Spinner from "@/packages/Components/Spinner/Spinner";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
 
 vi.mock("@/packages/Components/Spinner/Spinner", () => ({
   default: () => <span data-testid="spinner" />,

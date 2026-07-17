@@ -5,7 +5,9 @@ import Spinner from "@/packages/Components/Spinner/Spinner";
 describe("Spinner", () => {
   it("renders a wheel spinner (progressbar) by default", () => {
     render(<Spinner />);
-    expect(screen.getByRole("progressbar", { hidden: true })).toBeInTheDocument();
+    expect(
+      screen.getByRole("progressbar", { hidden: true }),
+    ).toBeInTheDocument();
   });
 
   it("renders an svg for the material type", () => {
@@ -43,7 +45,11 @@ describe("Spinner", () => {
 
   it("applies a custom size", () => {
     const { container } = render(<Spinner size={32} />);
-    expect((container.firstChild as HTMLElement).style.getPropertyValue("--spinner-size")).toBeTruthy();
+    expect(
+      (container.firstChild as HTMLElement).style.getPropertyValue(
+        "--spinner-size",
+      ),
+    ).toBeTruthy();
   });
 
   it("forwards a className", () => {

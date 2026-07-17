@@ -1,6 +1,11 @@
 import { describe, expect, test } from "vitest";
 import { Radius } from "../../packages/Frameworks/Theme/Radius.types";
-import { resolveThemeClasses, Shadow, BackgroundBlur, Border } from "../../packages/Frameworks/Theme/Theme.types";
+import {
+  BackgroundBlur,
+  Border,
+  resolveThemeClasses,
+  Shadow,
+} from "../../packages/Frameworks/Theme/Theme.types";
 
 describe("Theme utilities", () => {
   test("Radius resolves correctly", () => {

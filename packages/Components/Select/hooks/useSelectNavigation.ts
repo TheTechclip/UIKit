@@ -322,10 +322,7 @@ export function useSelectNavigation(
   );
 
   const handleControlKeyDown = useCallback(
-    (
-      e: KeyboardEvent<HTMLInputElement | HTMLButtonElement>,
-      allowSpaceSelection: boolean,
-    ) => {
+    (e: KeyboardEvent<Element>, allowSpaceSelection: boolean) => {
       if (e.key === "Tab") {
         setOpen(false);
         return;
@@ -436,7 +433,7 @@ export function useSelectNavigation(
   const handleTriggerClick = useCallback(() => {
     if (Date.now() < suppressClickUntilRef.current) return;
     toggleOpenFromTrigger();
-  }, [toggleOpenFromTrigger]);
+  }, [toggleOpenFromTrigger, suppressClickUntilRef.current]);
   const handleTriggerPointerUp = useCallback(
     (e: ReactPointerEvent<HTMLButtonElement>) => {
       if (e.pointerType !== "touch") return;
@@ -444,7 +441,7 @@ export function useSelectNavigation(
       suppressClickUntilRef.current = Date.now() + 400;
       toggleOpenFromTrigger();
     },
-    [toggleOpenFromTrigger],
+    [toggleOpenFromTrigger, suppressClickUntilRef],
   );
 
   return {

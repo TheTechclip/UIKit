@@ -28,8 +28,10 @@ import {
   useEscapeClose,
 } from "@/packages/Frameworks/Dialog/Dialog.utils";
 import { useSheetDrag } from "@/packages/Frameworks/Dialog/hooks/useSheetDrag";
-import { resolveInitialSnapIndex } from "@/packages/Frameworks/Dialog/hooks/useSheetGeometry";
-import { useSheetGeometry } from "@/packages/Frameworks/Dialog/hooks/useSheetGeometry";
+import {
+  resolveInitialSnapIndex,
+  useSheetGeometry,
+} from "@/packages/Frameworks/Dialog/hooks/useSheetGeometry";
 import { useSheetProgressive } from "@/packages/Frameworks/Dialog/hooks/useSheetProgressive";
 import { motionTransitions } from "@/packages/Frameworks/Motion/Motion.presets";
 import Pressable from "@/packages/Frameworks/Pressable/Pressable";
@@ -567,5 +569,3 @@ export default function RenderSheet({
   if (!mounted) return null;
   return <DialogPortal>{sheetNode}</DialogPortal>;
 }
-
-

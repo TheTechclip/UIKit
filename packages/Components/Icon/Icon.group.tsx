@@ -1,6 +1,6 @@
 import { Children } from "react";
-import type { IconGroupProps } from "@/packages/Components/Icon/Icon.group.types";
 import Icon from "@/packages/Components/Icon/Icon";
+import type { IconGroupProps } from "@/packages/Components/Icon/Icon.group.types";
 import type { IconProps } from "@/packages/Components/Icon/Icon.types";
 import {
   Size,

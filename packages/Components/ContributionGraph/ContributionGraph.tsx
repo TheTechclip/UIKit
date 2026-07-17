@@ -6,7 +6,6 @@ import {
   getUtcWeekdayIndex,
   parseUtcDateInput,
 } from "@musecat/functionkit";
-import clsx from "clsx";
 import {
   type PointerEvent as ReactPointerEvent,
   useMemo,
@@ -95,7 +94,13 @@ function GraphCell({
       className={styles.Cell}
       data-level={level}
       data-in-range={inRange ? "true" : "false"}
-      title={buildCellTitle({ date, total_count, changelog_count, flag_count, legacy_ticket_count })}
+      title={buildCellTitle({
+        date,
+        total_count,
+        changelog_count,
+        flag_count,
+        legacy_ticket_count,
+      })}
       style={{
         gridColumn: `${weekIndex + 1}`,
         gridRow: `${dayIndex + 1}`,
@@ -387,7 +392,11 @@ export default function ContributionGraph({
               style={{ position: "relative", marginLeft: "3.6rem" }}
             >
               {graphData.months.map((m) => (
-                <MonthLabel key={`${m.title}-${m.colIndex}`} title={m.title} colIndex={m.colIndex} />
+                <MonthLabel
+                  key={`${m.title}-${m.colIndex}`}
+                  title={m.title}
+                  colIndex={m.colIndex}
+                />
               ))}
             </View>
 

@@ -1,37 +1,34 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import Select from "@/packages/Components/Select/Select";
-import ContextMenu from "@/packages/Components/ContextMenu/ContextMenu";
-import Label from "@/packages/Components/Label/Label";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
 
 vi.mock("@/packages/Components/ContextMenu/ContextMenu", () => ({
   default: ({ open, contents, listId }: any) =>
     open ? (
-      <ul role="listbox" id={listId}>
+      <div role="listbox" id={listId}>
         {contents.length === 0 ? (
-          <li role="presentation">No results</li>
+          <div role="presentation">No results</div>
         ) : (
           contents.map((item: any, index: number) => (
-            <li
-              key={`${item.value}-${index}`}
+            <div
               role="option"
+              tabIndex={-1}
+              // biome-ignore lint/suspicious/noArrayIndexKey: test mock
+              key={`${item.value}-${index}`}
               id={`${listId}-${index}`}
               data-selected={item.selected ? "true" : undefined}
               data-disabled={item.disabled ? "true" : undefined}
               onClick={item.onClick}
+              onKeyDown={() => {}}
             >
               {item.label}
               {item.description ? (
                 <span data-testid="option-desc">{item.description}</span>
               ) : null}
-            </li>
+            </div>
           ))
         )}
-      </ul>
+      </div>
     ) : null,
 }));
 
@@ -58,7 +55,13 @@ vi.mock("@/packages/Components/Text/Text", () => ({
 
 vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
   default: ({ children, onClick, role, ...rest }: any) => (
-    <button type="button" data-testid="pressable" role={role} onClick={onClick} {...rest}>
+    <button
+      type="button"
+      data-testid="pressable"
+      role={role}
+      onClick={onClick}
+      {...rest}
+    >
       {children}
     </button>
   ),
@@ -122,7 +125,9 @@ describe("Select", () => {
     const listbox = screen.getByRole("listbox");
     expect(listbox).toBeInTheDocument();
     expect(screen.getByRole("option", { name: "Gamma" })).toBeInTheDocument();
-    expect(screen.queryByRole("option", { name: "Alpha" })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("option", { name: "Alpha" }),
+    ).not.toBeInTheDocument();
   });
 
   it("does not open when disabled", () => {
@@ -149,7 +154,14 @@ describe("Select", () => {
 
   it("supports multiple selection", () => {
     const onChange = vi.fn();
-    render(<Select multiple options={options} onChange={onChange} placeholder="Pick" />);
+    render(
+      <Select
+        multiple
+        options={options}
+        onChange={onChange}
+        placeholder="Pick"
+      />,
+    );
     fireEvent.click(screen.getByRole("combobox"));
     fireEvent.click(screen.getByRole("option", { name: "Alpha" }));
     fireEvent.click(screen.getByRole("option", { name: "Beta" }));

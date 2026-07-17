@@ -1,8 +1,8 @@
 import { expectTypeOf, test } from "vitest";
 import type {
-  BoxProps,
   BoxContentProps,
   BoxFooterProps,
+  BoxProps,
 } from "../../packages/Components/Box/Box.types";
 
 test("Box types correctness", () => {

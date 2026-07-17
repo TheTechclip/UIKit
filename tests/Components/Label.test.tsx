@@ -1,10 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import Label from "@/packages/Components/Label/Label";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
 
 vi.mock("@/packages/Components/Icon/Icon", () => ({
   default: ({ icon, color }: { icon?: string; color?: string }) => (
@@ -13,7 +9,13 @@ vi.mock("@/packages/Components/Icon/Icon", () => ({
 }));
 
 vi.mock("@/packages/Components/Text/Text", () => ({
-  default: ({ children, color }: { children?: React.ReactNode; color?: string }) => (
+  default: ({
+    children,
+    color,
+  }: {
+    children?: React.ReactNode;
+    color?: string;
+  }) => (
     <span data-testid="text" data-color={color}>
       {children}
     </span>
@@ -21,7 +23,13 @@ vi.mock("@/packages/Components/Text/Text", () => ({
 }));
 
 vi.mock("@/packages/Frameworks/View/View", () => ({
-  default: ({ children, ...rest }: { children?: React.ReactNode; [k: string]: unknown }) => (
+  default: ({
+    children,
+    ...rest
+  }: {
+    children?: React.ReactNode;
+    [k: string]: unknown;
+  }) => (
     <div data-testid="view" {...rest}>
       {children}
     </div>
@@ -67,7 +75,10 @@ describe("Label", () => {
   it("renders an error hint with an error icon", () => {
     render(<Label hint={{ type: "error", text: "Invalid value" }} />);
     expect(screen.getByText("Invalid value")).toBeInTheDocument();
-    expect(screen.getByTestId("icon")).toHaveAttribute("data-icon", "iCloseCircle");
+    expect(screen.getByTestId("icon")).toHaveAttribute(
+      "data-icon",
+      "iCloseCircle",
+    );
   });
 
   it("renders a warning hint with a warning icon", () => {
@@ -80,7 +91,10 @@ describe("Label", () => {
 
   it("renders an info hint with an info icon", () => {
     render(<Label hint={{ type: "info", text: "Details" }} />);
-    expect(screen.getByTestId("icon")).toHaveAttribute("data-icon", "iInfoCircle");
+    expect(screen.getByTestId("icon")).toHaveAttribute(
+      "data-icon",
+      "iInfoCircle",
+    );
   });
 
   it("renders a success hint with a check icon", () => {
@@ -108,7 +122,10 @@ describe("Label", () => {
 
   it("uses Regular radius by default", () => {
     render(<Label title="Field" />);
-    expect(screen.getByTestId("pressable")).toHaveAttribute("radius", "Regular");
+    expect(screen.getByTestId("pressable")).toHaveAttribute(
+      "radius",
+      "Regular",
+    );
   });
 
   it("forwards a custom className", () => {

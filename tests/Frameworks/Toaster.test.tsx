@@ -1,31 +1,40 @@
-import { render } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
-import Toaster from "@/packages/Frameworks/Toaster/Toaster.boot";
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
+import ToasterBootstrap, {
+  toast,
+} from "@/packages/Frameworks/Toaster/Toaster.boot";
 
 vi.mock("sonner", () => ({
   Toaster: ({ theme, toastOptions }: any) => (
     <div data-testid="sonner-toaster" data-theme={theme} />
   ),
-  toast: { success: () => {}, error: () => {}, info: () => {}, warning: () => {}, loading: () => {} },
+  toast: {
+    success: vi.fn(),
+    error: vi.fn(),
+    info: vi.fn(),
+    warning: vi.fn(),
+    custom: vi.fn(),
+  },
 }));
 
-vi.mock("@/packages/Components/Icon/Icon", () => ({
-  default: () => <span data-testid="icon" />,
-}));
-
-describe("Toaster", () => {
-  it("renders the sonner toaster", () => {
-    const { container } = render(<Toaster />);
-    expect(container.querySelector('[data-testid="sonner-toaster"]')).toBeInTheDocument();
+describe("ToasterBootstrap", () => {
+  it("renders toaster with default theme", () => {
+    render(<ToasterBootstrap />);
+    const toaster = screen.getByTestId("sonner-toaster");
+    expect(toaster).toBeInTheDocument();
   });
 
-  it("forwards the theme prop", () => {
-    render(<Toaster theme="dark" />);
-    expect(document.querySelector('[data-testid="sonner-toaster"]')).toHaveAttribute("data-theme", "dark");
+  it("renders with custom theme", () => {
+    render(<ToasterBootstrap theme="dark" />);
+    const toaster = screen.getByTestId("sonner-toaster");
+    expect(toaster).toHaveAttribute("data-theme", "dark");
   });
+});
 
-  it("exports the toast function", async () => {
-    const { toast } = await import("@/packages/Frameworks/Toaster/Toaster.boot");
+describe("toast", () => {
+  it("has standard methods", () => {
+    expect(toast).toBeDefined();
     expect(typeof toast.success).toBe("function");
+    expect(typeof toast.error).toBe("function");
   });
 });

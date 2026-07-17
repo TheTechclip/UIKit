@@ -357,6 +357,7 @@ export default function ContextMenu(props: ContextMenuProps): ReactElement {
             ) : (
               contents.map((item, index) => (
                 <ContextMenuOption
+                  // biome-ignore lint/suspicious/noArrayIndexKey: items have stable order
                   key={`${item.value}-${index}`}
                   item={item}
                   index={index}

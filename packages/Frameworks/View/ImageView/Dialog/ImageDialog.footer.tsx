@@ -32,6 +32,10 @@ export function DialogImageFooter({
   canScrollPrev,
   canScrollNext,
 }: DialogImageFooterProps) {
+  void scrollPrev;
+  void scrollNext;
+  void canScrollPrev;
+  void canScrollNext;
   if (!dialog.footer) return null;
 
   const selectedItem = items[selectedIndex];

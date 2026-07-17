@@ -76,6 +76,8 @@ export function useSheetDrag({
   onSnapIndexChange,
   onDragStateChange,
 }: UseSheetDragInput): DragHandlers {
+  void maxPx;
+  void getGapHiddenY;
   const _dragControls = useDragControls();
   const contentDraggingRef = useRef(false);
   const contentPointerActiveRef = useRef(false);

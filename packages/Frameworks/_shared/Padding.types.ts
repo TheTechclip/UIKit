@@ -23,9 +23,7 @@ export interface PaddingProps {
   paddingVertical?: UIKitSizeValue;
 }
 
-function PaddingValue(
-  padding?: PaddingValue,
-): string | number | undefined {
+function PaddingValue(padding?: PaddingValue): string | number | undefined {
   if (padding === undefined || padding === null) {
     return undefined;
   }

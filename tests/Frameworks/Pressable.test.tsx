@@ -1,6 +1,5 @@
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
-import React from "react";
 import Pressable from "../../packages/Frameworks/Pressable/Pressable";
 
 describe("Pressable Component", () => {
@@ -12,7 +11,7 @@ describe("Pressable Component", () => {
   test("renders as button when onClick is provided", () => {
     const handleClick = vi.fn();
     const { getByRole } = render(
-      <Pressable onClick={handleClick}>Click me</Pressable>
+      <Pressable onClick={handleClick}>Click me</Pressable>,
     );
     const button = getByRole("button");
     fireEvent.click(button);
@@ -20,7 +19,9 @@ describe("Pressable Component", () => {
   });
 
   test("renders as link when href is provided", () => {
-    const { container } = render(<Pressable href="https://example.com">Link</Pressable>);
+    const { container } = render(
+      <Pressable href="https://example.com">Link</Pressable>,
+    );
     const a = container.querySelector("a");
     expect(a).not.toBeNull();
     expect(a?.getAttribute("href")).toBe("https://example.com");
@@ -31,7 +32,7 @@ describe("Pressable Component", () => {
     const { getByRole } = render(
       <Pressable onClick={handleClick} disabled>
         Disabled Button
-      </Pressable>
+      </Pressable>,
     );
     const button = getByRole("button");
     expect(button.hasAttribute("disabled")).toBe(true);

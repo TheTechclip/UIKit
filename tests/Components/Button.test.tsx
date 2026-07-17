@@ -1,5 +1,5 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { Button } from "../../packages/Components/Button/Button";
 
 describe("Button Component", () => {
@@ -37,7 +37,7 @@ describe("Button Component", () => {
         text="Click Me"
         promise={{ type: "loading" }}
         pressable={{ onClick: handleClick }}
-      />
+      />,
     );
     fireEvent.click(screen.getByText("Loading..."));
     expect(handleClick).not.toHaveBeenCalled();
@@ -45,7 +45,7 @@ describe("Button Component", () => {
 
   it("renders with custom class and style", () => {
     const { container } = render(
-      <Button text="Styled" className="custom-btn" style={{ color: "red" }} />
+      <Button text="Styled" className="custom-btn" style={{ color: "red" }} />,
     );
     const button = container.firstChild;
     expect(button).toHaveClass("custom-btn");

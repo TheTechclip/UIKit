@@ -11,7 +11,16 @@ import type {
 export interface PressableProps
   extends Omit<
       React.HTMLAttributes<HTMLElement>,
-      "title" | "onClick" | "onChange" | "value" | "checked" | "type" | "disabled" | "tabIndex" | "popover" | "color"
+      | "title"
+      | "onClick"
+      | "onChange"
+      | "value"
+      | "checked"
+      | "type"
+      | "disabled"
+      | "tabIndex"
+      | "popover"
+      | "color"
     >,
     ThemeSystemProps,
     BorderProps,

@@ -1,97 +1,106 @@
-import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import TimePicker from "@/packages/Components/TimePicker/TimePicker";
 
-describe("TimePicker Component", () => {
-  it("renders with default props", () => {
-    render(<TimePicker title="Time" />);
+vi.mock("@/packages/Frameworks/Pressable/Pressable", () => ({
+  default: ({ children, ...rest }: any) => <button type="button" {...rest}>{children}</button>,
+}));
+
+vi.mock("@/packages/Frameworks/View/View", () => ({
+  default: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
+}));
+
+vi.mock("@/packages/Components/Icon/Icon", () => ({
+  default: ({ icon }: { icon?: string }) => <span data-testid="icon">{icon}</span>,
+}));
+
+vi.mock("@/packages/Components/Label/Label", () => ({
+  default: ({ children, title, ...rest }: any) => <label {...rest}>{title}{children}</label>,
+}));
+
+describe("TimePicker", () => {
+  it("renders empty, disabled, and read-only fields", () => {
+    const { rerender } = render(<TimePicker title="Time" disabled />);
     expect(screen.getByText("Time")).toBeInTheDocument();
-    const inputs = screen.getAllByPlaceholderText("--");
-    expect(inputs).toHaveLength(2); // hour, minute
+    expect(screen.getAllByRole("textbox")).toHaveLength(2);
+    expect(screen.getAllByRole("textbox")[0]).toBeDisabled();
+
+    rerender(<TimePicker defaultValue="14:30" readOnly />);
+    expect(screen.getAllByRole("textbox")[0]).toHaveAttribute("readonly");
   });
 
-  it("renders with initial value (24h)", () => {
-    render(<TimePicker defaultValue="14:30" />);
-    const inputs = screen.getAllByRole("textbox");
-    expect(inputs[0]).toHaveValue("14");
-    expect(inputs[1]).toHaveValue("30");
+  it("parses controlled values and clears them", () => {
+    const { rerender } = render(<TimePicker value="27:70:80" showSeconds />);
+    let fields = screen.getAllByRole("textbox");
+    expect(fields.map((field) => (field as HTMLInputElement).value)).toEqual(["23", "59", "59"]);
+
+    rerender(<TimePicker value="" showSeconds />);
+    fields = screen.getAllByRole("textbox");
+    expect(fields.map((field) => (field as HTMLInputElement).value)).toEqual(["", "", ""]);
   });
 
-  it("renders with initial value (12h)", () => {
-    render(<TimePicker defaultValue="14:30" use12h />);
-    const inputs = screen.getAllByRole("textbox");
-    expect(inputs[0]).toHaveValue("02"); // 14 % 12
-    expect(inputs[1]).toHaveValue("30");
-    const ampm = screen.getByText("PM");
-    expect(ampm).toBeInTheDocument();
-  });
-
-  it("triggers onChange when hour is changed", () => {
+  it("emits edits, normalization, and keyboard wrapping", () => {
     const onChange = vi.fn();
-    render(<TimePicker defaultValue="14:30" onChange={onChange} />);
-    const inputs = screen.getAllByRole("textbox");
-    fireEvent.change(inputs[0], { target: { value: "15" } });
-    expect(onChange).toHaveBeenCalledWith("15:30");
+    const onHourOverflow = vi.fn();
+    render(<TimePicker defaultValue="23:30:45" showSeconds onChange={onChange} onHourOverflow={onHourOverflow} />);
+    const [hour, minute, second] = screen.getAllByRole("textbox");
+
+    fireEvent.change(hour, { target: { value: "27" } });
+    expect(onHourOverflow).toHaveBeenCalledWith({ input: 27, normalized: 3 });
+    expect(onChange).toHaveBeenLastCalledWith("03:30:45");
+
+    fireEvent.change(minute, { target: { value: "" } });
+    expect(onChange).toHaveBeenLastCalledWith("03:00:45");
+    fireEvent.change(second, { target: { value: "99" } });
+    expect(onChange).toHaveBeenLastCalledWith("03:00:59");
+
+    fireEvent.keyDown(hour, { key: "ArrowUp" });
+    expect(onChange).toHaveBeenLastCalledWith("04:00:59");
+    fireEvent.keyDown(hour, { key: "ArrowDown" });
+    expect(onChange).toHaveBeenLastCalledWith("03:00:59");
   });
 
-  it("triggers onChange when minute is changed", () => {
+  it("supports 12-hour seconds and AM/PM controls", () => {
     const onChange = vi.fn();
-    render(<TimePicker defaultValue="14:30" onChange={onChange} />);
-    const inputs = screen.getAllByRole("textbox");
-    fireEvent.change(inputs[1], { target: { value: "45" } });
-    expect(onChange).toHaveBeenCalledWith("14:45");
+    render(<TimePicker defaultValue="14:30:15" showSeconds use12h onChange={onChange} />);
+    expect(screen.getAllByRole("textbox")[0]).toHaveValue("02");
+    const ampm = screen.getByRole("button", { name: "PM" });
+
+    fireEvent.click(ampm);
+    expect(onChange).toHaveBeenLastCalledWith("02:30:15");
+    fireEvent.keyDown(ampm, { key: "a" });
+    expect(onChange).toHaveBeenLastCalledWith("02:30:15");
+    fireEvent.keyDown(ampm, { key: "Enter" });
+    expect(onChange).toHaveBeenCalled();
+    const second = screen.getAllByRole("textbox")[2];
+    fireEvent.focus(second);
+    fireEvent.click(second);
+    fireEvent.keyDown(second, { key: "ArrowUp" });
+    fireEvent.keyDown(second, { key: "ArrowRight" });
+    expect(ampm).toHaveFocus();
+    fireEvent.focus(ampm);
+    fireEvent.keyDown(ampm, { key: "ArrowLeft" });
+    fireEvent.click(screen.getAllByRole("textbox")[0]);
+    fireEvent.click(screen.getAllByRole("textbox")[1]);
   });
 
-  it("handles showSeconds", () => {
-    render(<TimePicker defaultValue="14:30:45" showSeconds />);
-    const inputs = screen.getAllByRole("textbox");
-    expect(inputs).toHaveLength(3);
-    expect(inputs[0]).toHaveValue("14");
-    expect(inputs[1]).toHaveValue("30");
-    expect(inputs[2]).toHaveValue("45");
-  });
-
-  it("handles AM/PM toggle", () => {
+  it("handles keyboard navigation, buffered numbers, and incomplete values", () => {
     const onChange = vi.fn();
-    render(<TimePicker defaultValue="14:30" use12h onChange={onChange} />);
-    const ampmButton = screen.getByText("PM").parentElement as HTMLElement;
-    fireEvent.click(ampmButton);
-    expect(onChange).toHaveBeenCalledWith("02:30");
-  });
-
-  it("respects disabled state", () => {
-    render(<TimePicker defaultValue="14:30" disabled />);
-    const inputs = screen.getAllByRole("textbox");
-    expect(inputs[0]).toBeDisabled();
-    expect(inputs[1]).toBeDisabled();
-  });
-
-  it("respects readOnly state", () => {
-    render(<TimePicker defaultValue="14:30" readOnly />);
-    const inputs = screen.getAllByRole("textbox");
-    expect(inputs[0]).toHaveAttribute("readOnly");
-    expect(inputs[1]).toHaveAttribute("readOnly");
-  });
-
-  it("handles keyboard navigation for hours", () => {
-    const onChange = vi.fn();
-    render(<TimePicker defaultValue="14:30" onChange={onChange} />);
-    const hourInput = screen.getAllByRole("textbox")[0];
-    
-    fireEvent.keyDown(hourInput, { key: "ArrowUp" });
-    expect(onChange).toHaveBeenCalledWith("15:30");
-    
-    fireEvent.keyDown(hourInput, { key: "ArrowDown" });
-    expect(onChange).toHaveBeenCalledWith("14:30");
-  });
-
-  it("handles keyboard navigation bounds", () => {
-    const onChange = vi.fn();
-    render(<TimePicker defaultValue="23:30" onChange={onChange} />);
-    const hourInput = screen.getAllByRole("textbox")[0];
-    
-    // Up from 23 should wrap to 00
-    fireEvent.keyDown(hourInput, { key: "ArrowUp" });
-    expect(onChange).toHaveBeenCalledWith("00:30");
+    render(<TimePicker defaultValue="00:00" onChange={onChange} />);
+    const [hour, minute] = screen.getAllByRole("textbox");
+    fireEvent.keyDown(hour, { key: "ArrowUp" });
+    expect(onChange).toHaveBeenLastCalledWith("01:00");
+    fireEvent.keyDown(hour, { key: "ArrowDown" });
+    expect(onChange).toHaveBeenLastCalledWith("00:00");
+    fireEvent.keyDown(hour, { key: "1" });
+    expect(onChange).toHaveBeenLastCalledWith("01:00");
+    fireEvent.keyDown(hour, { key: "2" });
+    expect(onChange).toHaveBeenLastCalledWith("12:00");
+    fireEvent.keyDown(hour, { key: "ArrowRight" });
+    expect(minute).toHaveFocus();
+    fireEvent.keyDown(minute, { key: "ArrowLeft" });
+    expect(hour).toHaveFocus();
+    fireEvent.keyDown(minute, { key: "x" });
+    fireEvent.keyDown(minute, { key: "Tab" });
   });
 });

@@ -1,12 +1,11 @@
 import { render } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
-import React from "react";
 import Dialog from "../../packages/Frameworks/Dialog/Dialog";
 
 // We need to mock window.matchMedia since Dialog uses useViewportMatch internally
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(window, "matchMedia", {
   writable: true,
-  value: vi.fn().mockImplementation(query => ({
+  value: vi.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
@@ -23,9 +22,11 @@ describe("Dialog Component", () => {
     const { container } = render(
       <Dialog mode="modal" open={false}>
         <div data-testid="dialog-content">Content</div>
-      </Dialog>
+      </Dialog>,
     );
-    expect(container.querySelector("[data-testid='dialog-content']")).toBeNull();
+    expect(
+      container.querySelector("[data-testid='dialog-content']"),
+    ).toBeNull();
   });
 
   // Modal mode uses portals, so it might render in document.body
@@ -33,7 +34,7 @@ describe("Dialog Component", () => {
     const { baseElement } = render(
       <Dialog mode="modal" open={true}>
         <div data-testid="modal-content">Content</div>
-      </Dialog>
+      </Dialog>,
     );
     // Dialog uses framer-motion and portals, content might appear in the baseElement
     expect(baseElement).toBeDefined();

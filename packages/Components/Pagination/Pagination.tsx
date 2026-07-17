@@ -138,6 +138,7 @@ export default function Pagination({
   }
 
   return (
+    // biome-ignore lint/a11y/useSemanticElements: nav[role="group"] is correct for pagination
     <nav
       aria-label={resolvedNavigationLabel}
       data-color-mode={dataTheme}

@@ -2,6 +2,7 @@
 
 import NextImage from "next/image";
 import { useCallback, useMemo, useState } from "react";
+import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
 import Dialog from "@/packages/Frameworks/Dialog/Dialog";
 import Pressable from "@/packages/Frameworks/Pressable/Pressable";
 import HScrollView from "@/packages/Frameworks/View/HScrollView/HScrollView";
@@ -10,8 +11,11 @@ import {
   ImageLeftControl,
   ImageRightControl,
 } from "@/packages/Frameworks/View/ImageView/Image.controls";
-import type { ImageOverlay, ImageProps } from "@/packages/Frameworks/View/ImageView/Image.types";
-import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
+import type {
+  ImageItem,
+  ImageOverlay,
+  ImageProps,
+} from "@/packages/Frameworks/View/ImageView/Image.types";
 import {
   resolveAtIndex,
   resolveBlurDataURL,
@@ -24,10 +28,25 @@ import View from "@/packages/Frameworks/View/View";
 const DEFAULT_GROUP_WIDTH = "auto";
 const DEFAULT_GROUP_HEIGHT = "29rem";
 
-const PRESSABLE_STYLE: React.CSSProperties = { position: "relative", overflow: "hidden" };
-const OVERLAY_STYLE: React.CSSProperties = { position: "absolute", inset: 0, pointerEvents: "none" };
-const IMG_STYLE: React.CSSProperties = { height: "100%", objectFit: "cover", objectPosition: "center", display: "block" };
-const NEXT_IMG_STYLE: React.CSSProperties = { objectFit: "cover", objectPosition: "center" };
+const PRESSABLE_STYLE: React.CSSProperties = {
+  position: "relative",
+  overflow: "hidden",
+};
+const OVERLAY_STYLE: React.CSSProperties = {
+  position: "absolute",
+  inset: 0,
+  pointerEvents: "none",
+};
+const IMG_STYLE: React.CSSProperties = {
+  height: "100%",
+  objectFit: "cover",
+  objectPosition: "center",
+  display: "block",
+};
+const NEXT_IMG_STYLE: React.CSSProperties = {
+  objectFit: "cover",
+  objectPosition: "center",
+};
 
 function ImageGroupItem({
   item,
@@ -42,11 +61,17 @@ function ImageGroupItem({
   priority,
   openDialog,
 }: {
-  item: { id: number; src: string; alt: string; srcDialog?: string; blurDataURL?: string };
+  item: {
+    id: number;
+    src: string;
+    alt: string;
+    srcDialog?: string;
+    blurDataURL?: string;
+  };
   index: number;
   dialog?: ImageProps["dialog"];
   className?: string;
-  radius?: string;
+  radius?: import("@/packages/Frameworks/Theme/Radius.types").RadiusValue;
   width?: UIKitSizeValue | UIKitSizeValue[];
   height?: UIKitSizeValue | UIKitSizeValue[];
   overlay?: ImageOverlay;
@@ -89,11 +114,7 @@ function ImageGroupItem({
           style={NEXT_IMG_STYLE}
         />
       )}
-      {resolvedOverlay && (
-        <View style={OVERLAY_STYLE}>
-          {resolvedOverlay}
-        </View>
-      )}
+      {resolvedOverlay && <View style={OVERLAY_STYLE}>{resolvedOverlay}</View>}
     </Pressable>
   );
 }
@@ -164,9 +185,7 @@ export default function Image({
           className={
             typeof control === "object" ? control.groupClassName : undefined
           }
-          style={
-            typeof control === "object" ? control.groupStyle : undefined
-          }
+          style={typeof control === "object" ? control.groupStyle : undefined}
         >
           {renderLeft && (
             <ImageLeftControl
@@ -192,7 +211,7 @@ export default function Image({
   if (items.length === 0) return null;
 
   if (items.length === 1) {
-    const item = items[0]!;
+    const item = items[0] as ImageItem;
     const resolvedWidth = resolveAtIndex(width, 0);
     const resolvedHeight = resolveAtIndex(height, 0);
     const resolvedOverlay = resolveOverlay(overlay, 0);
@@ -309,9 +328,7 @@ export default function Image({
 
         {}
         {resolvedOverlay && (
-          <View style={OVERLAY_STYLE}>
-            {resolvedOverlay}
-          </View>
+          <View style={OVERLAY_STYLE}>{resolvedOverlay}</View>
         )}
       </View>
     );

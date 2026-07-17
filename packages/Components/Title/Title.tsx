@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import IconGroup from "@/packages/Components/Icon/Icon.group";
 import { IconInner } from "@/packages/Components/Icon/Icon";
+import IconGroup from "@/packages/Components/Icon/Icon.group";
 import Pill from "@/packages/Components/Pill/Pill";
 import Text from "@/packages/Components/Text/Text";
 import type {

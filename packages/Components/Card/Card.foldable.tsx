@@ -7,11 +7,13 @@ import { useInBoxContent } from "@/packages/Components/Box/Box";
 import styles from "@/packages/Components/Card/Card.module.scss";
 import type { CardFoldableProps } from "@/packages/Components/Card/Card.types";
 import { resolveState } from "@/packages/Components/Card/Card.types";
-import { buildRenderKeys } from "@/packages/Components/Card/Card.utils";
+import {
+  buildRenderKeys,
+  normalizeCardIcon,
+} from "@/packages/Components/Card/Card.utils";
 import Icon from "@/packages/Components/Icon/Icon";
 import Pill from "@/packages/Components/Pill/Pill";
 import Text from "@/packages/Components/Text/Text";
-import { normalizeCardIcon } from "@/packages/Components/Card/Card.utils";
 import StopParentInteraction from "@/packages/Frameworks/_shared/StopParentInteraction";
 import {
   getComputedPixelValue,

@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import Header from "@/packages/Components/Header/Header";
-import EdgeEffect from "@/packages/Frameworks/EdgeEffect/EdgeEffect";
-import View from "@/packages/Frameworks/View/View";
 
 vi.mock("@/packages/Frameworks/EdgeEffect/EdgeEffect", () => ({
   default: ({ side, className }: { side?: string; className?: string }) => (

@@ -1,13 +1,14 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import Pill from "@/packages/Components/Pill/Pill";
-import Icon from "@/packages/Components/Icon/Icon";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
 
 vi.mock("@/packages/Components/Icon/Icon", () => ({
   default: ({ icon, spinner }: { icon?: string; spinner?: boolean }) => (
-    <span data-testid="icon" data-icon={icon} data-spinner={spinner ? "true" : undefined} />
+    <span
+      data-testid="icon"
+      data-icon={icon}
+      data-spinner={spinner ? "true" : undefined}
+    />
   ),
 }));
 vi.mock("@/packages/Components/Text/Text", () => ({

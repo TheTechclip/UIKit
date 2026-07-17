@@ -84,6 +84,7 @@ export default function Dialog(props: DialogProps) {
       open,
       closeDialog: close,
     }),
+    // biome-ignore lint/correctness/useExhaustiveDependencies: close is intentionally a stable reference
     [id, resolvedMode, open, close],
   );
 

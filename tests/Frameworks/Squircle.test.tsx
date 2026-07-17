@@ -6,7 +6,13 @@ vi.mock("figma-squircle", () => ({
   getSvgPath: () => "M0 0 L100 0 L100 100 L0 100 Z",
 }));
 vi.mock("motion/react", () => ({
-  motion: { div: ({ children, ...rest }: any) => <div {...rest}>{children}</div>, a: ({ children, ...rest }: any) => <a {...rest}>{children}</a>, button: ({ children, ...rest }: any) => <button {...rest}>{children}</button> },
+  motion: {
+    div: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
+    a: ({ children, ...rest }: any) => <a {...rest}>{children}</a>,
+    button: ({ children, ...rest }: any) => (
+      <button {...rest}>{children}</button>
+    ),
+  },
 }));
 
 describe("Squircle", () => {

@@ -1,12 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import Box from "@/packages/Components/Box/Box";
-import Divider from "@/packages/Components/Divider/Divider";
-import Icon from "@/packages/Components/Icon/Icon";
-import Spinner from "@/packages/Components/Spinner/Spinner";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
 
 vi.mock("@/packages/Components/Divider/Divider", () => ({
   default: () => <span data-testid="divider" />,

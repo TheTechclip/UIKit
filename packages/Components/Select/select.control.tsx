@@ -5,12 +5,11 @@ import type {
   MouseEvent as ReactMouseEvent,
 } from "react";
 import Pill from "@/packages/Components/Pill/Pill";
-import SelectTrigger from "@/packages/Components/Select/Select.trigger";
 import type { SelectNavigation } from "@/packages/Components/Select/hooks/useSelectNavigation";
 import type { SelectState } from "@/packages/Components/Select/hooks/useSelectState";
+import SelectTrigger from "@/packages/Components/Select/Select.trigger";
 import type { SelectValue } from "@/packages/Components/Select/Select.types";
 import { filterOptionsByQuery } from "@/packages/Components/Select/Select.utils";
-import Text from "@/packages/Components/Text/Text";
 import View from "@/packages/Frameworks/View/View";
 
 interface SelectControlProps {
@@ -54,19 +53,10 @@ export default function SelectControl({
     visibleOptions,
   } = state;
 
-  const {
-    placeholder,
-    title,
-    disabled,
-    readOnly,
-    required,
-  } = props;
+  const { placeholder, title, disabled, readOnly, required } = props;
 
-  const {
-    handleControlKeyDown,
-    handleTriggerClick,
-    handleTriggerPointerUp,
-  } = navigation;
+  const { handleControlKeyDown, handleTriggerClick, handleTriggerPointerUp } =
+    navigation;
 
   const selectedPills =
     isMultiple && selectedOptions.length > 0 ? (
@@ -159,9 +149,7 @@ export default function SelectControl({
         }
         value={isMultiple ? query : inputValue}
         placeholder={
-          isMultiple && selectedOptions.length > 0
-            ? undefined
-            : placeholderText
+          isMultiple && selectedOptions.length > 0 ? undefined : placeholderText
         }
         className="Subheadline"
         onFocus={() => {
@@ -186,7 +174,10 @@ export default function SelectControl({
           const nextQuery = e.target.value;
           setOpenSource("keyboard");
           if (!isMultiple) {
-            if (selectedValues.length > 0 && nextQuery !== selectedOptionLabel) {
+            if (
+              selectedValues.length > 0 &&
+              nextQuery !== selectedOptionLabel
+            ) {
               setSelectedValues([]);
               emitNativeChange("" as SelectValue<boolean>);
             }

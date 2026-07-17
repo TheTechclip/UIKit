@@ -31,7 +31,7 @@ describe("Checkbox", () => {
     const input = screen.getByRole("checkbox");
     fireEvent.click(input);
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect((input as HTMLInputElement)).toBeChecked();
+    expect(input as HTMLInputElement).toBeChecked();
   });
 
   it("does not toggle internal state when controlled", () => {
@@ -40,7 +40,7 @@ describe("Checkbox", () => {
     const input = screen.getByRole("checkbox");
     fireEvent.click(input);
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect((input as HTMLInputElement)).not.toBeChecked();
+    expect(input as HTMLInputElement).not.toBeChecked();
   });
 
   it("renders the title text", () => {
@@ -69,7 +69,6 @@ describe("Checkbox", () => {
     render(<Checkbox defaultChecked />);
     expect(screen.getByRole("checkbox")).toBeChecked();
   });
-
 
   it("renders an icon element for the check mark", () => {
     const { container } = render(<Checkbox defaultChecked />);

@@ -14,7 +14,7 @@ type Routes =
   | RewriteRoutes;
 
 interface ParamMap {
-  "/": {};
+  "/": Record<string, never>;
 }
 
 export type ParamsOf<Route extends Routes> = ParamMap[Route];

@@ -83,6 +83,7 @@ export default function CodeBox({
         <code
           className={`${styles.Code} language-${lang}`}
           data-color-mode={dataTheme}
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: needed for syntax highlighting
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </pre>

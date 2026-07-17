@@ -1,13 +1,23 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import Input from "@/packages/Components/Input/Input";
-import Label from "@/packages/Components/Label/Label";
-import Text from "@/packages/Components/Text/Text";
-import View from "@/packages/Frameworks/View/View";
 
 vi.mock("@/packages/Components/Label/Label", () => ({
-  default: ({ children, htmlFor, required, disabled, readOnly, hint, title }: any) => (
-    <label htmlFor={htmlFor} data-required={required ? "true" : undefined} data-disabled={disabled ? "true" : undefined} data-readonly={readOnly ? "true" : undefined}>
+  default: ({
+    children,
+    htmlFor,
+    required,
+    disabled,
+    readOnly,
+    hint,
+    title,
+  }: any) => (
+    <label
+      htmlFor={htmlFor}
+      data-required={required ? "true" : undefined}
+      data-disabled={disabled ? "true" : undefined}
+      data-readonly={readOnly ? "true" : undefined}
+    >
       {title ? <span data-testid="label-title">{title}</span> : null}
       {children}
       {hint ? (
@@ -26,7 +36,13 @@ vi.mock("@/packages/Components/Text/Text", () => ({
 }));
 
 vi.mock("@/packages/Frameworks/View/View", () => ({
-  default: ({ children, ...rest }: { children?: React.ReactNode; [k: string]: unknown }) => (
+  default: ({
+    children,
+    ...rest
+  }: {
+    children?: React.ReactNode;
+    [k: string]: unknown;
+  }) => (
     <div data-testid="view" {...rest}>
       {children}
     </div>
@@ -43,7 +59,9 @@ describe("Input", () => {
 
   it("forwards the type prop", () => {
     render(<Input type="email" />);
-    expect((screen.getByRole("textbox") as HTMLInputElement).type).toBe("email");
+    expect((screen.getByRole("textbox") as HTMLInputElement).type).toBe(
+      "email",
+    );
   });
 
   it("associates the input with the label via id", () => {
@@ -111,7 +129,9 @@ describe("Input", () => {
     render(<Input hint={{ type: "error", text: "Required field" }} />);
     const input = screen.getByRole("textbox");
     expect(input).toHaveAttribute("aria-invalid", "true");
-    expect(screen.getByTestId("label-hint")).toHaveTextContent("Required field");
+    expect(screen.getByTestId("label-hint")).toHaveTextContent(
+      "Required field",
+    );
   });
 
   it("links the hint via aria-describedby", () => {

@@ -1,5 +1,5 @@
+import path from "node:path";
 import { defineConfig } from "vitest/config";
-import path from "path";
 
 export default defineConfig({
   test: {
@@ -12,6 +12,12 @@ export default defineConfig({
       include: ["packages/**/*.{ts,tsx}"],
       exclude: ["packages/**/*.types.ts"],
       reporter: ["text", "lcov"],
+      thresholds: {
+        statements: 48,
+        branches: 43,
+        functions: 49,
+        lines: 50,
+      },
     },
   },
   resolve: {

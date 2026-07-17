@@ -9,9 +9,9 @@ import {
 } from "react";
 import { normalizeLocale } from "@/i18n/shared";
 import { Calendar } from "@/packages/Components/DatePicker/DatePicker.calendar";
-import DatePickerCore from "@/packages/Components/DatePicker/DatePicker.core";
-import { useCalendar } from "@/packages/Components/DatePicker/hooks/useCalendar";
-import { useSelection } from "@/packages/Components/DatePicker/hooks/useSelection";
+import DatePickerCore, {
+  type DatePickerCoreRef,
+} from "@/packages/Components/DatePicker/DatePicker.core";
 import styles from "@/packages/Components/DatePicker/DatePicker.module.scss";
 import type { DatePickerProps } from "@/packages/Components/DatePicker/DatePicker.types";
 import {
@@ -19,10 +19,14 @@ import {
   parseDate,
   toYMD,
 } from "@/packages/Components/DatePicker/DatePicker.utils";
+import { useCalendar } from "@/packages/Components/DatePicker/hooks/useCalendar";
+import { useSelection } from "@/packages/Components/DatePicker/hooks/useSelection";
 import Icon from "@/packages/Components/Icon/Icon";
 import Label from "@/packages/Components/Label/Label";
 import Text from "@/packages/Components/Text/Text";
-import TimePickerCore from "@/packages/Components/TimePicker/TimePicker.core";
+import TimePickerCore, {
+  type TimePickerCoreRef,
+} from "@/packages/Components/TimePicker/TimePicker.core";
 import Dialog from "@/packages/Frameworks/Dialog/Dialog";
 import View from "@/packages/Frameworks/View/View";
 
@@ -333,9 +337,18 @@ export default function DatePicker({
         isValidDate(ey, em, ed) &&
         (!showTime || (eh !== null && emin !== null));
 
-      if (isStartValid && isEndValid) {
-        let start = new Date(sy!, sm! - 1, sd!, sh ?? 0, smin ?? 0);
-        let end = new Date(ey!, em! - 1, ed!, eh ?? 0, emin ?? 0);
+      if (
+        isStartValid &&
+        isEndValid &&
+        sy !== null &&
+        sm !== null &&
+        sd !== null &&
+        ey !== null &&
+        em !== null &&
+        ed !== null
+      ) {
+        let start = new Date(sy, sm - 1, sd, sh ?? 0, smin ?? 0);
+        let end = new Date(ey, em - 1, ed, eh ?? 0, emin ?? 0);
         if (isBefore(end, start)) {
           [start, end] = [end, start];
         }
@@ -344,8 +357,16 @@ export default function DatePicker({
           setRangeEnd(end);
         }
         onRangeChange?.(toYMD(start, showTime), toYMD(end, showTime));
-      } else if (isStartValid && ey === null && em === null && ed === null) {
-        const start = new Date(sy!, sm! - 1, sd!, sh ?? 0, smin ?? 0);
+      } else if (
+        isStartValid &&
+        sy !== null &&
+        sm !== null &&
+        sd !== null &&
+        ey === null &&
+        em === null &&
+        ed === null
+      ) {
+        const start = new Date(sy, sm - 1, sd, sh ?? 0, smin ?? 0);
         if (!isControlled) {
           setRangeStart(start);
           setRangeEnd(null);
@@ -357,7 +378,7 @@ export default function DatePicker({
   );
 
   const handleDateChange = useCallback(
-    (seg: any, val: number | null) => {
+    (seg: string, val: number | null) => {
       const setter = (() => {
         switch (seg) {
           case "year":
@@ -382,7 +403,7 @@ export default function DatePicker({
             return null;
         }
       })();
-      if (setter) setter(val as any);
+      if (setter) setter(val);
 
       if (mode === "single") {
         emitSingle(
@@ -507,12 +528,12 @@ export default function DatePicker({
     ],
   );
 
-  const singleDateRef = useRef<any>(null);
-  const singleTimeRef = useRef<any>(null);
-  const startDateRef = useRef<any>(null);
-  const startTimeRef = useRef<any>(null);
-  const endDateRef = useRef<any>(null);
-  const endTimeRef = useRef<any>(null);
+  const singleDateRef = useRef<DatePickerCoreRef | null>(null);
+  const singleTimeRef = useRef<TimePickerCoreRef | null>(null);
+  const startDateRef = useRef<DatePickerCoreRef | null>(null);
+  const startTimeRef = useRef<TimePickerCoreRef | null>(null);
+  const endDateRef = useRef<DatePickerCoreRef | null>(null);
+  const endTimeRef = useRef<TimePickerCoreRef | null>(null);
 
   useEffect(() => {
     if (!isControlled) return;

@@ -1,6 +1,5 @@
 import { render } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import React from "react";
 import View from "../../packages/Frameworks/View/View";
 
 describe("View Component", () => {
@@ -13,7 +12,7 @@ describe("View Component", () => {
     const { container } = render(
       <View row gap={10} width={100} height="100%">
         Flex
-      </View>
+      </View>,
     );
     const el = container.firstChild as HTMLElement;
     expect(el.style.flexDirection).toBe("row");

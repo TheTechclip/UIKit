@@ -75,5 +75,5 @@ export function resolveBlurDataURL(item: ImageItem, index: number): string {
     String(item.id)
       .split("")
       .reduce((acc, char) => acc + char.charCodeAt(0), 0) + index;
-  return FALLBACK_BLURS[hash % FALLBACK_BLURS.length]!;
+  return FALLBACK_BLURS[hash % FALLBACK_BLURS.length] ?? "";
 }

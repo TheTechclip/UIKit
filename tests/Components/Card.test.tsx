@@ -1,12 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import Card from "@/packages/Components/Card/Card";
-import Icon from "@/packages/Components/Icon/Icon";
-import Pill from "@/packages/Components/Pill/Pill";
-import Text from "@/packages/Components/Text/Text";
-import Pressable from "@/packages/Frameworks/Pressable/Pressable";
-import View from "@/packages/Frameworks/View/View";
-import StopParentInteraction from "@/packages/Frameworks/_shared/StopParentInteraction";
 
 vi.mock("@/packages/Components/Icon/Icon", () => ({
   default: ({ icon }: { icon?: string }) => (
@@ -80,7 +74,9 @@ describe("Card (default)", () => {
   });
 
   it("renders customRight content", () => {
-    render(<Card title="X" customRight={<span data-testid="custom">Y</span>} />);
+    render(
+      <Card title="X" customRight={<span data-testid="custom">Y</span>} />,
+    );
     expect(screen.getByTestId("custom")).toBeInTheDocument();
   });
 
@@ -100,10 +96,7 @@ describe("Card (default)", () => {
 describe("Card (foldable / accordion)", () => {
   it("renders the header title", () => {
     render(
-      <Card
-        title="Details"
-        accordion={{ name: "group", value: "a" }}
-      >
+      <Card title="Details" accordion={{ name: "group", value: "a" }}>
         <span data-testid="body">Body content</span>
       </Card>,
     );
@@ -183,7 +176,12 @@ describe("Card (foldable / accordion)", () => {
     render(
       <Card
         title="Details"
-        accordion={{ name: "g", value: "a", activated: true, onActivatedChange }}
+        accordion={{
+          name: "g",
+          value: "a",
+          activated: true,
+          onActivatedChange,
+        }}
       >
         body
       </Card>,

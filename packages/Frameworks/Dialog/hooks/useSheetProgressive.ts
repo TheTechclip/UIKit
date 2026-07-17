@@ -45,7 +45,7 @@ export function useSheetProgressive({
   hasExplicitSnapPoints,
 }: UseSheetProgressiveInput): UseSheetProgressiveOutput {
   const firstSnap = normalizedSnapPoints[0];
-  const lastSnap = normalizedSnapPoints.at(-1)!;
+  const lastSnap = normalizedSnapPoints.at(-1) ?? 0;
   const hasProgression =
     hasExplicitSnapPoints && normalizedSnapPoints.length > 1 && !isFreeDrag;
 
