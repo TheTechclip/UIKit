@@ -8,7 +8,7 @@ import type {
   BorderProps,
   ThemeSystemProps,
 } from "../../packages/Frameworks/Theme/Theme.types";
-import type { ToasterProps } from "../../packages/Frameworks/Toaster/Toaster.types";
+import type { ToasterBootstrapProps } from "../../packages/Frameworks/Toaster/Toaster.types";
 import type { DNDViewProps } from "../../packages/Frameworks/View/DNDView/DNDView.types";
 
 import type { HScrollViewProps } from "../../packages/Frameworks/View/HScrollView/HScrollView.types";
@@ -23,8 +23,8 @@ test("Frameworks Types Validation", () => {
   expectTypeOf<RadiusProps>().toBeObject();
   expectTypeOf<ThemeSystemProps>().toBeObject();
   expectTypeOf<BorderProps>().toBeObject();
-  expectTypeOf<ToasterProps>().toBeObject();
-  expectTypeOf<DNDViewProps<any>>().toBeObject();
+  expectTypeOf<ToasterBootstrapProps>().toBeObject();
+  expectTypeOf<DNDViewProps<unknown>>().toBeObject();
   expectTypeOf<HScrollViewProps>().toBeObject();
   expectTypeOf<ImageProps>().toBeObject();
   expectTypeOf<ViewProps>().toBeObject();
