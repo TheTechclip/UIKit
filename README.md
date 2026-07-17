@@ -36,6 +36,10 @@ export default function Example() {
 }
 ```
 
+## References
+
+This package includes `.agents/references/` directory with detailed documentation for every component, framework, and style system. Use it alongside TypeScript definitions as a guide when building with `@musecat/uikit`.
+
 ## Acknowledgements
 
 - [Motion (Framer Motion)](https://motion.dev/)
