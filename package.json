@@ -40,6 +40,9 @@
   "sideEffects": [
     "**/*.scss"
   ],
+  "overrides": {
+    "@swc/helpers": "0.5.23"
+  },
   "engines": {
     "node": ">=20.0.0"
   },
