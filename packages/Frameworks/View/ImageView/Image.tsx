@@ -11,6 +11,7 @@ import {
   ImageRightControl,
 } from "@/packages/Frameworks/View/ImageView/Image.controls";
 import type { ImageOverlay, ImageProps } from "@/packages/Frameworks/View/ImageView/Image.types";
+import type { RadiusValue } from "@/packages/Frameworks/Theme/Radius.types";
 import type { UIKitSizeValue } from "@/packages/Frameworks/_shared/sizing";
 import {
   resolveAtIndex,
@@ -46,7 +47,7 @@ function ImageGroupItem({
   index: number;
   dialog?: ImageProps["dialog"];
   className?: string;
-  radius?: string;
+  radius?: RadiusValue;
   width?: UIKitSizeValue | UIKitSizeValue[];
   height?: UIKitSizeValue | UIKitSizeValue[];
   overlay?: ImageOverlay;

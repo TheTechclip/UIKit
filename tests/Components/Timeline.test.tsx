@@ -69,7 +69,7 @@ describe("Timeline Component", () => {
       },
     ];
     const { container } = render(
-      <Timeline items={items} nodePreset="UIAccent" />
+      <Timeline items={items} nodePreset="UIPrimary" />
     );
 
     const step1 = screen.getByText("Item 1").parentElement?.parentElement as HTMLElement;

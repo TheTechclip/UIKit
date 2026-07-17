@@ -3,7 +3,7 @@ import {
   type UIKitSizeValue,
 } from "@/packages/Frameworks/_shared/sizing";
 
-type RadiusScale =
+export type RadiusScale =
   | "None"
   | "ExtraLight"
   | "Light"

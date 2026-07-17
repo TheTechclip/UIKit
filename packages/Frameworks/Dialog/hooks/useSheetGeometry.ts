@@ -146,7 +146,7 @@ export function useSheetGeometry({
   const normalizedSnapPoints = useMemo(
     () =>
       config?.snapPoints?.length ? normalizeSnapPoints(config.snapPoints) : [1],
-    [config?.snapPoints?.length, config.snapPoints],
+    [config?.snapPoints?.length, config?.snapPoints],
   );
 
   const maxSnap = useMemo(

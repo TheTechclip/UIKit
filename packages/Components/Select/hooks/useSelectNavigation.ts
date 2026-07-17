@@ -323,7 +323,7 @@ export function useSelectNavigation(
 
   const handleControlKeyDown = useCallback(
     (
-      e: KeyboardEvent<HTMLInputElement | HTMLButtonElement>,
+      e: KeyboardEvent<Element>,
       allowSpaceSelection: boolean,
     ) => {
       if (e.key === "Tab") {

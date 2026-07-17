@@ -12,9 +12,13 @@ const TestComponent = () => {
         open={true}
         onOpenChange={() => {}}
         anchorRef={anchorRef}
+        popoverOwnerId="test"
+        listId="test-list"
+        isInteractionDisabled={false}
+        recalcKey="test"
         contents={[
-          { label: "Option 1", value: "1", onClick: vi.fn() },
-          { label: "Option 2", value: "2" },
+          { type: "option", label: "Option 1", value: "1", onClick: vi.fn() },
+          { type: "option", label: "Option 2", value: "2" },
         ]}
       />
     </>

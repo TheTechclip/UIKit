@@ -29,7 +29,7 @@ describe("DatePicker", () => {
   });
 
   it("handles empty date correctly", () => {
-    const { container } = render(<DatePicker date={undefined} />);
+    const { container } = render(<DatePicker value={undefined} />);
     // The placeholder or "Select Date" text should be displayed or input rendered
     expect(container).not.toBeNull();
   });
