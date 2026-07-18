@@ -1,81 +1,45 @@
-# View Framework
+# View
 
-## Purpose
+**Source:** [`packages/Frameworks/View/View.tsx`](../../../packages/Frameworks/View/View.tsx) and [`View.types.ts`](../../../packages/Frameworks/View/View.types.ts)
 
-The `View` framework is UIKit's core layout building block. It replaces React's `div` or `motion.div` to help you declaratively and consistently write Flexbox and Grid layouts, themes, corner rounding (Squircle), padding/margin, blur, and other style properties. It also provides sub-components like `HScroll`, `Image`, and `DND`.
+`View` is UIKit's structural primitive. It renders a `div`, `motion.div`, or `Squircle` according to its props, and is the default building block for layout instead of raw `div` elements.
 
-## Usage Logic
+## Rendering decision
 
-- The `alignItems`, `justifyContent`, `column`, `row`, `gap` shorthand props make Flexbox layout easy to compose.
-- When `radius` is specified, it is rendered using the `Squircle` framework by default, except when `noSquircle` is `true` or there is a border.
-- Passing the `motion` prop internally converts it into `motion/react`'s animation component.
-- Sub-components like `View.DND` are provided as a namespace to maintain a consistent mental model.
+1. A non-`None` `radius`, no border, and `noSquircle !== true` render through `Squircle`.
+2. Otherwise, providing `motion` renders `motion.div`.
+3. All other cases render a `div`.
 
-## Type Signatures
+This distinction is intentional. A border disables the Squircle path, and direct Motion width/height animation on a Squircle can reset its generated clip path. Animate a wrapper or use imperative controls for size changes.
 
-```typescript
-import type { CSSProperties, HTMLAttributes } from "react";
-import type { MotionProps } from "motion/react";
-import type { WindProps } from "../_shared/Wind.types";
-import type {
-  PaddingProps,
-  RadiusProps,
-  ThemeSystemProps,
-  BorderProps,
-} from "../Theme";
+## Layout and sizing
 
-export interface ViewProps
-  extends
-    HTMLAttributes<HTMLDivElement>,
-    WindProps,
-    ThemeSystemProps,
-    BorderProps,
-    RadiusProps,
-    PaddingProps {
-  motion?: MotionProps;
-  alignItems?: CSSProperties["alignItems"];
-  justifyContent?: CSSProperties["justifyContent"];
-  wrap?: CSSProperties["flexWrap"];
-  column?: boolean;
-  row?: boolean;
-  inline?: boolean;
-  gap?: number | string;
-  gridTemplateColumns?: string;
-  gridTemplateRows?: string;
-  gridAutoFlow?: CSSProperties["gridAutoFlow"];
-  fullWidth?: boolean;
-  width?: number | string;
-  height?: number | string;
-  margin?: number | string;
-  sticky?: boolean | number | string;
-  top?: number | string;
-  bottom?: number | string;
-  noSquircle?: boolean; // option to bypass Squircle rendering
-}
-```
+`View` is `display: flex` by default, `inline-flex` when `inline` is true, and `grid` if any grid-template prop is supplied. Use `column`, `row`, `gap`, `alignItems`, `justifyContent`, `wrap`, and `alignSelf` for flex layout. `width`, `height`, `margin`, padding props, `top`, and `bottom` resolve with `Size`; numeric values are token-scaled rather than raw pixels.
 
-## Example Code
+`sticky` is `true` for `top: 0`, or a size value for a custom sticky offset. `mobileStrict` and `mobileOrder` enable View's responsive SCSS behaviour. `fullWidth` applies the framework full-width class.
+
+## Theme and state
+
+`themePreset`, `background`, `color`, `border`, `shadow`, and `backgroundBlur` resolve through the shared Theme system. `disabled` and `readOnly` are consumed as visual state and are not forwarded as invalid DOM attributes. Supply `data-color-mode` only for a deliberate local palette override.
+
+## Example
 
 ```tsx
-import { View } from "@musecat/uikit";
+import { Pressable, Text, View } from "@musecat/uikit";
 
-function Card() {
+export function SettingsSection() {
   return (
-    <View
-      column
-      gap={16}
-      padding="R24"
-      radius="R16"
-      themePreset="UIPrimary"
-      width="100%"
-    >
+    <View column gap={16} padding={24} radius="Regular" background="Base1">
       <View row alignItems="center" justifyContent="space-between">
-        <h3>Title</h3>
-        <button>Action</button>
+        <Text type="Title3">Settings</Text>
+        <Pressable padding={8} radius="Light" themePreset="UISecondary">
+          <Text type="Caption1">Edit</Text>
+        </Pressable>
       </View>
-
-      <View opacity={0.8}>Content goes here.</View>
+      <Text type="Body" color="Base3">Choose how this feature behaves.</Text>
     </View>
   );
 }
 ```
+
+For drag-and-drop lists use the attached `View.DND` component; for horizontal carousels use the separately exported `HScrollView`.

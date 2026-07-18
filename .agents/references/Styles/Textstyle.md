@@ -1,4 +1,6 @@
-# Textstyle
+# Text style tokens
+
+**Source:** [`packages/Styles/_textstyle.scss`](../../../packages/Styles/_textstyle.scss)
 
 This document defines the typography hierarchy and text style utility classes.
 
@@ -36,7 +38,7 @@ Utility classes that can be used immediately on HTML tags or classes per the des
 
 ## Usage
 
-Use the provided classes instead of inline styles to specify text component styles.
+Use the `Text` component in React application code; it maps its `type` prop to this system and keeps color, trimming, and font-family behaviour aligned. These classes are primarily for stylesheet-level selectors or semantic HTML authored outside UIKit.
 
 ```html
 <h1 class="Title1">Page Title</h1>

@@ -1,4 +1,6 @@
-# Maps Component Documentation
+# MapOSM
+
+**Source:** [`packages/Components/Maps/OSM`](../../../packages/Components/Maps/OSM)
 
 ## Purpose
 

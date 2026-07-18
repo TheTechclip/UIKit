@@ -1,51 +1,41 @@
-# Theme
+# Theme utility classes
 
-This document defines the theme utility used throughout the app. It includes comprehensive tokens and mixins for background colors, borders, shadows, rounding (Radius), and blur effects.
+**Source:** [`packages/Styles/_theme.scss`](../../../packages/Styles/_theme.scss) and [`packages/Frameworks/Theme/Theme.types.ts`](../../../packages/Frameworks/Theme/Theme.types.ts)
 
-## Tokens (CSS Variables)
+Theme utilities are generated from design tokens. `View`, `Pressable`, and most higher-level components call `resolveThemeClasses`; application code should normally use their props instead of manually composing class names.
 
-- `--radius-*`: Corner rounding (circle, system-extra-light, system-light, system, system-bold, system-extra-bold, system-heavy)
-- `--shadow-base-*`: Shadow tokens (levels 1~3). In dark mode, the shadow tone changes to a brighter variant.
+## Paint grammar
 
-## Utility Classes
+`ThemePaint` is `{Color}{Level}` or `{Color}{Level}TP{Transparency}`. `Color` is `Base`, `BaseLight`, `BaseDark`, `Reversed`, or a palette family; both numeric suffixes range from `1` to `6`.
 
-### 1. ThemeBg (Background & Interactive)
+- `background="Base2"` produces a `ThemeBg-Base2` surface.
+- `color="Reversed1"` produces a `ThemeColor-Reversed1` foreground.
+- `background="Blue3TP4"` uses the generated transparent background variant.
+- `[idle, hover, active]` background tuples explicitly control interactive states; the tuple is applied only when the component is interactive and not disabled/read-only.
 
-Specifies the color system's level 1~6 colors as background. Classes with the TP (transparency) suffix apply a transparent background.
+## Presets
 
-- `.ThemeBg-{Color}{Level}` (e.g., `.ThemeBg-Blue4`)
-- `.ThemeBg-{Color}{Level}TP{Alpha}` (e.g., `.ThemeBg-BaseDark1TP3`)
+`themePreset` combines a background and foreground. `UIPrimary` and `UISecondary` are the standard interactive presets; their `Reversed` variants invert the base family. `{Color}Full` and `{Color}Soft` generate palette-based surfaces. Use `themeInteractive` on an interactive primitive when hover/active feedback is required.
 
-> Interactive state (when combined with the `ThemeInteractive` class): Bright colors with `Level` 4 or below dynamically level-up on hover/active to provide click feedback.
+## Borders, shadows, blur, and radius
 
-### 2. ThemeColor (Foreground)
+| Concern | Prop value | Result |
+| --- | --- | --- |
+| Border | `"Light"`, `"Regular"`, `"Bold"` | Uses the default `Base6TP1` paint. |
+| Explicit border | `"Blue3"` or `["Blue3", "Light"]` | Applies the selected paint and width. |
+| Directional border | `["Light", "None", "Light", "None"]` | Maps to top, right, bottom, left in order. |
+| Shadow | `"Light"`, `"Regular"`, `"Bold"` | Emits `ThemeShadow-1`, `-2`, or `-3`. |
+| Blur | `"ExtraLight"` through `"Heavy"` | Emits a backdrop-filter utility. |
+| Radius | `"None"` through `"Heavy"`, `"Circle"` | Resolves through `Radius()` and the radius CSS variables. |
 
-- `.ThemeColor-{Color}{Level}`: Overrides the element's `color` and `stroke` with the specified color. (e.g., `.ThemeColor-Red5`)
+`None` explicitly clears a supported border, shadow, blur, or radius. Keep explicit zero/`None` values intact when forwarding component props.
 
-### 3. ThemeBorder (Border)
+## Generated class contracts
 
-Supports thickness (Light, Regular, Bold) and direction (1: all, 2: left-right, 3: bottom, 4: left).
+- `.ThemeBg-{Paint}` sets `background` and holds the current value in `--theme-bg`.
+- `.ThemeColor-{Paint}` sets `color` and descendant `stroke`.
+- `.ThemeBorder-{Paint}-{Width}` applies all sides; directional forms use `ThemeBorder1` through `ThemeBorder4`.
+- `.ThemeInteractive` enables hover/active feedback only on eligible elements.
+- `.ThemeDisabled` and `.ThemeReadonly` communicate state to the utility system.
 
-- `.ThemeBorder-{Color}{Level}-{Width}`
-- `.ThemeBorder{Direction}-{Color}{Level}-{Width}` (e.g., `.ThemeBorder3-Base4-Regular`)
-- Passing `None` makes it transparent.
-
-### 4. Interactive & Shadow & Blur
-
-- `.ThemeInteractive`: When used alone (without a background color), a semi-transparent black/white mask is applied on hover/active to give click feedback.
-- `.ThemeShadow-{1~3}`: Applies shadow by level. `.ThemeShadow-None` is supported.
-- `.BackgroundBlur-{Level}`: `backdrop-filter: blur` effect.
-
-
-## Usage
-
-Mix tokens and classes to compose the base form of UI components such as buttons, cards, and modals.
-
-```html
-<div
-  class="ThemeBg-Base1 ThemeShadow-2 ThemeBorder-Base3-Light"
-  style="border-radius: var(--radius-system);"
->
-  <span class="ThemeColor-Blue4">Text</span>
-</div>
-```
+Do not use raw color or radius declarations to bypass these contracts.

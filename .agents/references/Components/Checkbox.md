@@ -1,5 +1,7 @@
 # Checkbox
 
+**Source:** [`packages/Components/Checkbox`](../../../packages/Components/Checkbox)
+
 ## Purpose
 
 A checkbox element for receiving a boolean value from the user, with custom design and animation applied.

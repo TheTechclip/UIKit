@@ -1,5 +1,7 @@
 # TimePicker
 
+**Source:** [`packages/Components/TimePicker`](../../../packages/Components/TimePicker)
+
 ## Purpose
 
 The `TimePicker` component is an input field that lets users select a time by directly entering hours, minutes, (optionally seconds and AM/PM) or adjusting via arrow keys.

@@ -1,5 +1,7 @@
 # Radio
 
+**Source:** [`packages/Components/Radio`](../../../packages/Components/Radio)
+
 ## Purpose
 
 The `Radio` component provides a radio button UI that lets the user select a single option among multiple choices. It supports custom theming, controlled/uncontrolled state management, and labels.

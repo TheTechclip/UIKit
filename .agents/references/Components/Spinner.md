@@ -1,5 +1,7 @@
 # Spinner
 
+**Source:** [`packages/Components/Spinner`](../../../packages/Components/Spinner)
+
 ## Purpose
 
 The `Spinner` component is a rotating animation icon that visually represents an in-progress process or loading state. It supports three different designs (`apple`, `material`, `wheel`).
@@ -43,19 +45,19 @@ export default function SpinnerExample() {
   return (
     <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
       {/* Default Wheel spinner */}
-      <Spinner size={32} color="Blue" />
+      <Spinner size={32} color="Blue3" />
 
       {/* Material Design style spinner */}
       <Spinner
         type="material"
         size={32}
-        color="Red"
+        color="Red3"
         strokeWidth={3}
         duration={1.5}
       />
 
       {/* Apple style spinner */}
-      <Spinner type="apple" size={32} color="Gray" />
+      <Spinner type="apple" size={32} color="Base3" />
     </div>
   );
 }

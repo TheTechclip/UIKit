@@ -1,5 +1,7 @@
 # Box
 
+**Source:** [`packages/Components/Box`](../../../packages/Components/Box)
+
 ## Purpose
 
 The Box component serves as a basic layout container for content. By combining an inner element (`Box.Content`) and a bottom area (`Box.Footer`), it can compose a consistent panel or card-shaped UI.

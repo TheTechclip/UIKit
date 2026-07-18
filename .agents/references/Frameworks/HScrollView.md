@@ -1,4 +1,6 @@
-# HScrollView Framework
+# HScrollView
+
+**Source:** [`packages/Frameworks/View/HScrollView/HScrollView.tsx`](../../../packages/Frameworks/View/HScrollView/HScrollView.tsx) and [`HScrollView.types.ts`](../../../packages/Frameworks/View/HScrollView/HScrollView.types.ts)
 
 ## Purpose
 
@@ -9,6 +11,7 @@
 - The `active` prop specifies whether scrolling is enabled. Passing a string-based viewport breakpoint ("w1", "w2", "w3", "w4") allows responsive activation of the swiper only below a specific breakpoint.
 - The carousel engine (Embla) is activated only when there are multiple child elements; with one or fewer, or when inactive, it falls back to a normal Flexbox structure.
 - The `renderControls` render prop can freely inject left/right scroll control buttons outside or inside the swiper.
+- `renderControls` receives current capability flags; controls must honour `canScrollPrev`, `canScrollNext`, and `isScrollActive` rather than infer state from child count.
 
 ## Type Signatures
 

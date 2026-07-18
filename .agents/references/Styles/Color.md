@@ -1,45 +1,44 @@
-# Color
+# Color tokens
 
-This document defines UIKit's color system and tokens.
+**Source:** [`packages/Styles/_color.scss`](../../../packages/Styles/_color.scss)
 
-## Tokens (CSS Variables)
+UIKit's color system has two layers. Primitive palette variables are stable RGB values; semantic base variables are aliases that change with `data-color-mode`. Components should request colors through `ThemeSystemProps` (`background`, `color`, `border`, or `themePreset`) rather than write palette CSS directly.
 
-### 1. Primitive Colors (Level 1 ~ Level 6)
+## Primitive palette
 
-The base color palette is provided from level 1 (bright/light) to level 6 (dark/saturated).
+Every palette family provides levels `1` through `6`: `Pink`, `Red`, `Brown`, `Orange`, `Yellow`, `Green`, `Mint`, `Cyan`, `Blue`, `Indigo`, `Purple`, and `Magenta`. The CSS form is `--color-{family}-{level}`, for example `--color-blue-4`. `BaseLight` and `BaseDark` are also primitive six-level families.
 
-- Pink, Red, Brown, Orange, Yellow, Green, Mint, Cyan, Blue, Indigo, Purple, Magenta
-- Base Light (white/gray-tone family)
-- Base Dark (black/dark-gray family)
-- e.g. `--color-blue-4`, `--color-red-5`
+Levels are ordered from lighter/brighter (`1`) to darker/more saturated (`6`). They are implementation tokens, not semantic text/background choices; prefer `Base` or a Theme paint where the value should follow color mode.
 
-### 2. Semantic/Base Colors (Light/Dark mode support)
+## Semantic base aliases and color modes
 
-- `--color-text-base`: Default text color
-- `--color-icon-base`: Default icon color
-- `--color-border-base`: Default border color
-- `--color-background-base`: Default background color (system/modal background, etc.)
+`[data-color-mode="light"]` and `[data-color-mode="dark"]` set the following aliases:
 
-Depending on the mode, the `--color-base-*` family is swapped:
+| Token family                   | Light mode              | Dark mode              |
+| ------------------------------ | ----------------------- | ---------------------- |
+| `--color-base-{1..6}`          | `BaseLight`             | `BaseDark`             |
+| `--color-base-reversed-{1..6}` | `BaseDark`              | `BaseLight`            |
+| `--color-text-base`            | dark text               | light text             |
+| `--color-icon-base`            | dark icon               | light icon             |
+| `--color-border-base`          | dark border             | light border           |
+| `--color-background-base`      | system-light background | system-dark background |
 
-- `light`: `--color-base-1` is the light tone, `--color-base-reversed-1` is the dark tone
-- `dark`: `--color-base-1` is the dark tone, `--color-base-reversed-1` is the light tone
+The root defaults to light mode. `ThemeBootstrapper` updates the root `data-color-mode` attribute; a component may set its own `data-color-mode` to intentionally create a local inversion.
 
-## Usage
+## Correct usage
 
-AI/human developers must avoid hardcoding color values (hex, rgb) and always use color tokens when specifying colors.
+```tsx
+import { Text, View } from "@musecat/uikit";
 
-```css
-/* Good */
-.card {
-  background-color: var(--color-background-base);
-  color: var(--color-text-base);
-  border: 1px solid var(--color-blue-4);
-}
-
-/* Bad - Do not hardcode colors */
-.card {
-  background-color: #ffffff;
-  color: #333333;
+export function StatusCard() {
+  return (
+    <View background="Base1" border="Light" padding={16} radius="Regular">
+      <Text color="Blue4" type="Body">
+        Saved
+      </Text>
+    </View>
+  );
 }
 ```
+
+Do not introduce hex, RGB, or one-off alpha values in component styles. For translucent component surfaces use the supported paint syntax, for example `Base2TP4`, rather than `color-mix` in a component.

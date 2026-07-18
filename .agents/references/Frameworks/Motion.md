@@ -1,4 +1,6 @@
-# Motion Framework
+# Motion presets
+
+**Source:** [`packages/Frameworks/Motion/Motion.presets.ts`](../../../packages/Frameworks/Motion/Motion.presets.ts)
 
 ## Purpose
 
@@ -8,6 +10,8 @@ The `Motion` framework is used to provide consistent animation effects and trans
 
 - `motionTransitions`: An object managing animation physical properties (stiffness, damping, mass, etc.). Defines default behaviors such as spring or tween.
 - `motionPresets`: Provides `initial`, `animate`, `exit` state definition objects or factory functions for specific UI components like modal, popover, and backdrop.
+
+These values are framework contracts, not generic animation tokens. Preserve the split between tweened opacity and spring-driven position/scale where a preset supplies it; replacing an entire preset with a custom transition can regress modal and sheet timing.
 
 ## Type Signatures
 

@@ -1,50 +1,20 @@
-# Squircle Framework
+# Squircle
 
-## Purpose
+**Source:** [`packages/Frameworks/Squircle/Squircle.tsx`](../../../packages/Frameworks/Squircle/Squircle.tsx) and [`Squircle.types.ts`](../../../packages/Frameworks/Squircle/Squircle.types.ts)
 
-The `Squircle` framework is a component for rendering the "Super Ellipse" (squircle) corners mainly used in the Apple ecosystem within React applications. Using the `figma-squircle` library, it dynamically calculates and applies an SVG Path-based `clip-path`, providing smooth and soft rounded-corner design.
+`Squircle` creates Figma-style continuous corners using `figma-squircle` and a dynamically generated SVG clip path. `View` and `Pressable` select it automatically for radius-enabled, borderless rendering; use `Squircle` directly only when an independent element needs the same clipping contract.
 
-## Usage Logic
+## Props and measurement
 
-- Renders as a `<div>` by default, and can be changed to the desired element via the `as` prop.
-- The `radius` prop specifies the corner roundness (can be set individually); internally observes the element size (ResizeObserver) to generate the accurate SVG `clip-path`.
-- When a `motion` object is passed, it renders as a motion squircle component combined with framer-motion.
+- `radius` accepts a standard token, numeric/string size, or one-to-four directional values.
+- `cornerRadius` overrides the resolved radius for the clip calculation.
+- `cornerSmoothing` controls the Figma-squircle smoothing factor.
+- `defaultWidth` and `defaultHeight` provide initial dimensions while the element is not yet measured.
+- `preserveSmoothing` keeps smoothing behaviour when dimensions or radius change.
+- `as` chooses the rendered element type; `motion` enables Motion integration.
 
-## Type Signatures
+The component measures its rendered bounds to generate the clip path. When diagnosing clipping defects, verify the element's post-layout `getBoundingClientRect()` dimensions before changing squircle math.
 
-```typescript
-import type { ElementType, HTMLAttributes } from "react";
-import type { MotionProps } from "motion/react";
-import type { RadiusValue } from "../Theme/Radius.types";
+## Motion constraint
 
-export interface SquircleProps extends Omit<
-  HTMLAttributes<HTMLElement>,
-  "color"
-> {
-  as?: ElementType; // element to render (default: "div")
-  radius?: RadiusValue; // corner radius (scale or pixel unit)
-  cornerRadius?: number; // hardcoded corner radius
-  cornerSmoothing?: number; // smoothing degree (default: 0.6)
-  preserveSmoothing?: boolean;
-  motion?: MotionProps; // animation properties
-}
-```
-
-## Example Code
-
-```tsx
-import { Squircle } from "@musecat/uikit";
-
-function Card() {
-  return (
-    <Squircle
-      as="section"
-      radius="R24" // UIKit Radius system token
-      style={{ background: "white", padding: 20 }}
-    >
-      <h2>Soft-corner card</h2>
-      <p>Super Ellipse curvature applied.</p>
-    </Squircle>
-  );
-}
-```
+Do not pass an animation object that changes `width` or `height` directly to a Squircle. That can cause Motion to reset the base `clip-path`. Animate an outer `View`, use animation controls imperatively, or change layout dimensions outside the raw Squircle animation object.

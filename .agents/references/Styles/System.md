@@ -1,27 +1,23 @@
-# System
+# Global system styles
 
-This document defines UIKit's global styles and base initialization (CSS Reset) rules.
+**Source:** [`packages/Styles/_system.scss`](../../../packages/Styles/_system.scss)
 
-## Core Rules
+This stylesheet is the baseline reset applied by the importer. It is global: importing it changes browser defaults for the host application.
 
-1. **Box Sizing & Font**
-   - All elements (`*`, `::before`, `::after`) have `box-sizing: border-box`.
-   - The default font `var(--font-sans-serif)` is applied.
-   - `word-break: keep-all` prevents Korean word breaking.
+## What it guarantees
 
-2. **Root (html, body)**
-   - `html`: `font-size: var(--font-size)` is applied so scaling is based on 1rem = 10px.
-   - `html`: Default text color (`var(--color-text-base)`) and background color (`var(--color-background-base)`) are set.
-   - `body`: Uses a centered flex-col layout by default, with margin/padding reset.
+- `box-sizing: border-box`, the UIKit sans font, Korean-friendly `word-break: keep-all`, and disabled tap highlighting apply to every element and pseudo-element.
+- `html` uses `--font-size`, semantic foreground/background tokens, smooth scrolling, and hides horizontal overflow.
+- `body` is a full-width, centered flex column with zero margin and padding.
+- `a`, `button`, `input`, `textarea`, `select`, and `label` lose browser background, border, padding, margin, text-decoration, and outline defaults.
+- Text inputs and textareas are full width; placeholder opacity is `0.4`; anchors and buttons receive a pointer cursor.
 
-3. **Form Elements & Interactive Elements (a, button, input, etc.)**
-   - Background, border, margin, padding, and outline are reset.
-   - `a`, `button` have `cursor: pointer`.
-   - `input::placeholder` opacity is set to 0.4.
+## Implications for component authors
 
-4. **Disabled State**
-   - `*:disabled`, `*[disabled]`, `.disabled` elements have `cursor: not-allowed` and `opacity: .4`, and events are blocked (`pointer-events: none`).
+Native browser styles are intentionally unavailable after the importer is loaded. Use UIKit primitives and token-backed component styling to restore the intended visual contract. Do not rely on native button borders, native form spacing, or browser focus rings.
 
-## Usage
+The visible focus rule is currently commented out in the source. Components that introduce keyboard interaction must therefore provide their own tested focus-visible treatment rather than assume the reset supplies one.
 
-Loaded at the top of the app without any explicit call to build the global environment. When developing components, be aware of these reset rules (e.g., buttons have no default background/border) and override styles accordingly.
+## Import order
+
+Load the importer once before application or component styles. Do not import `_system.scss` repeatedly from individual component modules.

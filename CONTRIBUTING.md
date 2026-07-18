@@ -1,41 +1,48 @@
 # Contributing to @musecat/uikit
 
-Thank you for your interest in contributing! We welcome bug reports, feature suggestions, and pull requests.
+Thank you for contributing. Changes to this repository affect a source-distributed component library, so implementation, tests, public exports, and references must remain aligned.
 
-## Development Setup
+## Local setup
 
 ```bash
 git clone https://github.com/TheTechclip/UIKit.git
-cd uikit
+cd UIKit
 npm install
 ```
 
-## Available Scripts
+Use Node.js 20 or newer. The repository uses npm and has a peer dependency on Next.js, React, React DOM, Motion, and `@musecat/functionkit`.
 
-| Command | Description |
-|---|---|
-| `npm test` | Run all tests with Vitest |
-| `npm run typecheck` | Type-check with `tsc --noEmit` |
-| `npm run lint` | Lint all files with Biome |
-| `npm run lint:css` | Lint SCSS files with Stylelint |
-| `npm run format` | Format all files with Prettier + Biome |
-| `npm run test:coverage` | Run tests with coverage report |
+## Required workflow
 
-## Code Standards
+1. Read the relevant `.agents/references` files and the TypeScript source before editing a component, framework, or style.
+2. Make the smallest behaviourally complete change; do not replace `View`, `Pressable`, or `ImageView` with native alternatives.
+3. Update the corresponding reference document in the same change whenever an implementation, type, or public export changes.
+4. Add or adjust focused tests that describe the intended contract.
+5. Run the checks appropriate to the change before opening a pull request.
 
-- TypeScript strict mode is enabled — ensure your code compiles without errors.
-- All new features must include corresponding tests.
-- Components and hooks that access browser APIs must start with `"use client"`.
-- Follow the existing code style (spaces, double quotes, semicolons).
-- Design tokens (Radius, Color, Spacing) must be used — hardcoded pixel values are prohibited.
+## Validation
 
-## Pull Request Process
+| Command | When to run it |
+| --- | --- |
+| `npm run typecheck` | Every TypeScript or public API change. |
+| `npm test` | Every behaviour change. |
+| `npm run lint` | Before submitting a pull request. |
+| `npm run lint:css` | After SCSS changes. |
+| `npm run test:coverage` | When adding tests or changing coverage-sensitive code. |
 
-1. Create a feature branch from `main`.
-2. Write tests for your changes.
-3. Ensure `npm run typecheck && npm run lint && npm test` passes.
-4. Open a pull request describing the change and its motivation.
+## Code and design rules
 
-## Questions?
+- Keep strict TypeScript types; do not mask contract problems with broad casts.
+- Use UIKit theme, spacing, radius, and color tokens. Do not introduce raw pixel, color, or ad-hoc style literals where a token-backed prop exists.
+- `View` is the structural primitive; `Pressable` is the interactive primitive; `ImageView` renders images.
+- Preserve the `View`/`Pressable` to `Squircle` radius path. Avoid directly animating Squircle width or height with a Motion animate object.
+- Add new public exports only to the root [`index.ts`](./index.ts). Directories must not introduce internal barrel files.
+- If an external dependency is added, removed, or materially changed, update README acknowledgements in the same pull request.
 
-Feel free to open a discussion or issue for any questions.
+## Pull requests
+
+Describe the user-visible behaviour, affected public API, documentation changes, and validation you ran. Keep unrelated workspace changes out of the pull request; this repository may contain concurrent work.
+
+## Reporting issues
+
+Use a reproducible example, expected behaviour, actual behaviour, browser/runtime version, and relevant screenshots or error output. Report security issues through the process in [SECURITY.md](./SECURITY.md), not a public issue.

@@ -1,5 +1,7 @@
 # Tooltip
 
+**Source:** [`packages/Components/Tooltip`](../../../packages/Components/Tooltip)
+
 ## 1. Purpose
 
 A component that displays a popup bubble (`content`) with additional explanation or information when hovering over or focusing a specific UI element (`trigger`).

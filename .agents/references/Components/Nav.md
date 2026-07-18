@@ -1,4 +1,6 @@
-# Nav Component Documentation
+# Nav
+
+**Source:** [`packages/Components/Nav`](../../../packages/Components/Nav)
 
 ## Purpose
 
@@ -61,7 +63,7 @@ export function TabNavigation() {
       value={activeTab}
       onChange={(val) => setActiveTab(val as string)}
       items={items}
-      radius="Round"
+      radius="Circle"
     />
   );
 }

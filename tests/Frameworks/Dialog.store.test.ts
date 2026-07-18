@@ -46,4 +46,30 @@ describe("dialog()", () => {
     });
     expect(DialogStore.getStack()).toHaveLength(1);
   });
+
+  it("uses the funnel's stable id after its current step changes", () => {
+    const Content = () => null;
+    const createFunnel = (name: string) => ({
+      id: "signup",
+      Content,
+      current: {
+        name,
+        index: 0,
+        total: 2,
+        isFirst: true,
+        isLast: false,
+        nextDisabled: false,
+        meta: {},
+      },
+      error: null,
+      goBack: () => {},
+      advance: async () => {},
+    });
+
+    const first = dialog.modal({ funnel: createFunnel("Account") });
+    const reopened = dialog.modal({ funnel: createFunnel("Confirm") });
+
+    expect(reopened.id).toBe(first.id);
+    expect(DialogStore.getStack()).toHaveLength(1);
+  });
 });

@@ -1,4 +1,6 @@
-# DNDView Framework
+# DNDView
+
+**Source:** [`packages/Frameworks/View/DNDView/DNDView.tsx`](../../../packages/Frameworks/View/DNDView/DNDView.tsx) and [`DNDView.types.ts`](../../../packages/Frameworks/View/DNDView/DNDView.types.ts)
 
 ## Purpose
 
@@ -10,6 +12,8 @@
 - Define each item's appearance via the `renderItem` function; rendering the `handle` property from the `state` argument passed in makes that area the drag handle.
 - When order changes, the `onReorder(newItems)` callback is called, so update state in the parent component.
 - The `strategy` prop selects the sorting algorithm (`vertical`, `horizontal`, `rect`), and keyboard navigation is optimized for direction-key movement per this strategy.
+- `getKey` must remain stable across renders and identify every item uniquely. The component returns a reordered copy through `onReorder`; parent state owns the authoritative array.
+- Set `dragHandle` when only a specific control should initiate dragging. The `handle` node supplied to `renderItem` already owns the necessary listeners and attributes.
 
 ## Type Signatures
 
@@ -68,7 +72,7 @@ function SortableList() {
           row
           alignItems="center"
           padding={16}
-          radius="R8"
+          radius="Light"
           background="Base1"
           shadow={dragging ? "Bold" : "None"} // emphasize while dragging
         >

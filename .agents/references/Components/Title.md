@@ -1,5 +1,7 @@
 # Title
 
+**Source:** [`packages/Components/Title`](../../../packages/Components/Title)
+
 ## 1. Purpose
 
 A component for composing a UI title and related information (metadata, caption, action buttons, etc.). Used to render a header role or a section's main heading, and provides a `Title.ContextBar` sub-component that displays auxiliary actions and information to manage them integrally.

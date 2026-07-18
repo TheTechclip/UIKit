@@ -1,4 +1,6 @@
-# Animation
+# Animation tokens
+
+**Source:** [`packages/Styles/_animation.scss`](../../../packages/Styles/_animation.scss)
 
 This document defines UIKit's animation tokens and related style rules.
 
@@ -31,7 +33,7 @@ Animation effects are defined using the `--transition-*` prefix.
 
 ## Usage
 
-AI/human developers inject the CSS variables directly into components that require animation effects.
+Use these variables only in component SCSS that has no equivalent Motion preset. Dialog, popover, sheet, and backdrop motion should use the exported Motion presets so exit/entrance behaviour stays consistent. The active scale token belongs on an interactive state, not a persistent layout state.
 
 ```css
 .button {

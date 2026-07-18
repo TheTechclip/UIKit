@@ -1,5 +1,7 @@
 # CodeBox
 
+**Source:** [`packages/Components/CodeBox`](../../../packages/Components/CodeBox)
+
 ## Purpose
 
 A component that displays code snippets with language syntax highlighting and includes a built-in code copy feature.

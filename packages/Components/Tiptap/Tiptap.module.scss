@@ -1,0 +1,94 @@
+.Tiptap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.Toolbar {
+  border-bottom: 0.1rem solid var(--color-border, rgba(0, 0, 0, 0.08));
+  background: var(--color-background-subtle, rgba(0, 0, 0, 0.02));
+}
+
+.Divider {
+  background: var(--color-border, rgba(0, 0, 0, 0.12));
+  margin-inline: 0.2rem;
+}
+
+.ToolbarButton {
+  min-width: max-content;
+}
+
+.EditorWrap {
+  padding: 1.2rem 1.4rem;
+}
+
+.EditorContent {
+  width: 100%;
+
+  .ProseMirror {
+    outline: none;
+    min-height: inherit;
+    color: var(--color-text, inherit);
+    word-break: break-word;
+
+    > * + * {
+      margin-top: 0.8rem;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.6rem;
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    ol {
+      list-style: decimal;
+    }
+
+    blockquote {
+      border-left: 0.3rem solid var(--color-border, rgba(0, 0, 0, 0.2));
+      padding-left: 1.2rem;
+    }
+
+    code {
+      font-family: var(--font-code, monospace);
+      background: var(--color-background-subtle, rgba(0, 0, 0, 0.06));
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.4rem;
+      font-size: 0.9em;
+    }
+
+    pre {
+      font-family: var(--font-code, monospace);
+      background: var(--color-background-subtle, rgba(0, 0, 0, 0.06));
+      padding: 1.2rem;
+      border-radius: 0.8rem;
+      overflow-x: auto;
+
+      code {
+        background: none;
+        padding: 0;
+      }
+    }
+
+    a {
+      color: var(--color-accent, #2c6ecb);
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 0.8rem;
+    }
+
+    p.is-editor-empty:first-child::before {
+      content: attr(data-placeholder);
+      float: left;
+      color: var(--color-text-secondary, rgba(0, 0, 0, 0.4));
+      pointer-events: none;
+      height: 0;
+    }
+  }
+}

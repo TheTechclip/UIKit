@@ -1,4 +1,6 @@
-# Dialog Framework
+# Dialog
+
+**Sources:** [`packages/Frameworks/Dialog/Dialog.tsx`](../../../packages/Frameworks/Dialog/Dialog.tsx), [`Dialog.types.ts`](../../../packages/Frameworks/Dialog/Dialog.types.ts), and [`Dialog.store.ts`](../../../packages/Frameworks/Dialog/Dialog.store.ts)
 
 ## Purpose
 
@@ -15,6 +17,10 @@ The `Dialog` framework is a universal framework that centrally manages all overl
   - `mobileMode`: A useful option that is `modal` on desktop but automatically converts to `sheet` on mobile (when `isMobile` condition is met).
 - **Common components**: Header, Footer (button arrangement automation), background (Dim), exit animation handling, keyboard Escape handling, etc.
 
+## Lifecycle and ownership
+
+Use one ownership model per dialog. Declarative dialogs are controlled by `open`/`onOpenChange`; imperative dialogs return an instance and require a mounted `DialogBootstrap`. Anchor references must point to a live element before a popover opens. Avoid changing sheet snap-point semantics while diagnosing gesture or transition issues: drag state and renderer transition state are separate concerns.
+
 ## Type Signatures
 
 ```typescript
@@ -23,9 +29,9 @@ import type {
   PopoverConfig,
   ModalConfig,
   SheetConfig,
-  FunnelConfig,
   ExitConfig,
 } from "./Dialog.types";
+import type { DialogFunnelProp } from "./funnel/DialogFunnel.types";
 import type { ThemeSystemProps, BorderProps } from "../Theme/Theme.types";
 import type { RadiusProps } from "../Theme/Radius.types";
 
@@ -46,7 +52,7 @@ export interface DialogProps {
   popover?: PopoverConfig;
   modal?: ModalConfig;
   sheet?: SheetConfig;
-  funnel?: FunnelConfig; // multi-step funnel flow control
+  funnel?: DialogFunnelProp; // result returned by useDialogFunnel
 
   content?: ReactNode; // dialog body
   exit?: ExitConfig; // outside click, cancel button behavior
@@ -56,8 +62,37 @@ export interface DialogProps {
 export function dialog(props: DialogProps): DialogInstance;
 dialog.modal = (props: Omit<DialogProps, "mode">) => DialogInstance;
 dialog.sheet = (props: Omit<DialogProps, "mode">) => DialogInstance;
-dialog.popover = (anchor: HTMLElement, props: Omit<DialogProps, "mode">) =>
-  DialogInstance;
+dialog.popover = (anchor: HTMLElement, props: Omit<DialogProps, "mode">) => DialogInstance;
+```
+
+## Funnel
+
+Create the flow with `useDialogFunnel` and pass its returned value to `Dialog`.
+The hook delegates step/history/context state to `@use-funnel/browser`; each step receives its typed context, `history`, and `setContext`. The default Next control follows declared step order, skips `hidden` steps, and explicit branching must use `history.push`. `validate` prevents navigation when it returns `false`, or displays its returned string above the content. Custom navigation controls are renderer functions receiving `{ onClick, disabled }`.
+
+```tsx
+import { Dialog, useDialogFunnel } from "@musecat/uikit";
+import { Input, Text } from "@musecat/uikit";
+
+const funnel = useDialogFunnel<{
+  Account: { email?: string };
+  Confirm: { email: string };
+}>({
+  id: "signup",
+  initial: { step: "Account", context: {} },
+  steps: {
+    Account: {
+      title: "계정 정보",
+      validate: (context) => (context.email ? true : "이메일을 입력해 주세요."),
+      render: ({ context, setContext }) => (
+        <Input value={context.email} onChange={(event) => setContext({ email: event.target.value })} />
+      ),
+    },
+    Confirm: { render: ({ context }) => <Text>{context.email}</Text> },
+  },
+});
+
+<Dialog mode="modal" open={open} onOpenChange={setOpen} funnel={funnel} />;
 ```
 
 ## Example Code

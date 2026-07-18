@@ -1,4 +1,6 @@
-# _shared Framework
+# Shared framework utilities
+
+**Sources:** [`packages/Frameworks/_shared`](../../../packages/Frameworks/_shared)
 
 ## Purpose
 
@@ -13,6 +15,10 @@ The `_shared` framework folder is a module that collects utility functions, hook
 - **Wind.types.ts**: Shared layout props (`width`, `height`, `margin`, `gap`, `alignItems`, `justifyContent`, `alignSelf`, `column`, `row`, `fullWidth`, `opacity`, `noSquircle`) used by both `ViewProps` and `PressableProps`.
 - **bodyScrollLock.ts**: Implements touch and mouse scroll lock.
 - **normalize.ts**: Image src, brand icon class, and language name normalization utilities.
+
+## Ownership boundary
+
+These files are implementation infrastructure. Only symbols re-exported by the root `index.ts` are supported package APIs: `Size`, `SizePX`, `useControllableState`, `useScrollLock`, `LAYER_Z_INDEX`, and normalization helpers. Import other files directly only from UIKit source, not from consuming applications.
 
 ## Type Signatures
 

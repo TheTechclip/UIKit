@@ -1,5 +1,7 @@
 # Skeleton
 
+**Source:** [`packages/Components/Skeleton`](../../../packages/Components/Skeleton)
+
 ## Purpose
 
 The `Skeleton` component provides a visual placeholder to the user while data is loading, naturally conveying the loading state.

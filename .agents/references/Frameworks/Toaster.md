@@ -1,4 +1,6 @@
-# Toaster Framework
+# Toaster
+
+**Source:** [`packages/Frameworks/Toaster/Toaster.boot.tsx`](../../../packages/Frameworks/Toaster/Toaster.boot.tsx) and [`Toaster.types.ts`](../../../packages/Frameworks/Toaster/Toaster.types.ts)
 
 ## Purpose
 
@@ -9,6 +11,7 @@ The `Toaster` framework is a wrapper component for displaying toast messages (no
 - Render `ToasterBootstrap` (default export) at the top level (Root Layout, etc.).
 - Where you need to show a toast message, use the `toast` object re-exported from the `sonner` package to trigger messages.
 - Automatically injects UIKit's color mode and custom icons (`Icon` component) to maintain application consistency.
+- Mount exactly one bootstrap near the application root. `toast` is the Sonner API re-export; its notification calls can be made from client-side event handlers after bootstrap exists.
 
 ## Type Signatures
 

@@ -1,4 +1,6 @@
-# Profile Component Documentation
+# Profile
+
+**Source:** [`packages/Components/Profile`](../../../packages/Components/Profile)
 
 ## Purpose
 
