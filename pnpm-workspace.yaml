@@ -1,0 +1,7 @@
+packages:
+  - 'packages/*'
+  - 'apps/*'
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  sharp: true
