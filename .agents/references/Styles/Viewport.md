@@ -1,4 +1,6 @@
-# Viewport
+# Viewport SCSS helpers
+
+**Source:** [`packages/Styles/_viewport.scss`](../../../packages/Styles/_viewport.scss)
 
 This document defines viewport mixin functions for easily writing media queries within SCSS.
 
@@ -36,7 +38,7 @@ Import `_viewport.scss` as a module when designing custom components to control 
 
   @include vp.only(w2) {
     // Applied only on screens 320px ~ 409.98px
-    background: red;
+    // Use a UIKit token-backed property here when styling a component.
   }
 }
 ```

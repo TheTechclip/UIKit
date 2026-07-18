@@ -1,4 +1,6 @@
-# Icon
+# Icon font utilities
+
+**Source:** [`packages/Styles/_icon.scss`](../../../packages/Styles/_icon.scss)
 
 This document defines the icon font (min-icon based) and related weight adjustment classes.
 
@@ -32,7 +34,7 @@ Approximately several hundred icon classes are defined. Class names follow the `
 
 ## Usage
 
-Render on screen by using a dedicated component or by combining classes on HTML tags (mainly `<i>` or `<span class="icon">`).
+Use the `Icon` component for application UI. Direct icon-font classes are reserved for the framework's implementation and cases where `Icon` cannot be used; they do not provide the component's loading, image, SVG, pressable, sizing, or accessibility behaviour.
 
 ```html
 <!-- Thin outlined close icon -->

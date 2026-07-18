@@ -1,4 +1,6 @@
-# Progress Component Documentation
+# Progress
+
+**Source:** [`packages/Components/Progress`](../../../packages/Components/Progress)
 
 ## Purpose
 
@@ -61,7 +63,7 @@ export function FileUploadStatus({
           max={100}
           color="BlueSolid"
           background="Base6TP6"
-          radius="Round"
+          radius="Circle"
         />
       </div>
     );

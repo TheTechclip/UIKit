@@ -1,5 +1,7 @@
 # Icon
 
+**Source:** [`packages/Components/Icon`](../../../packages/Components/Icon)
+
 ## 1. Purpose
 
 - An integrated rendering view for icons, images, loading spinners, and SVGs.

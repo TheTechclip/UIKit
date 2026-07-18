@@ -1,5 +1,7 @@
 # Divider
 
+**Source:** [`packages/Components/Divider`](../../../packages/Components/Divider)
+
 ## 1. Purpose
 
 - A visual separator component within a layout.

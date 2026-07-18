@@ -1,5 +1,7 @@
 # Text
 
+**Source:** [`packages/Components/Text`](../../../packages/Components/Text)
+
 ## Purpose
 
 The `Text` component is a text element for applying a unified typography system across the project. It allows applying consistent font sizes, heights, and styles.

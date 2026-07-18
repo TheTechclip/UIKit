@@ -1,66 +1,37 @@
-# ImageView Framework
+# ImageView
 
-## Purpose
+**Source:** [`packages/Frameworks/View/ImageView/Image.tsx`](../../../packages/Frameworks/View/ImageView/Image.tsx) and [`Image.types.ts`](../../../packages/Frameworks/View/ImageView/Image.types.ts)
 
-The `ImageView` framework is a composite component that renders (single and multiple) images optimally and provides a full-screen or popup modal zoom/slide view (gallery) on click. Internally supports Next.js's `next/image`, and uses `embla-carousel` in slide mode.
+`ImageView` is UIKit's image primitive. It supports a single image, a gallery, optional navigation controls, and an image dialog. Use it instead of a native `img` so radius and dialog behaviour remain consistent.
 
-## Usage Logic
+## Input shapes
 
-- Passing a single string to `src` renders one image; passing an array (`string[]` or `ImageItem[]`) displays it as a horizontally scrolling gallery.
-- Passing the `dialog` prop opens an immersive image viewer as a modal based on the `Dialog` framework when the image is clicked.
-- Includes its own blur data generation utility (fallback blur) to provide a natural placeholder during loading.
+- `src: string` renders one image; use `alt` for meaningful alternative text.
+- `src: string[]` renders a group; `alt`, `width`, and `height` may also be arrays aligned by index.
+- `src: ImageItem[]` supplies stable `id`, `src`, required `alt`, optional `srcDialog`, and optional `blurDataURL` per image.
 
-## Type Signatures
+`width` and `height` accept UIKit size values. `groupWidth`, `groupHeight`, `groupGap`, and `groupClassName` configure the multi-image layout. `priority` should be reserved for above-the-fold imagery.
 
-```typescript
-export type ImageItem = {
-  id: number;
-  src: string;
-  alt: string;
-  srcDialog?: string; // high-quality image to show in dialog mode
-  blurDataURL?: string;
-};
+## Gallery and dialog
 
-export interface ImageProps extends RadiusProps {
-  src: string | string[] | ImageItem[];
-  alt?: string | string[];
-  width?: number | string | (number | string)[];
-  height?: number | string | (number | string)[];
-  priority?: boolean;
-  groupWidth?: string;
-  groupHeight?: string;
-  groupGap?: number | string;
-  overlay?: ReactNode | ReactNode[];
-  control?: boolean | { left?: boolean; right?: boolean /* ... */ };
-  dialog?: {
-    overlay?: ReactNode | ReactNode[];
-    header?: { content?: ReactNode };
-    footer?: { list?: boolean; counter?: boolean /* ... */ };
-  };
-}
-```
-
-## Example Code
+`control` enables previous/next controls; each side can be disabled or receive a class/style slot. `overlay` accepts one node or a node per image. The `dialog` object enables the full-screen viewer and separately configures overlay, header content, controls, and footer content/list/counter.
 
 ```tsx
-import { View } from "@musecat/uikit";
+import { ImageView } from "@musecat/uikit";
 
-function PhotoGallery() {
-  const images = [
-    { id: 1, src: "/img1.jpg", alt: "Photo 1" },
-    { id: 2, src: "/img2.jpg", alt: "Photo 2" },
-  ];
+const images = [
+  { id: 1, src: "/gallery/one.jpg", alt: "First gallery image" },
+  { id: 2, src: "/gallery/two.jpg", alt: "Second gallery image" },
+];
 
+export function Gallery() {
   return (
     <ImageView
       src={images}
-      radius="R12"
-      groupWidth="240px"
-      groupHeight="160px"
-      control={{ left: true, right: true }}
-      dialog={{
-        footer: { list: true, counter: true },
-      }}
+      radius="Regular"
+      groupGap={8}
+      control
+      dialog={{ footer: { list: true, counter: true } }}
     />
   );
 }

@@ -1,4 +1,6 @@
-# EdgeEffect Framework
+# EdgeEffect
+
+**Source:** [`packages/Frameworks/EdgeEffect/EdgeEffect.tsx`](../../../packages/Frameworks/EdgeEffect/EdgeEffect.tsx)
 
 ## Purpose
 
@@ -9,6 +11,7 @@ The `EdgeEffect` framework adds a blurry gradient overlay to a specific directio
 - Rendered on top of the `View` component and mainly used to apply a gradient to the edge of a scrollable element.
 - Specifying one of `"left"`, `"right"`, `"top"`, `"bottom"` for the `side` prop spreads the gradient toward the opposite direction of that side.
 - `pointerEvents: "none"` is applied by default so it does not interfere with click/touch events.
+- It is decorative only: place it in a positioned owner and keep it outside the scrollable content flow so it does not alter measurements or tab order.
 
 ## Type Signatures
 

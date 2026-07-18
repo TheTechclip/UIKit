@@ -2,12 +2,12 @@
 
 import { buildContext, useViewportMatch } from "@musecat/functionkit";
 import { useMemo } from "react";
-import DialogFunnel from "./contents/Dialog.funnel";
 import type {
   DialogContextValue,
   DialogMode,
   DialogProps,
 } from "./Dialog.types";
+import DialogFunnelShell from "./funnel/DialogFunnelShell";
 import RenderModal from "./renderers/renderModal";
 import RenderPopover from "./renderers/renderPopover";
 import RenderSheet from "./renderers/renderSheet";
@@ -67,13 +67,20 @@ export default function Dialog(props: DialogProps) {
   }, [resolvedMode, popover, modal, sheet, funnel]);
 
   const resolvedExit = useMemo(() => {
-    if (funnel) return undefined;
+    if (funnel) return exit;
     if (resolvedMode === "popover") return popover?.exit ?? exit;
     if (resolvedMode === "modal") return modal?.exit ?? popover?.exit ?? exit;
     return sheet?.exit ?? popover?.exit ?? exit;
   }, [resolvedMode, popover, modal, sheet, funnel, exit]);
 
   const close = () => {
+    if (resolvedExit?.confirm) {
+      const { title, caption } = resolvedExit.confirm;
+      const isConfirmed = window.confirm(
+        `${title ?? "확인"}\n\n${caption ?? "작업을 중단하시겠습니까?"}`,
+      );
+      if (!isConfirmed) return;
+    }
     onOpenChange(false);
   };
 
@@ -90,7 +97,9 @@ export default function Dialog(props: DialogProps) {
 
   const renderFunnelContent = () => {
     if (!funnel) return null;
-    return <DialogFunnel config={funnel} onClose={close} isMobile={isMobile} />;
+    return (
+      <DialogFunnelShell funnel={funnel} onClose={close} isMobile={isMobile} />
+    );
   };
 
   const renderContent = () => {

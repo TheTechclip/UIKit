@@ -1,5 +1,7 @@
 # Label
 
+**Source:** [`packages/Components/Label`](../../../packages/Components/Label)
+
 ## 1. Purpose
 
 - A form element container and control wrapper.

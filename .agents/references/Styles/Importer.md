@@ -1,19 +1,25 @@
-# Importer
+# Global style importer
 
-The `_importer.scss` file is the entry point that imports and bundles all SCSS modules within the Styles package.
+**Source:** [`packages/Styles/_importer.scss`](../../../packages/Styles/_importer.scss)
 
-## Loaded Module List
+`_importer.scss` is the single global SCSS entry point. It loads modules in this exact order:
 
-1. `animation`
-2. `color`
-3. `font`
-4. `icon`
-5. `system`
-6. `textstyle`
-7. `theme`
-8. `viewport`
-9. `viewport-global`
+1. animation
+2. color
+3. font
+4. system
+5. textstyle
+6. theme
+7. viewport
+8. viewport-global
 
-## Usage
+Color, font, and animation variables must exist before the reset and utility modules use them. Preserve this ordering when adding a global module. Component-scoped SCSS should import only the helpers it needs, commonly `@use "../../Styles/viewport" as viewport;`, rather than importing the global bundle again.
 
-This file is used as the package distribution and compiler entry point. When adding styles, write them in individual files and add them to the Importer if necessary. During normal component development there is almost no need to modify this file directly.
+## Application integration
+
+```scss
+/* app/globals.scss */
+@use "@musecat/uikit/packages/Styles/importer";
+```
+
+Compile this file with Sass once at the application root. The library ships SCSS source; Next.js consumers need the `sass` package installed.

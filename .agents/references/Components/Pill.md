@@ -1,4 +1,6 @@
-# Pill Component Documentation
+# Pill
+
+**Source:** [`packages/Components/Pill`](../../../packages/Components/Pill)
 
 ## Purpose
 
@@ -55,7 +57,7 @@ export function TagList() {
   return (
     <div style={{ display: "flex", gap: "8px" }}>
       {/* Basic text pill */}
-      <Pill text="Design" themePreset="BaseFull" radius="Round" />
+      <Pill text="Design" themePreset="BaseFull" radius="Circle" />
 
       {/* Pill with icon, clickable */}
       <Pill

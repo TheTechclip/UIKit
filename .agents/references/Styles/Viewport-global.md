@@ -1,4 +1,6 @@
-# Viewport Global
+# Viewport global utilities
+
+**Source:** [`packages/Styles/_viewport-global.scss`](../../../packages/Styles/_viewport-global.scss)
 
 This document defines global utility classes based on viewport (responsive resolution). Generated based on the mixins in `_viewport.scss`.
 
@@ -12,6 +14,8 @@ This document defines global utility classes based on viewport (responsive resol
 ## Utility Classes
 
 Prefixed with `wX` to control responsive behavior. (e.g., `.w1-h`, `--w1-h` supported)
+
+Both `.wX-*` and `.--wX-*` selectors are generated. These classes intentionally use `!important`; use them for responsive structural overrides, not as a substitute for component layout props.
 
 ### 1. Single Interval Control
 

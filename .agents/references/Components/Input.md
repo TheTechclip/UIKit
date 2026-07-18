@@ -1,5 +1,7 @@
 # Input
 
+**Source:** [`packages/Components/Input`](../../../packages/Components/Input)
+
 ## 1. Purpose
 
 - A single text input form component.

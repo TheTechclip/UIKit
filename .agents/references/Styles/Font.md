@@ -1,4 +1,6 @@
-# Font
+# Font tokens
+
+**Source:** [`packages/Styles/_font.scss`](../../../packages/Styles/_font.scss)
 
 This document defines UIKit's font configuration and system.
 
@@ -27,7 +29,7 @@ This document defines UIKit's font configuration and system.
 
 ## Usage
 
-Use font family variables when specifying the font of a component or element in CSS.
+`Text` should be the normal application-facing typography API. Use these variables only in SCSS for framework-level behaviour. The root font-size token establishes UIKit sizing; do not override it within a component because numeric UIKit size values resolve against that scale.
 
 ```css
 .custom-code-block {

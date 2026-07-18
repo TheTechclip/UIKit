@@ -1,5 +1,7 @@
 # Timeline
 
+**Source:** [`packages/Components/Timeline`](../../../packages/Components/Timeline)
+
 ## Purpose
 
 The `Timeline` component is a layout component that visualizes a series of events, states, or records as a time-ordered or sequential list.
@@ -64,7 +66,7 @@ export default function TimelineExample() {
     {
       id: "2",
       icon: { icon: "iTruck", size: 12 },
-      nodePreset: "UINeutral",
+      nodePreset: "UISecondary",
       children: (
         <>
           <Text type="Subheadline" weight={600}>

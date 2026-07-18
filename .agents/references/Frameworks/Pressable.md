@@ -1,79 +1,44 @@
-# Pressable Framework
+# Pressable
 
-## Purpose
+**Source:** [`packages/Frameworks/Pressable/Pressable.tsx`](../../../packages/Frameworks/Pressable/Pressable.tsx) and [`Pressable.types.ts`](../../../packages/Frameworks/Pressable/Pressable.types.ts)
 
-The `Pressable` framework is a versatile multipurpose wrapper component that handles user interactions such as click, touch, and hover. It dynamically identifies its role—link (`<a>`, `Link`), button (`<button>`), form control (`checkbox`, `radio`), or custom popover trigger—and renders the appropriate DOM element and accessibility attributes. It also uniformly applies Squircle shapes, motion wrapping, and theme-based styling.
+`Pressable` is UIKit's interactive primitive. It accepts shared layout, padding, theme, radius, and event props while selecting the appropriate semantic target for a button, link, form control, or popover trigger.
 
-## Usage Logic
+## Semantic modes
 
-- When an `href` prop is given, it internally renders as Next.js's `Link` component or a plain `<a>` tag.
-- With `type="checkbox"` or `type="radio"`, it renders as a custom label (`<label>`) together with a visually hidden `<input>` element.
-- With a button action or `onClick`, it renders as a `<button>`. The `popover` prop lets you declaratively write a popover trigger and inner content together.
-- Use `themePreset` etc. to automate styling for press/hover interactions.
+- `href` renders a Next.js link/anchor path; use `target`, `rel`, and `download` where appropriate.
+- Default interaction renders a button-like target and accepts `onClick`.
+- `type="checkbox"` or `type="radio"` provides the labelled native-control path with `checked`, `onChange`, `name`, and `value`.
+- `form` creates a form wrapper using the supplied form attributes.
+- `popover` owns its open state unless `open` is supplied, anchors the popup to the trigger, and exposes `onOpenChange`.
 
-## Type Signatures
+`disabled` and `readOnly` remove interactive eligibility; do not forward lower-case state props manually. Add an accessible name with children, `title`, `aria-label`, or `aria-labelledby`.
 
-```typescript
-import type { CSSProperties } from "react";
-import type { LinkProps } from "next/link";
-import type { MotionProps } from "motion/react";
-import type { PopoverConfig } from "../Dialog/Dialog.types";
-import type { WindProps } from "../_shared/Wind.types";
-import type { ThemeSystemProps, BorderProps } from "../Theme/Theme.types";
-import type { RadiusProps } from "../Theme/Radius.types";
+## Visual contract
 
-export interface PressableProps
-  extends WindProps, ThemeSystemProps, BorderProps, RadiusProps /* ...others omitted */ {
-  href?: LinkProps["href"];
-  onClick?: (e: React.MouseEvent) => void;
-  type?: HTMLButtonElement["type"] | "checkbox" | "radio";
-  disabled?: boolean;
-  checked?: HTMLInputElement["checked"];
-  popover?: Omit<PopoverConfig, "anchorRef"> & {
-    content: React.ReactNode;
-    open?: boolean;
-    defaultOpen?: boolean;
-    onOpenChange?: (open: boolean) => void;
-  };
-  motion?: MotionProps;
-  noSquircle?: boolean; // whether to prevent Squircle corner application
-  // other various event handlers and layout properties
-}
-```
+The layout props follow `View`. Theme state is resolved with `isInteractive: true`, so `themePreset` plus `themeInteractive` produces token-defined hover and active feedback. Radius normally uses `Squircle`; pass `noSquircle` only when a rectangular DOM shape is necessary. As with `View`, do not animate Squircle width/height directly through a Motion `animate` object.
 
-## Example Code
+## Example
 
 ```tsx
-import { Pressable } from "@musecat/uikit";
+import { Pressable, Text, View } from "@musecat/uikit";
 
-function Example() {
+export function AccountActions() {
   return (
-    <div style={{ display: "flex", gap: 16 }}>
-      {/* 1. Normal button */}
-      <Pressable themePreset="UIPrimary" onClick={() => alert("Clicked")}>
-        Primary Button
+    <View row gap={8}>
+      <Pressable href="/account" padding={12} radius="Regular" themePreset="UISecondary">
+        <Text type="Body">Account</Text>
       </Pressable>
-
-      {/* 2. Link button */}
-      <Pressable href="/about" themePreset="BaseFull" radius="R16">
-        Go to About
-      </Pressable>
-
-      {/* 3. Checkbox control */}
-      <Pressable type="checkbox" checked={true} onChange={() => {}}>
-        Toggle Checked
-      </Pressable>
-
-      {/* 4. Popover trigger combined */}
       <Pressable
-        themePreset="UISecondary"
-        popover={{
-          content: <div style={{ padding: 16 }}>This is popover content.</div>,
-        }}
+        onClick={() => {}}
+        padding={12}
+        radius="Regular"
+        themePreset="UIPrimary"
+        themeInteractive
       >
-        Open Popover
+        <Text type="Body">Save</Text>
       </Pressable>
-    </div>
+    </View>
   );
 }
 ```

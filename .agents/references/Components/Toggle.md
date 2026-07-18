@@ -1,5 +1,7 @@
 # Toggle
 
+**Source:** [`packages/Components/Toggle`](../../../packages/Components/Toggle)
+
 ## 1. Purpose
 
 A toggle (switch) component that lets the user switch between two states (on/off). Smoothly supports drag gestures and click animations.

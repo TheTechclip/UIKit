@@ -1,5 +1,7 @@
 # Select
 
+**Source:** [`packages/Components/Select`](../../../packages/Components/Select)
+
 ## Purpose
 
 The `Select` component provides a dropdown menu for receiving single or multiple item selection from the user. It natively supports accessibility and keyboard navigation, and is provided as a custom UI wrapping the native `<select>` element.

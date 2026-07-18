@@ -8,6 +8,7 @@ import type {
   ThemeBackgroundPaint,
   ThemeSystemProps,
 } from "../Theme/Theme.types";
+import type { DialogFunnelProp } from "./funnel/DialogFunnel.types";
 
 export type DialogMode = "popover" | "modal" | "sheet";
 export type DialogMobileMode = "modal" | "sheet";
@@ -128,56 +129,31 @@ export interface SheetConfig extends DialogBaseConfig {
   popoverOwnerId?: string;
 }
 
-export interface FunnelStepConfig {
-  name: string;
-  title?: ReactNode;
-  caption?: ReactNode;
-  icon?: IconProps;
-  content: ReactNode;
-  nextDisabled?: boolean;
-  onNext?: () => boolean | Promise<boolean> | string;
+export interface FunnelNavigationControl {
+  onClick: () => void;
+  disabled?: boolean;
 }
 
-export interface FunnelHistory {
-  push: (step: string, context?: any) => void;
-  replace: (step: string, context?: any) => void;
-  back: () => void;
-  go?: (index: number) => void;
-}
+export type FunnelNavigationAction =
+  | boolean
+  | ((control: FunnelNavigationControl) => ReactNode);
 
 export interface FunnelNavigationConfig {
-  back?: boolean | ReactNode;
+  back?: FunnelNavigationAction;
   backLocation?:
     | "header"
     | "footer"
     | { pc?: "header" | "footer"; mobile?: "header" | "footer" };
-  next?: boolean | ReactNode;
+  next?: FunnelNavigationAction;
   nextLocation?:
     | "header"
     | "footer"
     | { pc?: "header" | "footer"; mobile?: "header" | "footer" };
-  exit?: boolean | ReactNode;
+  exit?: FunnelNavigationAction;
   exitLocation?:
     | "header"
     | "footer"
     | { pc?: "header" | "footer"; mobile?: "header" | "footer" };
-}
-
-export interface FunnelConfig {
-  id: string;
-  steps: FunnelStepConfig[];
-  onFinish?: () => void;
-  onMount?: (history: FunnelHistory) => void;
-  loading?: boolean;
-  isSubmitted?: boolean;
-  onRestart?: () => void;
-  navigation?: FunnelNavigationConfig;
-  preset?: "classic" | "oobe";
-  footer?: {
-    content?: ReactNode;
-    columnLayout?: boolean;
-    buttonCondensed?: boolean | "pc";
-  };
 }
 
 export interface DialogContextValue {
@@ -186,12 +162,6 @@ export interface DialogContextValue {
   open: boolean;
   closeDialog: () => void;
   loading?: boolean;
-  funnel?: {
-    currentStep: string;
-    currentIndex: number;
-    totalSteps: number;
-    history: FunnelHistory;
-  };
 }
 
 export interface DialogOutsideOptions {
@@ -248,8 +218,8 @@ export type DialogProps =
       mobileMode?: DialogMobileMode;
       popover?: Omit<PopoverConfig, "header" | "footer" | "exit">;
       modal?: Omit<ModalConfig, "header" | "footer" | "custom" | "exit">;
-      sheet?: Omit<SheetConfig, "header" | "footer" | "exit">;
-      funnel: FunnelConfig;
+      sheet?: never;
+      funnel: DialogFunnelProp;
     })
   | (CommonDialogProps & {
       mode: "sheet";
@@ -260,5 +230,5 @@ export type DialogProps =
       popover?: never;
       modal?: never;
       sheet?: Omit<SheetConfig, "header" | "footer" | "exit">;
-      funnel: FunnelConfig;
+      funnel: DialogFunnelProp;
     });

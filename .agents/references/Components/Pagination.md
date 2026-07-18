@@ -1,4 +1,6 @@
-# Pagination Component Documentation
+# Pagination
+
+**Source:** [`packages/Components/Pagination`](../../../packages/Components/Pagination)
 
 ## Purpose
 

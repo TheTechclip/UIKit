@@ -1,5 +1,7 @@
 # Card
 
+**Source:** [`packages/Components/Card`](../../../packages/Components/Card)
+
 ## Purpose
 
 A card component supporting basic information grouping and accordion (foldable) expansion.
