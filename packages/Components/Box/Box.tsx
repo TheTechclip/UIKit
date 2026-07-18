@@ -1,15 +1,11 @@
 import { createContext, useContext } from "react";
-import type {
-  BoxContentProps,
-  BoxFooterProps,
-  BoxProps,
-} from "./Box.types";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 import Divider from "../Divider/Divider";
 import Icon from "../Icon/Icon";
 import Spinner from "../Spinner/Spinner";
 import Text from "../Text/Text";
-import Pressable from "../../Frameworks/Pressable/Pressable";
-import View from "../../Frameworks/View/View";
+import type { BoxContentProps, BoxFooterProps, BoxProps } from "./Box.types";
 
 const BoxContentContext = createContext(false);
 

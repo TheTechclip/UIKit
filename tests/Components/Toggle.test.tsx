@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import Toggle from "../../packages/Components/Toggle/Toggle";
 import Spinner from "../../packages/Components/Spinner/Spinner";
 import Text from "../../packages/Components/Text/Text";
+import Toggle from "../../packages/Components/Toggle/Toggle";
 import View from "../../packages/Frameworks/View/View";
 
 vi.mock("../../packages/Components/Spinner/Spinner.tsx", () => ({
@@ -16,7 +16,13 @@ vi.mock("../../packages/Components/Text/Text.tsx", () => ({
 }));
 
 vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
-  default: ({ children, ...rest }: { children?: React.ReactNode; [k: string]: unknown }) => (
+  default: ({
+    children,
+    ...rest
+  }: {
+    children?: React.ReactNode;
+    [k: string]: unknown;
+  }) => (
     <div data-testid="view" {...rest}>
       {children}
     </div>
@@ -39,7 +45,8 @@ vi.mock("motion/react", () => ({
       dragConstraints,
       ...rest
     }: any) => (
-      <div
+      <button
+        type="button"
         data-testid="knob"
         data-drag={drag ? "true" : undefined}
         data-drag-constraints={JSON.stringify(dragConstraints)}
@@ -54,7 +61,7 @@ vi.mock("motion/react", () => ({
         {...rest}
       >
         {children}
-      </div>
+      </button>
     ),
   },
 }));
@@ -96,16 +103,17 @@ describe("Toggle", () => {
 
   it("toggles and fires onChange on click in uncontrolled mode", () => {
     const onChange = vi.fn();
-    const { container } = render(<Toggle onChange={onChange} />);
-    const track = container.querySelector("label > div") as HTMLElement;
-    fireEvent.click(track);
+    render(<Toggle onChange={onChange} />);
+    fireEvent.click(screen.getByTestId("knob"));
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(screen.getByRole("switch")).toBeChecked();
   });
 
   it("does not toggle internally when controlled", () => {
     const onChange = vi.fn();
-    const { container } = render(<Toggle checked={false} onChange={onChange} />);
+    const { container } = render(
+      <Toggle checked={false} onChange={onChange} />,
+    );
     const track = container.querySelector("label > div") as HTMLElement;
     fireEvent.click(track);
     expect(onChange).toHaveBeenCalledTimes(1);

@@ -4,10 +4,7 @@ import type { PaddingProps } from "../_shared/Padding.types";
 import type { WindProps } from "../_shared/Wind.types";
 import type { PopoverConfig } from "../Dialog/Dialog.types";
 import type { RadiusProps } from "../Theme/Radius.types";
-import type {
-  BorderProps,
-  ThemeSystemProps,
-} from "../Theme/Theme.types";
+import type { BorderProps, ThemeSystemProps } from "../Theme/Theme.types";
 export interface PressableProps
   extends Omit<
       React.HTMLAttributes<HTMLElement>,

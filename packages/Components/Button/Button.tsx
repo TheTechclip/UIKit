@@ -1,12 +1,12 @@
 "use client";
 
 import clsx from "clsx";
-import type { ButtonProps } from "./Button.types";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 import Divider from "../Divider/Divider";
 import Icon from "../Icon/Icon";
 import Text from "../Text/Text";
-import Pressable from "../../Frameworks/Pressable/Pressable";
-import View from "../../Frameworks/View/View";
+import type { ButtonProps } from "./Button.types";
 
 function resolveButtonEndIcon(iconEnd: ButtonProps["iconEnd"]) {
   if (!iconEnd?.pressable?.popover) {

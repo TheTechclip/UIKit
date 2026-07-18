@@ -35,13 +35,13 @@ import {
 } from "react";
 import Icon from "../../../Components/Icon/Icon";
 import type { PressableProps } from "../../Pressable/Pressable.types";
+import View from "../View";
 import styles from "./DNDView.module.scss";
 import type {
   DNDViewItemState,
   DNDViewProps,
   DNDViewStrategy,
 } from "./DNDView.types";
-import View from "../View";
 
 const SORTING_STRATEGY: Record<DNDViewStrategy, typeof rectSortingStrategy> = {
   horizontal: horizontalListSortingStrategy,

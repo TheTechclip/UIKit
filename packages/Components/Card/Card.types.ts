@@ -1,5 +1,3 @@
-import type { IconProps } from "../Icon/Icon.types";
-import type { PillProps } from "../Pill/Pill.types";
 import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
 import type { RadiusProps } from "../../Frameworks/Theme/Radius.types";
 import type {
@@ -9,6 +7,8 @@ import type {
   ThemePreset,
   ThemeSystemProps,
 } from "../../Frameworks/Theme/Theme.types";
+import type { IconProps } from "../Icon/Icon.types";
+import type { PillProps } from "../Pill/Pill.types";
 
 export type Stateful<T> = T | { normal?: T; activated?: T };
 

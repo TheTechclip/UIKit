@@ -1,6 +1,8 @@
 import { act, render, screen } from "@testing-library/react";
 import { beforeAll, beforeEach, describe, expect, test, vi } from "vitest";
-import ThemeBootstrapper, { useTheme } from "../../packages/Frameworks/Theme/Theme.boot";
+import ThemeBootstrapper, {
+  useTheme,
+} from "../../packages/Frameworks/Theme/Theme.boot";
 
 function ThemeConsumer() {
   const { resolvedTheme, setTheme, theme } = useTheme();
@@ -8,7 +10,9 @@ function ThemeConsumer() {
     <>
       <output data-testid="theme">{theme}</output>
       <output data-testid="resolved-theme">{resolvedTheme}</output>
-      <button onClick={() => setTheme("dark")}>dark</button>
+      <button type="button" onClick={() => setTheme("dark")}>
+        dark
+      </button>
     </>
   );
 }
@@ -80,7 +84,9 @@ describe("ThemeBootstrapper", () => {
       }),
       removeEventListener: vi.fn(),
     };
-    vi.mocked(window.matchMedia).mockReturnValue(mediaQuery as unknown as MediaQueryList);
+    vi.mocked(window.matchMedia).mockReturnValue(
+      mediaQuery as unknown as MediaQueryList,
+    );
 
     render(
       <ThemeBootstrapper initialTheme="system">

@@ -16,26 +16,20 @@ import {
 import { useScrollLock } from "../../_shared/bodyScrollLock";
 import { LAYER_Z_INDEX } from "../../_shared/layer.constants";
 import { Size } from "../../_shared/sizing";
+import { motionTransitions } from "../../Motion/Motion.presets";
+import Pressable from "../../Pressable/Pressable";
+import View from "../../View/View";
 import DialogFooter from "../contents/Dialog.footer";
 import DialogHeader from "../contents/Dialog.header";
 import BackgroundWrapper from "../Dialog.background";
-import type {
-  DialogOutsideOptions,
-  SheetConfig,
-} from "../Dialog.types";
-import {
-  DialogPortal,
-  useEscapeClose,
-} from "../Dialog.utils";
+import type { DialogOutsideOptions, SheetConfig } from "../Dialog.types";
+import { DialogPortal, useEscapeClose } from "../Dialog.utils";
 import { useSheetDrag } from "../hooks/useSheetDrag";
 import {
   resolveInitialSnapIndex,
   useSheetGeometry,
 } from "../hooks/useSheetGeometry";
 import { useSheetProgressive } from "../hooks/useSheetProgressive";
-import { motionTransitions } from "../../Motion/Motion.presets";
-import Pressable from "../../Pressable/Pressable";
-import View from "../../View/View";
 
 interface RenderSheetProps {
   open: boolean;

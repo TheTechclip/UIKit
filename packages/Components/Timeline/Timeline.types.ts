@@ -1,6 +1,6 @@
-import type { IconProps } from "../Icon/Icon.types";
 import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
 import type { ThemeSystemProps } from "../../Frameworks/Theme/Theme.types";
+import type { IconProps } from "../Icon/Icon.types";
 
 export interface TimelineItemProps {
   children?: React.ReactNode;

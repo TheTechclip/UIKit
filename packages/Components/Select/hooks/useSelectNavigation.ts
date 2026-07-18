@@ -6,7 +6,6 @@ import {
   useCallback,
   useEffect,
 } from "react";
-import type { SelectState } from "./useSelectState";
 import {
   handleEndKey,
   handleHomeKey,
@@ -19,6 +18,7 @@ import {
   lockScrollElementSafe,
   unlockScrollElementSafe,
 } from "../Select.utils";
+import type { SelectState } from "./useSelectState";
 
 export function useSelectNavigation(
   state: SelectState,

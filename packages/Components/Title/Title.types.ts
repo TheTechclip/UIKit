@@ -1,9 +1,9 @@
+import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
+import type { ViewProps } from "../../Frameworks/View/View.types";
 import type { IconGroupProps } from "../Icon/Icon.group.types";
 import type { IconProps } from "../Icon/Icon.types";
 import type { PillProps } from "../Pill/Pill.types";
 import type { TextProps } from "../Text/Text.types";
-import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
-import type { ViewProps } from "../../Frameworks/View/View.types";
 
 interface TitleItemProps {
   "data-color-mode"?: string;

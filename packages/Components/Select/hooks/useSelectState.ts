@@ -9,10 +9,7 @@ import {
   useState,
 } from "react";
 import { Word } from "../../../../i18n/shared";
-import type {
-  Option,
-  SelectProps,
-} from "../Select.types";
+import type { Option, SelectProps } from "../Select.types";
 import {
   filterOptionsByQuery,
   findScrollableAncestor,

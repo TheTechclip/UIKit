@@ -2,12 +2,12 @@
 
 import {
   createContext,
+  type ReactNode,
   useCallback,
   useContext,
   useEffect,
   useMemo,
   useState,
-  type ReactNode,
 } from "react";
 
 export type ThemeScheme = "system" | "light" | "dark";
@@ -15,7 +15,11 @@ export type ResolvedThemeScheme = Exclude<ThemeScheme, "system">;
 
 export const THEME_SCHEME_STORAGE_KEY = "theme";
 export const THEME_SCHEME_MEDIA_QUERY = "(prefers-color-scheme: dark)";
-export const AVAILABLE_THEME_SCHEMES: readonly ThemeScheme[] = ["system", "dark", "light"];
+export const AVAILABLE_THEME_SCHEMES: readonly ThemeScheme[] = [
+  "system",
+  "dark",
+  "light",
+];
 
 export interface ThemeBootstrapperProps {
   children: ReactNode;
@@ -35,7 +39,9 @@ function getSystemTheme(): ResolvedThemeScheme {
   return window.matchMedia(THEME_SCHEME_MEDIA_QUERY).matches ? "dark" : "light";
 }
 
-export function isThemeScheme(value: string | null | undefined): value is ThemeScheme {
+export function isThemeScheme(
+  value: string | null | undefined,
+): value is ThemeScheme {
   return value === "system" || value === "light" || value === "dark";
 }
 
@@ -78,7 +84,9 @@ export default function ThemeBootstrapper({
   initialTheme = "system",
 }: ThemeBootstrapperProps) {
   const [theme, setTheme] = useState<ThemeScheme>(() =>
-    typeof window === "undefined" ? initialTheme : readStoredTheme(initialTheme),
+    typeof window === "undefined"
+      ? initialTheme
+      : readStoredTheme(initialTheme),
   );
   const [systemTheme, setSystemTheme] = useState<ResolvedThemeScheme>(() =>
     typeof window === "undefined" ? "light" : getSystemTheme(),
@@ -123,7 +131,9 @@ export default function ThemeBootstrapper({
     [resolvedTheme, setThemeScheme, theme],
   );
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  );
 }
 
 export function useTheme() {

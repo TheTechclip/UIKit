@@ -5,14 +5,14 @@ import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import type React from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 import Icon from "../Icon/Icon";
+import Text from "../Text/Text";
 import { useNavDrag } from "./hooks/useNavDrag";
 import { useNavIndicator } from "./hooks/useNavIndicator";
 import styles from "./Nav.module.scss";
 import type { NavProps } from "./Nav.types";
-import Text from "../Text/Text";
-import Pressable from "../../Frameworks/Pressable/Pressable";
-import View from "../../Frameworks/View/View";
 
 export default function Nav({
   name,

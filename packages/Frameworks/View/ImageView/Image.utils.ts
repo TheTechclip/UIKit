@@ -1,8 +1,5 @@
 import type { ReactNode } from "react";
-import type {
-  ImageItem,
-  ImageOverlay,
-} from "./Image.types";
+import type { ImageItem, ImageOverlay } from "./Image.types";
 
 export type ImageMode = "inline" | "dialog";
 

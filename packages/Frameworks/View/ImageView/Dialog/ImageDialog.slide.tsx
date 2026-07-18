@@ -1,15 +1,9 @@
 "use client";
 
 import NextImage from "next/image";
-import type {
-  ImageItem,
-  ImageOverlay,
-} from "../Image.types";
-import {
-  resolveImageSrc,
-  resolveOverlay,
-} from "../Image.utils";
 import View from "../../View";
+import type { ImageItem, ImageOverlay } from "../Image.types";
+import { resolveImageSrc, resolveOverlay } from "../Image.utils";
 
 export interface DialogImageSlideProps {
   item: ImageItem;

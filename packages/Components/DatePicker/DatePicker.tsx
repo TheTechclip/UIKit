@@ -8,27 +8,21 @@ import {
   useState,
 } from "react";
 import { normalizeLocale } from "../../../i18n/shared";
-import { Calendar } from "./DatePicker.calendar";
-import DatePickerCore, {
-  type DatePickerCoreRef,
-} from "./DatePicker.core";
-import styles from "./DatePicker.module.scss";
-import type { DatePickerProps } from "./DatePicker.types";
-import {
-  isBefore,
-  parseDate,
-  toYMD,
-} from "./DatePicker.utils";
-import { useCalendar } from "./hooks/useCalendar";
-import { useSelection } from "./hooks/useSelection";
+import Dialog from "../../Frameworks/Dialog/Dialog";
+import View from "../../Frameworks/View/View";
 import Icon from "../Icon/Icon";
 import Label from "../Label/Label";
 import Text from "../Text/Text";
 import TimePickerCore, {
   type TimePickerCoreRef,
 } from "../TimePicker/TimePicker.core";
-import Dialog from "../../Frameworks/Dialog/Dialog";
-import View from "../../Frameworks/View/View";
+import { Calendar } from "./DatePicker.calendar";
+import DatePickerCore, { type DatePickerCoreRef } from "./DatePicker.core";
+import styles from "./DatePicker.module.scss";
+import type { DatePickerProps } from "./DatePicker.types";
+import { isBefore, parseDate, toYMD } from "./DatePicker.utils";
+import { useCalendar } from "./hooks/useCalendar";
+import { useSelection } from "./hooks/useSelection";
 
 function isValidDate(y: number, m: number, d: number): boolean {
   if (y < 1000 || y > 9999) return false;

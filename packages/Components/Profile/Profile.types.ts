@@ -1,7 +1,7 @@
-import type { IconProps } from "../Icon/Icon.types";
-import type { TextProps } from "../Text/Text.types";
 import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
 import type { ThemePaint } from "../../Frameworks/Theme/Theme.types";
+import type { IconProps } from "../Icon/Icon.types";
+import type { TextProps } from "../Text/Text.types";
 
 export type ProfileAvatarLoading = "eager" | "lazy";
 

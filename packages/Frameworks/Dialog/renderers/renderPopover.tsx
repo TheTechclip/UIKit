@@ -6,20 +6,14 @@ import { type ReactNode, useCallback, useEffect, useRef } from "react";
 import { useScrollLock } from "../../_shared/bodyScrollLock";
 import { LAYER_Z_INDEX } from "../../_shared/layer.constants";
 import { Size } from "../../_shared/sizing";
+import { motionPresets } from "../../Motion/Motion.presets";
+import View from "../../View/View";
 import DialogFooter from "../contents/Dialog.footer";
 import DialogHeader from "../contents/Dialog.header";
 import BackgroundWrapper from "../Dialog.background";
-import type {
-  DialogOutsideOptions,
-  PopoverConfig,
-} from "../Dialog.types";
-import {
-  DialogPortal,
-  useEscapeClose,
-} from "../Dialog.utils";
+import type { DialogOutsideOptions, PopoverConfig } from "../Dialog.types";
+import { DialogPortal, useEscapeClose } from "../Dialog.utils";
 import { useDialogPosition } from "../hooks/useDialogPosition";
-import { motionPresets } from "../../Motion/Motion.presets";
-import View from "../../View/View";
 
 interface RenderPopoverProps {
   open: boolean;

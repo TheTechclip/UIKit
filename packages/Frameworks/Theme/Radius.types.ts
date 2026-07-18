@@ -1,7 +1,4 @@
-import {
-  Size,
-  type UIKitSizeValue,
-} from "../_shared/sizing";
+import { Size, type UIKitSizeValue } from "../_shared/sizing";
 
 export type RadiusScale =
   | "None"

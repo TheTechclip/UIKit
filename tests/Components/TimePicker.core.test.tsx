@@ -2,23 +2,40 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { createRef } from "react";
 import { describe, expect, it, vi } from "vitest";
 import TimePickerCore, {
-  TimePickerCoreRef,
+  type TimePickerCoreRef,
 } from "../../packages/Components/TimePicker/TimePicker.core";
 
 vi.mock("../../packages/Frameworks/Pressable/Pressable", () => ({
-  default: ({ children, ...rest }: any) => <button type="button" {...rest}>{children}</button>,
+  default: ({ children, ...rest }: any) => (
+    <button type="button" {...rest}>
+      {children}
+    </button>
+  ),
 }));
 vi.mock("../../packages/Frameworks/View/View", () => ({
   default: ({ children, ...rest }: any) => <div {...rest}>{children}</div>,
 }));
 
 describe("TimePickerCore", () => {
-  const props = { hour: 23, minute: 30, second: 45, ampm: "PM" as const, onTimeChange: vi.fn() };
+  const props = {
+    hour: 23,
+    minute: 30,
+    second: 45,
+    ampm: "PM" as const,
+    onTimeChange: vi.fn(),
+  };
 
   it("changes each numeric segment with bounds and arrow keys", () => {
     const onTimeChange = vi.fn();
     const onHourOverflow = vi.fn();
-    render(<TimePickerCore {...props} showSeconds onTimeChange={onTimeChange} onHourOverflow={onHourOverflow} />);
+    render(
+      <TimePickerCore
+        {...props}
+        showSeconds
+        onTimeChange={onTimeChange}
+        onHourOverflow={onHourOverflow}
+      />,
+    );
     const [hour, minute, second] = screen.getAllByRole("textbox");
     fireEvent.change(hour, { target: { value: "27" } });
     expect(onHourOverflow).toHaveBeenCalledWith({ input: 27, normalized: 3 });
@@ -37,7 +54,17 @@ describe("TimePickerCore", () => {
     const onTimeChange = vi.fn();
     const onFocusPrev = vi.fn();
     const onFocusNext = vi.fn();
-    render(<TimePickerCore {...props} hour={12} use12h showSeconds onTimeChange={onTimeChange} onFocusPrev={onFocusPrev} onFocusNext={onFocusNext} />);
+    render(
+      <TimePickerCore
+        {...props}
+        hour={12}
+        use12h
+        showSeconds
+        onTimeChange={onTimeChange}
+        onFocusPrev={onFocusPrev}
+        onFocusNext={onFocusNext}
+      />,
+    );
     const [hour, minute, second] = screen.getAllByRole("textbox");
     const ampm = screen.getByRole("button", { name: "PM" });
     expect(hour).toHaveValue("12");
@@ -104,7 +131,9 @@ describe("TimePickerCore", () => {
 
   it("does not activate disabled controls", () => {
     const onTimeChange = vi.fn();
-    render(<TimePickerCore {...props} use12h disabled onTimeChange={onTimeChange} />);
+    render(
+      <TimePickerCore {...props} use12h disabled onTimeChange={onTimeChange} />,
+    );
     const [hour] = screen.getAllByRole("textbox");
     expect(hour).toBeDisabled();
     expect(screen.getByRole("button", { name: "PM" })).toBeDisabled();
@@ -113,7 +142,9 @@ describe("TimePickerCore", () => {
   it("focuses the last visible numeric field without AM/PM", () => {
     const secondsRef = createRef<TimePickerCoreRef>();
     const minutesRef = createRef<TimePickerCoreRef>();
-    const { unmount } = render(<TimePickerCore ref={secondsRef} {...props} showSeconds />);
+    const { unmount } = render(
+      <TimePickerCore ref={secondsRef} {...props} showSeconds />,
+    );
     secondsRef.current?.focusLast();
     expect(screen.getAllByRole("textbox")[2]).toHaveFocus();
     fireEvent.click(screen.getAllByRole("textbox")[0]);
@@ -125,7 +156,16 @@ describe("TimePickerCore", () => {
 
   it("handles every numeric segment and non-moving key paths", () => {
     const onTimeChange = vi.fn();
-    render(<TimePickerCore hour={1} minute={1} second={1} ampm="AM" showSeconds onTimeChange={onTimeChange} />);
+    render(
+      <TimePickerCore
+        hour={1}
+        minute={1}
+        second={1}
+        ampm="AM"
+        showSeconds
+        onTimeChange={onTimeChange}
+      />,
+    );
     const [hour, minute, second] = screen.getAllByRole("textbox");
     fireEvent.change(hour, { target: { value: "" } });
     expect(onTimeChange).toHaveBeenLastCalledWith(0, 1, 1, "AM");

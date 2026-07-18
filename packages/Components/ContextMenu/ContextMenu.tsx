@@ -10,18 +10,12 @@ import {
   useState,
 } from "react";
 import { Word } from "../../../i18n/shared";
-import ContextMenuOption from "./ContextMenu.options";
-import type {
-  ContentItem,
-  ContextMenuProps,
-} from "./ContextMenu.types";
-import {
-  handleEndKey,
-  handleHomeKey,
-} from "../Select/Select.keyboard";
-import Text from "../Text/Text";
 import Dialog from "../../Frameworks/Dialog/Dialog";
 import View from "../../Frameworks/View/View";
+import { handleEndKey, handleHomeKey } from "../Select/Select.keyboard";
+import Text from "../Text/Text";
+import ContextMenuOption from "./ContextMenu.options";
+import type { ContentItem, ContextMenuProps } from "./ContextMenu.types";
 
 const clampScrollTop = (element: HTMLElement, nextScrollTop: number) => {
   const maxScrollTop = Math.max(0, element.scrollHeight - element.clientHeight);

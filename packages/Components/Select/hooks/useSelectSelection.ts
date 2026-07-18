@@ -1,12 +1,8 @@
 "use client";
 import { useCallback } from "react";
-import type { SelectState } from "./useSelectState";
-import type {
-  Option,
-  SelectChangeEvent,
-  SelectValue,
-} from "../Select.types";
+import type { Option, SelectChangeEvent, SelectValue } from "../Select.types";
 import { filterOptionsByQuery } from "../Select.utils";
+import type { SelectState } from "./useSelectState";
 
 export function useSelectSelection(state: SelectState) {
   const {

@@ -18,8 +18,6 @@ import {
 import { resolvePadding } from "../_shared/Padding.types";
 import { Size } from "../_shared/sizing";
 import Dialog from "../Dialog/Dialog";
-import styles from "./Pressable.module.scss";
-import type { PressableProps } from "./Pressable.types";
 import Squircle from "../Squircle/Squircle";
 import { Radius } from "../Theme/Radius.types";
 import {
@@ -30,6 +28,8 @@ import {
   Shadow,
 } from "../Theme/Theme.types";
 import View from "../View/View";
+import styles from "./Pressable.module.scss";
+import type { PressableProps } from "./Pressable.types";
 
 export const ButtonNestingContext = createContext(false);
 export const PopoverContext = createContext<{

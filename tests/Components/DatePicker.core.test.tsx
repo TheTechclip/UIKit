@@ -23,7 +23,15 @@ describe("DatePickerCore", () => {
     const onDateChange = vi.fn();
     const onFocusPrev = vi.fn();
     const onFocusNext = vi.fn();
-    render(<DatePickerCore {...base} mode="single" onDateChange={onDateChange} onFocusPrev={onFocusPrev} onFocusNext={onFocusNext} />);
+    render(
+      <DatePickerCore
+        {...base}
+        mode="single"
+        onDateChange={onDateChange}
+        onFocusPrev={onFocusPrev}
+        onFocusNext={onFocusNext}
+      />,
+    );
     const [year, month, day] = screen.getAllByRole("textbox");
     expect(year).toHaveValue("2024");
     expect(month).toHaveValue("2");
@@ -61,12 +69,23 @@ describe("DatePickerCore", () => {
 
   it("renders range fields, honors read-only state, and commits buffered input", () => {
     const onDateChange = vi.fn();
-    render(<DatePickerCore {...base} mode="range" readOnly onDateChange={onDateChange} />);
+    render(
+      <DatePickerCore
+        {...base}
+        mode="range"
+        readOnly
+        onDateChange={onDateChange}
+      />,
+    );
     const fields = screen.getAllByRole("textbox");
     expect(fields).toHaveLength(6);
-    expect(fields.every((field) => (field as HTMLInputElement).readOnly)).toBe(true);
+    expect(fields.every((field) => (field as HTMLInputElement).readOnly)).toBe(
+      true,
+    );
 
-    const { rerender } = render(<DatePickerCore {...base} mode="range" onDateChange={onDateChange} />);
+    const { rerender } = render(
+      <DatePickerCore {...base} mode="range" onDateChange={onDateChange} />,
+    );
     const editable = screen.getAllByRole("textbox").slice(-6);
     fireEvent.keyDown(editable[0], { key: "2" });
     fireEvent.keyDown(editable[0], { key: "0" });
@@ -97,19 +116,34 @@ describe("DatePickerCore", () => {
     fireEvent.change(editable[5], { target: { value: "32" } });
     expect(onDateChange).toHaveBeenLastCalledWith("endDay", 31);
     fireEvent.keyDown(editable[4], { key: "ArrowUp" });
-    rerender(<DatePickerCore {...base} mode="range" disabled onDateChange={onDateChange} />);
+    rerender(
+      <DatePickerCore
+        {...base}
+        mode="range"
+        disabled
+        onDateChange={onDateChange}
+      />,
+    );
     expect(screen.getAllByRole("textbox").slice(-6)[0]).toBeDisabled();
   });
 
   it("exposes first and last focus for both modes", () => {
-    const singleRef = createRef<{ focusFirst: () => void; focusLast: () => void }>();
-    const { unmount } = render(<DatePickerCore ref={singleRef} {...base} mode="single" />);
+    const singleRef = createRef<{
+      focusFirst: () => void;
+      focusLast: () => void;
+    }>();
+    const { unmount } = render(
+      <DatePickerCore ref={singleRef} {...base} mode="single" />,
+    );
     singleRef.current?.focusFirst();
     expect(screen.getAllByRole("textbox")[0]).toHaveFocus();
     singleRef.current?.focusLast();
     expect(screen.getAllByRole("textbox")[2]).toHaveFocus();
     unmount();
-    const rangeRef = createRef<{ focusFirst: () => void; focusLast: () => void }>();
+    const rangeRef = createRef<{
+      focusFirst: () => void;
+      focusLast: () => void;
+    }>();
     render(<DatePickerCore ref={rangeRef} {...base} mode="range" />);
     rangeRef.current?.focusFirst();
     expect(screen.getAllByRole("textbox")[0]).toHaveFocus();
@@ -119,7 +153,14 @@ describe("DatePickerCore", () => {
 
   it("moves back from an empty range field", () => {
     const onFocusPrev = vi.fn();
-    render(<DatePickerCore {...base} mode="range" startYear={null} onFocusPrev={onFocusPrev} />);
+    render(
+      <DatePickerCore
+        {...base}
+        mode="range"
+        startYear={null}
+        onFocusPrev={onFocusPrev}
+      />,
+    );
     const first = screen.getAllByRole("textbox")[0];
     fireEvent.keyDown(first, { key: "Backspace" });
     expect(onFocusPrev).toHaveBeenCalled();

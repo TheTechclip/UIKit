@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import { Word } from "../../../i18n/shared";
-import Icon from "../Icon/Icon";
-import styles from "./Label.module.scss";
-import type { LabelProps } from "./Label.types";
-import Text from "../Text/Text";
 import Pressable from "../../Frameworks/Pressable/Pressable";
 import View from "../../Frameworks/View/View";
+import Icon from "../Icon/Icon";
+import Text from "../Text/Text";
+import styles from "./Label.module.scss";
+import type { LabelProps } from "./Label.types";
 
 export default function Label({
   children,

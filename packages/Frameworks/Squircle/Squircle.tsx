@@ -11,12 +11,9 @@ import {
   useRef,
   useState,
 } from "react";
-import {
-  getComputedPixelValue,
-  SizePX,
-} from "../_shared/sizing";
-import type { SquircleProps } from "./Squircle.types";
+import { getComputedPixelValue, SizePX } from "../_shared/sizing";
 import { Radius as resolveRadius } from "../Theme/Radius.types";
+import type { SquircleProps } from "./Squircle.types";
 
 function resolveCornerRadius(
   radius: SquircleProps["radius"],

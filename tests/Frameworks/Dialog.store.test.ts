@@ -1,5 +1,8 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { DialogStore, dialog } from "../../packages/Frameworks/Dialog/Dialog.store";
+import {
+  DialogStore,
+  dialog,
+} from "../../packages/Frameworks/Dialog/Dialog.store";
 
 describe("DialogStore", () => {
   beforeEach(() => {

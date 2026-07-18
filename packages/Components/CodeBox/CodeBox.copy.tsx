@@ -1,9 +1,9 @@
 "use client";
 
 import { NavigatorClipboard } from "@musecat/functionkit";
+import View from "../../Frameworks/View/View";
 import Icon from "../Icon/Icon";
 import Text from "../Text/Text";
-import View from "../../Frameworks/View/View";
 
 export default function CodeBox_Copy({
   language,

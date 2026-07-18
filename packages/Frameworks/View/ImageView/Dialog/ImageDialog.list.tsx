@@ -3,13 +3,10 @@
 import NextImage from "next/image";
 import type { MutableRefObject } from "react";
 import Pressable from "../../../Pressable/Pressable";
+import View from "../../View";
 import styles from "../Image.module.scss";
 import type { ImageItem } from "../Image.types";
-import {
-  resolveBlurDataURL,
-  resolveImageSrc,
-} from "../Image.utils";
-import View from "../../View";
+import { resolveBlurDataURL, resolveImageSrc } from "../Image.utils";
 
 export interface DialogImageListProps {
   items: ImageItem[];

@@ -1,6 +1,7 @@
 import React from "react";
 
 const PRESERVED_PROPS = ["className", "role", "id", "style", "key"];
+type MotionMockProps = React.HTMLAttributes<HTMLElement>;
 
 export function createMotionMock() {
   const motion = new Proxy(
@@ -8,7 +9,7 @@ export function createMotionMock() {
     {
       get: (_, tag: string) => {
         const MotionComponent = React.forwardRef(
-          ({ children, ...props }: any, ref: any) => {
+          ({ children, ...props }: MotionMockProps, ref) => {
             const filteredProps = Object.entries(props).reduce(
               (acc: Record<string, unknown>, [key, value]) => {
                 if (
@@ -60,16 +61,16 @@ export function createMotionMock() {
       set: vi.fn(),
       on: vi.fn(),
     }),
-    useTransform: (value: any, _input: number[], output: number[]) => ({
+    useTransform: (_value: unknown, _input: number[], output: number[]) => ({
       get: () => output[0] ?? 0,
       onChange: vi.fn(),
     }),
-    useSpring: (value: any) => ({
+    useSpring: (_value: unknown) => ({
       get: () => 0,
       set: vi.fn(),
     }),
     useScroll: () => ({ scrollY: { get: () => 0 } }),
-    useMotionTemplate: (...args: any[]) => String(args[0] ?? ""),
+    useMotionTemplate: (...args: unknown[]) => String(args[0] ?? ""),
     useWillChange: () => ({ add: vi.fn(), remove: vi.fn() }),
     usePresence: () => [true, vi.fn()],
     useIsPresent: () => true,

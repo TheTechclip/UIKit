@@ -3,12 +3,12 @@
 import { useTimeout } from "@musecat/functionkit";
 import { useEffect, useState } from "react";
 import { Word } from "../../../i18n/shared";
-import Icon from "../Icon/Icon";
-import type { IconProps } from "../Icon/Icon.types";
-import type { PaginationProps } from "./Pagination.types";
-import Text from "../Text/Text";
 import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
 import View from "../../Frameworks/View/View";
+import Icon from "../Icon/Icon";
+import type { IconProps } from "../Icon/Icon.types";
+import Text from "../Text/Text";
+import type { PaginationProps } from "./Pagination.types";
 
 function clampPage(page: number, total: number) {
   return Math.min(total, Math.max(1, page));

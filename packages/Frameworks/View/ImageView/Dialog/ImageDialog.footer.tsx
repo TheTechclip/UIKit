@@ -1,13 +1,10 @@
 "use client";
 
 import type { MutableRefObject } from "react";
+import View from "../../View";
+import type { ImageItem, ImageProps } from "../Image.types";
 import { DialogImageCounter } from "./ImageDialog.counter";
 import { DialogImageList } from "./ImageDialog.list";
-import type {
-  ImageItem,
-  ImageProps,
-} from "../Image.types";
-import View from "../../View";
 
 export interface DialogImageFooterProps {
   dialog: NonNullable<ImageProps["dialog"]>;

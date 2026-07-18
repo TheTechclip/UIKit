@@ -33,9 +33,12 @@ export { default as Skeleton } from "./packages/Components/Skeleton/Skeleton";
 export { default as Spinner } from "./packages/Components/Spinner/Spinner";
 export { default as Text } from "./packages/Components/Text/Text";
 export { default as Timeline } from "./packages/Components/Timeline/Timeline";
-export { default as Tiptap } from "./packages/Components/Tiptap/Tiptap";
-export type { TiptapProps, TiptapToolbarItem } from "./packages/Components/Tiptap/Tiptap.types";
 export { default as TimePicker } from "./packages/Components/TimePicker/TimePicker";
+export { default as Tiptap } from "./packages/Components/Tiptap/Tiptap";
+export type {
+  TiptapProps,
+  TiptapToolbarItem,
+} from "./packages/Components/Tiptap/Tiptap.types";
 export { default as Title } from "./packages/Components/Title/Title";
 export { default as Toggle } from "./packages/Components/Toggle/Toggle";
 export { default as Tooltip } from "./packages/Components/Tooltip/Tooltip";
@@ -51,8 +54,6 @@ export { Size, SizePX } from "./packages/Frameworks/_shared/sizing";
 export { useControllableState } from "./packages/Frameworks/_shared/useControllableState";
 export { default as DialogFooter } from "./packages/Frameworks/Dialog/contents/Dialog.footer";
 export { default as DialogHeader } from "./packages/Frameworks/Dialog/contents/Dialog.header";
-export { useDialogFunnel } from "./packages/Frameworks/Dialog/funnel/useDialogFunnel";
-export type { DialogFunnelProp } from "./packages/Frameworks/Dialog/funnel/DialogFunnel.types";
 export {
   default as Dialog,
   useDialog,
@@ -60,6 +61,8 @@ export {
 export { default as DialogBootstrap } from "./packages/Frameworks/Dialog/Dialog.boot";
 export type { DialogInstance } from "./packages/Frameworks/Dialog/Dialog.store";
 export { DialogStore, dialog } from "./packages/Frameworks/Dialog/Dialog.store";
+export type { DialogFunnelProp } from "./packages/Frameworks/Dialog/funnel/DialogFunnel.types";
+export { useDialogFunnel } from "./packages/Frameworks/Dialog/funnel/useDialogFunnel";
 export { default as EdgeEffect } from "./packages/Frameworks/EdgeEffect/EdgeEffect";
 export {
   motionPresets,
@@ -75,15 +78,15 @@ export type {
 export { Radius } from "./packages/Frameworks/Theme/Radius.types";
 export {
   AVAILABLE_THEME_SCHEMES,
+  default as ThemeBootstrapper,
+  isThemeScheme,
+  type ResolvedThemeScheme,
+  resolveThemeScheme,
   THEME_SCHEME_MEDIA_QUERY,
   THEME_SCHEME_STORAGE_KEY,
-  default as ThemeBootstrapper,
   type ThemeBootstrapperProps,
-  isThemeScheme,
-  resolveThemeScheme,
-  useTheme,
-  type ResolvedThemeScheme,
   type ThemeScheme,
+  useTheme,
 } from "./packages/Frameworks/Theme/Theme.boot";
 // Theme
 export {

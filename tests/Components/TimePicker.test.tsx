@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import TimePicker from "../../packages/Components/TimePicker/TimePicker";
 
 describe("TimePicker Component", () => {
@@ -77,10 +77,10 @@ describe("TimePicker Component", () => {
     const onChange = vi.fn();
     render(<TimePicker defaultValue="14:30" onChange={onChange} />);
     const hourInput = screen.getAllByRole("textbox")[0];
-    
+
     fireEvent.keyDown(hourInput, { key: "ArrowUp" });
     expect(onChange).toHaveBeenCalledWith("15:30");
-    
+
     fireEvent.keyDown(hourInput, { key: "ArrowDown" });
     expect(onChange).toHaveBeenCalledWith("14:30");
   });
@@ -89,7 +89,7 @@ describe("TimePicker Component", () => {
     const onChange = vi.fn();
     render(<TimePicker defaultValue="23:30" onChange={onChange} />);
     const hourInput = screen.getAllByRole("textbox")[0];
-    
+
     // Up from 23 should wrap to 00
     fireEvent.keyDown(hourInput, { key: "ArrowUp" });
     expect(onChange).toHaveBeenCalledWith("00:30");

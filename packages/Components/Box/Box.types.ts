@@ -1,6 +1,3 @@
-import type { DividerProps } from "../Divider/Divider.types";
-import type { IconProps } from "../Icon/Icon.types";
-import type { TitleProps } from "../Title/Title.types";
 import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
 import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
 import type { RadiusProps } from "../../Frameworks/Theme/Radius.types";
@@ -8,6 +5,9 @@ import type {
   BorderProps,
   ThemeSystemProps,
 } from "../../Frameworks/Theme/Theme.types";
+import type { DividerProps } from "../Divider/Divider.types";
+import type { IconProps } from "../Icon/Icon.types";
+import type { TitleProps } from "../Title/Title.types";
 
 export interface BoxProps extends ThemeSystemProps, RadiusProps, BorderProps {
   "data-color-mode"?: string;

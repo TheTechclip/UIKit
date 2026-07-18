@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import styles from "./Header.module.scss";
-import type { HeaderProps } from "./Header.types";
 import EdgeEffect from "../../Frameworks/EdgeEffect/EdgeEffect";
 import View from "../../Frameworks/View/View";
+import styles from "./Header.module.scss";
+import type { HeaderProps } from "./Header.types";
 
 export default function Header({
   "data-color-mode": dataTheme,

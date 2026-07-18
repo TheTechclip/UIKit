@@ -13,11 +13,11 @@ import {
   useState,
 } from "react";
 import { Word } from "../../../i18n/shared";
+import View from "../../Frameworks/View/View";
 import Box from "../Box/Box";
+import Text from "../Text/Text";
 import styles from "./ContributionGraph.module.scss";
 import type { ContributionGraphProps } from "./ContributionGraph.types";
-import Text from "../Text/Text";
-import View from "../../Frameworks/View/View";
 
 const DAY_LABEL_KEYS = [
   "sun",

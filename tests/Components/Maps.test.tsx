@@ -1,6 +1,6 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import React from "react";
+import { describe, expect, it, vi } from "vitest";
 import MapOSM from "../../packages/Components/Maps/OSM/MapOSM";
 
 global.ResizeObserver = class ResizeObserver {

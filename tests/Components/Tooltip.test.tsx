@@ -17,29 +17,56 @@ describe("Tooltip", () => {
   }
 
   it("shows content when open is controlled", () => {
-    render(<Tooltip trigger={<button>Hover</button>} content="Help text" open />);
+    render(
+      <Tooltip
+        trigger={<button type="button">Hover</button>}
+        content="Help text"
+        open
+      />,
+    );
     const wrapper = getWrapper();
     expect(wrapper).toHaveAttribute("data-tooltip-open");
   });
 
   it("supports controlled open state", () => {
     const { rerender } = render(
-      <Tooltip trigger={<button>X</button>} content="Help text" open />,
+      <Tooltip
+        trigger={<button type="button">X</button>}
+        content="Help text"
+        open
+      />,
     );
     expect(getWrapper()).toBeInTheDocument();
-    rerender(<Tooltip trigger={<button>X</button>} content="Help text" open={false} />);
+    rerender(
+      <Tooltip
+        trigger={<button type="button">X</button>}
+        content="Help text"
+        open={false}
+      />,
+    );
     expect(getWrapper()).toBeInTheDocument();
   });
 
   it("does not toggle when disabled", () => {
-    render(<Tooltip trigger={<button>X</button>} content="Help text" disabled />);
+    render(
+      <Tooltip
+        trigger={<button type="button">X</button>}
+        content="Help text"
+        disabled
+      />,
+    );
     const wrapper = getWrapper();
     fireEvent.click(wrapper);
     expect(wrapper).not.toHaveAttribute("data-tooltip-open");
   });
 
   it("toggles on click", () => {
-    render(<Tooltip trigger={<button>X</button>} content="Help text" />);
+    render(
+      <Tooltip
+        trigger={<button type="button">X</button>}
+        content="Help text"
+      />,
+    );
     const wrapper = getWrapper();
     fireEvent.click(wrapper);
     expect(wrapper).toHaveAttribute("data-tooltip-open");
@@ -50,7 +77,7 @@ describe("Tooltip", () => {
   it("renders custom content", () => {
     render(
       <Tooltip
-        trigger={<button>X</button>}
+        trigger={<button type="button">X</button>}
         content={<span data-testid="custom">Custom</span>}
         open
       />,

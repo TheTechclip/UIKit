@@ -2,11 +2,11 @@
 
 import clsx from "clsx";
 import { useId } from "react";
-import styles from "./Input.module.scss";
-import type { InputProps } from "./Input.types";
+import View from "../../Frameworks/View/View";
 import Label from "../Label/Label";
 import Text from "../Text/Text";
-import View from "../../Frameworks/View/View";
+import styles from "./Input.module.scss";
+import type { InputProps } from "./Input.types";
 
 export default function Input({
   type,

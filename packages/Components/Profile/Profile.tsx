@@ -1,16 +1,16 @@
 "use client";
 
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 import Divider from "../Divider/Divider";
 import Icon from "../Icon/Icon";
+import Text from "../Text/Text";
 import { getProfileAvatarIconProps } from "./Profile.shared";
 import type {
   ProfileProps,
   ProfileRole,
   ProfileSizeOptions,
 } from "./Profile.types";
-import Text from "../Text/Text";
-import Pressable from "../../Frameworks/Pressable/Pressable";
-import View from "../../Frameworks/View/View";
 
 type ResolvedProfileSize = Required<
   Pick<ProfileSizeOptions, "avatar" | "textType" | "badge" | "gap">

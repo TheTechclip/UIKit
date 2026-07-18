@@ -17,6 +17,7 @@ vi.mock("../../packages/Components/CodeBox/CodeBox.tsx", () => ({
     </div>
   ),
 }));
+
 import CodeBox from "../../packages/Components/CodeBox/CodeBox";
 
 describe("CodeBox", () => {

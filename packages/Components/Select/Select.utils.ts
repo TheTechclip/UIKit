@@ -1,7 +1,4 @@
-import type {
-  OptGroup,
-  Option,
-} from "./Select.types";
+import type { OptGroup, Option } from "./Select.types";
 
 type ScrollLockSnapshot = {
   count: number;

@@ -1,7 +1,4 @@
-import {
-  Size,
-  type UIKitSizeValue,
-} from "./sizing";
+import { Size, type UIKitSizeValue } from "./sizing";
 
 type PaddingUnitValue = UIKitSizeValue;
 

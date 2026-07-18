@@ -1,9 +1,9 @@
 import Prism from "prismjs";
+import { normalizeLang } from "../../Frameworks/_shared/normalize";
+import View from "../../Frameworks/View/View";
 import CodeBox_Copy from "./CodeBox.copy";
 import styles from "./CodeBox.module.scss";
 import type { CodeBoxProps } from "./CodeBox.types";
-import { normalizeLang } from "../../Frameworks/_shared/normalize";
-import View from "../../Frameworks/View/View";
 import "prismjs/components/prism-bash";
 import "prismjs/components/prism-css";
 import "prismjs/components/prism-javascript";

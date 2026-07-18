@@ -3,10 +3,10 @@
 import type { ReactNode } from "react";
 import Icon from "../../../Components/Icon/Icon";
 import Text from "../../../Components/Text/Text";
-import { useDialog } from "../Dialog";
-import type { DialogHeaderConfig } from "../Dialog.types";
 import Pressable from "../../Pressable/Pressable";
 import View from "../../View/View";
+import { useDialog } from "../Dialog";
+import type { DialogHeaderConfig } from "../Dialog.types";
 
 interface DialogHeaderProps {
   config?: DialogHeaderConfig & {

@@ -5,19 +5,13 @@ import type { ReactNode } from "react";
 import { useCallback, useEffect, useRef } from "react";
 import { useScrollLock } from "../../_shared/bodyScrollLock";
 import { LAYER_Z_INDEX } from "../../_shared/layer.constants";
+import { motionPresets } from "../../Motion/Motion.presets";
+import View from "../../View/View";
 import DialogFooter from "../contents/Dialog.footer";
 import DialogHeader from "../contents/Dialog.header";
 import BackgroundWrapper from "../Dialog.background";
-import type {
-  DialogOutsideOptions,
-  ModalConfig,
-} from "../Dialog.types";
-import {
-  DialogPortal,
-  useEscapeClose,
-} from "../Dialog.utils";
-import { motionPresets } from "../../Motion/Motion.presets";
-import View from "../../View/View";
+import type { DialogOutsideOptions, ModalConfig } from "../Dialog.types";
+import { DialogPortal, useEscapeClose } from "../Dialog.utils";
 
 interface RenderModalProps {
   open: boolean;

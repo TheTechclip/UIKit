@@ -1,5 +1,5 @@
-import type { SkeletonProps } from "./Skeleton.types";
 import View from "../../Frameworks/View/View";
+import type { SkeletonProps } from "./Skeleton.types";
 
 export default function Skeleton({
   className,

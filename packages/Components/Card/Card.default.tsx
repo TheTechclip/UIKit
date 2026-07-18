@@ -1,17 +1,14 @@
 import clsx from "clsx";
-import { useInBoxContent } from "../Box/Box";
-import styles from "./Card.module.scss";
-import type { CardDefaultProps } from "./Card.types";
-import {
-  buildRenderKeys,
-  normalizeCardIcon,
-} from "./Card.utils";
-import Icon from "../Icon/Icon";
-import Pill from "../Pill/Pill";
-import Text from "../Text/Text";
 import StopParentInteraction from "../../Frameworks/_shared/StopParentInteraction";
 import Pressable from "../../Frameworks/Pressable/Pressable";
 import View from "../../Frameworks/View/View";
+import { useInBoxContent } from "../Box/Box";
+import Icon from "../Icon/Icon";
+import Pill from "../Pill/Pill";
+import Text from "../Text/Text";
+import styles from "./Card.module.scss";
+import type { CardDefaultProps } from "./Card.types";
+import { buildRenderKeys, normalizeCardIcon } from "./Card.utils";
 
 export default function CardDefault({
   themePreset,

@@ -22,13 +22,13 @@ import {
   Border,
   resolveThemeClasses,
 } from "../../Theme/Theme.types";
+import View from "../View";
+import viewStyles from "../View.module.scss";
 import styles from "./HScrollView.module.scss";
 import type {
   HScrollViewProps,
   HScrollViewViewport,
 } from "./HScrollView.types";
-import View from "../View";
-import viewStyles from "../View.module.scss";
 
 type HScrollViewStyle = CSSProperties & {
   "--view-default-gap"?: string | number;

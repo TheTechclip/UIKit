@@ -26,7 +26,10 @@ function closeOpenInstances(mode: DialogProps["mode"], exceptId?: string) {
   }
 }
 
-function resolveModeId(mode: DialogProps["mode"], props: Omit<DialogProps, "mode">) {
+function resolveModeId(
+  mode: DialogProps["mode"],
+  props: Omit<DialogProps, "mode">,
+) {
   if (props.id) return props.id;
 
   if (props.funnel) {
@@ -34,14 +37,20 @@ function resolveModeId(mode: DialogProps["mode"], props: Omit<DialogProps, "mode
   }
 
   if (mode === "modal") {
-    const title = props.modal && "header" in props.modal ? props.modal.header?.title : undefined;
+    const title =
+      props.modal && "header" in props.modal
+        ? props.modal.header?.title
+        : undefined;
     if (typeof title === "string" && title.trim()) {
       return `dialog-modal:${title.trim()}`;
     }
   }
 
   if (mode === "sheet") {
-    const title = props.sheet && "header" in props.sheet ? props.sheet.header?.title : undefined;
+    const title =
+      props.sheet && "header" in props.sheet
+        ? props.sheet.header?.title
+        : undefined;
     if (typeof title === "string" && title.trim()) {
       return `dialog-sheet:${title.trim()}`;
     }
@@ -78,7 +87,9 @@ export function dialog(props: DialogProps): DialogInstance {
     resolvePromise(value);
 
     setTimeout(() => {
-      stack = stack.filter((item) => item !== instance || item.props.open !== false);
+      stack = stack.filter(
+        (item) => item !== instance || item.props.open !== false,
+      );
       notify();
     }, 350);
   };
@@ -103,15 +114,21 @@ export function dialog(props: DialogProps): DialogInstance {
   return instance;
 }
 
-dialog.popover = (anchor: HTMLElement, popoverProps: Omit<DialogProps, "mode">) => {
+dialog.popover = (
+  anchor: HTMLElement,
+  popoverProps: Omit<DialogProps, "mode">,
+) => {
   if (!anchorIds.has(anchor)) {
     anchorIds.set(anchor, `dialog-popover-${++nextAnchorId}`);
   }
   const id = popoverProps.id || anchorIds.get(anchor)!;
 
-  const existing = stack.find((item) => item.id === id && item.props.open !== false);
+  const existing = stack.find(
+    (item) => item.id === id && item.props.open !== false,
+  );
   if (existing) {
-    const closeOnClickTrigger = (popoverProps.popover as any)?.closeOnClickTrigger !== false;
+    const closeOnClickTrigger =
+      (popoverProps.popover as any)?.closeOnClickTrigger !== false;
     if (closeOnClickTrigger) existing.close();
     return existing;
   }
@@ -129,7 +146,9 @@ dialog.popover = (anchor: HTMLElement, popoverProps: Omit<DialogProps, "mode">) 
 
 dialog.modal = (modalProps: Omit<DialogProps, "mode">) => {
   const id = resolveModeId("modal", modalProps);
-  const existing = stack.find((item) => item.id === id && item.props.open !== false);
+  const existing = stack.find(
+    (item) => item.id === id && item.props.open !== false,
+  );
   if (existing) {
     existing.close();
     return existing;
@@ -146,7 +165,9 @@ dialog.modal = (modalProps: Omit<DialogProps, "mode">) => {
 
 dialog.sheet = (sheetProps: Omit<DialogProps, "mode">) => {
   const id = resolveModeId("sheet", sheetProps);
-  const existing = stack.find((item) => item.id === id && item.props.open !== false);
+  const existing = stack.find(
+    (item) => item.id === id && item.props.open !== false,
+  );
   if (existing) {
     existing.close();
     return existing;

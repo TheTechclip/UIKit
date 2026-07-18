@@ -1,9 +1,5 @@
 import clsx from "clsx";
 import Image from "next/image";
-import type { IconProps } from "./Icon.types";
-import SVGData from "./SVG/data";
-import Spinner from "../Spinner/Spinner";
-import Text from "../Text/Text";
 import {
   normalizeBrandIconClass as _normalizeBrandIconClass,
   normalizeUIKitImageSrc as _normalizeUIKitImageSrc,
@@ -11,6 +7,10 @@ import {
 import { Size, SizePX } from "../../Frameworks/_shared/sizing";
 import Pressable from "../../Frameworks/Pressable/Pressable";
 import View from "../../Frameworks/View/View";
+import Spinner from "../Spinner/Spinner";
+import Text from "../Text/Text";
+import type { IconProps } from "./Icon.types";
+import SVGData from "./SVG/data";
 
 const normalizeUIKitImageSrc = _normalizeUIKitImageSrc;
 const normalizeBrandIconClass = _normalizeBrandIconClass;

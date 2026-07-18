@@ -1,10 +1,10 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import Title from "../../packages/Components/Title/Title";
-import IconGroup from "../../packages/Components/Icon/Icon.group";
 import Icon from "../../packages/Components/Icon/Icon";
+import IconGroup from "../../packages/Components/Icon/Icon.group";
 import Pill from "../../packages/Components/Pill/Pill";
 import Text from "../../packages/Components/Text/Text";
+import Title from "../../packages/Components/Title/Title";
 import Pressable from "../../packages/Frameworks/Pressable/Pressable";
 import View from "../../packages/Frameworks/View/View";
 
@@ -123,7 +123,9 @@ describe("Title", () => {
   });
 
   it("forwards a className", () => {
-    const { container } = render(<Title title={[{ text: "X" }]} className="my-title" />);
+    const { container } = render(
+      <Title title={[{ text: "X" }]} className="my-title" />,
+    );
     expect(container.querySelector(".my-title")).toBeTruthy();
   });
 });

@@ -1,9 +1,6 @@
+import { Size, type UIKitSizeValue } from "../../Frameworks/_shared/sizing";
 import type { IconProps } from "../Icon/Icon.types";
 import type { ProfileAvatarOptions } from "./Profile.types";
-import {
-  Size,
-  type UIKitSizeValue,
-} from "../../Frameworks/_shared/sizing";
 
 const resolveFallbackAvatarIconSize = (
   outerSize: UIKitSizeValue,

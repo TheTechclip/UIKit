@@ -6,16 +6,10 @@ import type { UIKitSizeValue } from "../../_shared/sizing";
 import Dialog from "../../Dialog/Dialog";
 import Pressable from "../../Pressable/Pressable";
 import HScrollView from "../HScrollView/HScrollView";
+import View from "../View";
 import ImageDialog from "./Dialog/ImageDialog";
-import {
-  ImageLeftControl,
-  ImageRightControl,
-} from "./Image.controls";
-import type {
-  ImageItem,
-  ImageOverlay,
-  ImageProps,
-} from "./Image.types";
+import { ImageLeftControl, ImageRightControl } from "./Image.controls";
+import type { ImageItem, ImageOverlay, ImageProps } from "./Image.types";
 import {
   resolveAtIndex,
   resolveBlurDataURL,
@@ -23,7 +17,6 @@ import {
   resolveItems,
   resolveOverlay,
 } from "./Image.utils";
-import View from "../View";
 
 const DEFAULT_GROUP_WIDTH = "auto";
 const DEFAULT_GROUP_HEIGHT = "29rem";

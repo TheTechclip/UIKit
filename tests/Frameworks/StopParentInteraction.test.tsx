@@ -17,11 +17,11 @@ describe("StopParentInteraction", () => {
     const user = userEvent.setup();
     const outerClick = vi.fn();
     render(
-      <div onClick={outerClick}>
+      <button type="button" onClick={outerClick}>
         <StopParentInteraction>
           <span>inner</span>
         </StopParentInteraction>
-      </div>,
+      </button>,
     );
     await user.click(screen.getByText("inner"));
     expect(outerClick).not.toHaveBeenCalled();

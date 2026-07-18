@@ -8,15 +8,15 @@ import {
   useRef,
   useState,
 } from "react";
-import Spinner from "../Spinner/Spinner";
-import Text from "../Text/Text";
-import styles from "./Toggle.module.scss";
-import type { ToggleProps } from "./Toggle.types";
 import { Size, SizePX } from "../../Frameworks/_shared/sizing";
 import { useControllableState } from "../../Frameworks/_shared/useControllableState";
 import { Radius } from "../../Frameworks/Theme/Radius.types";
 import { Border } from "../../Frameworks/Theme/Theme.types";
 import View from "../../Frameworks/View/View";
+import Spinner from "../Spinner/Spinner";
+import Text from "../Text/Text";
+import styles from "./Toggle.module.scss";
+import type { ToggleProps } from "./Toggle.types";
 
 type ToggleTrackStyle = React.CSSProperties & {
   "--toggle-padding"?: string;

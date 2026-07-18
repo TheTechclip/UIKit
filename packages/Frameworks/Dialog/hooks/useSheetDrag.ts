@@ -2,8 +2,8 @@
 
 import { animate, type MotionValue, useDragControls } from "motion/react";
 import { useCallback, useRef } from "react";
-import { toPx } from "./useSheetGeometry";
 import { motionTransitions } from "../../Motion/Motion.presets";
+import { toPx } from "./useSheetGeometry";
 
 const CLOSE_VELOCITY = 900;
 const CLOSE_DISTANCE_RATIO = 0.34;

@@ -2,10 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Dialog from "./Dialog";
-import {
-  type DialogInstance,
-  DialogStore,
-} from "./Dialog.store";
+import { type DialogInstance, DialogStore } from "./Dialog.store";
 
 interface DialogBootstrapProps {
   "data-color-mode"?: string;

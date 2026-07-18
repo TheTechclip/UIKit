@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
-import type { IconProps } from "../Icon/Icon.types";
-import type { TextProps } from "../Text/Text.types";
 import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
 import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
 import type { RadiusProps } from "../../Frameworks/Theme/Radius.types";
+import type { IconProps } from "../Icon/Icon.types";
+import type { TextProps } from "../Text/Text.types";
 
 export interface NavOption extends Omit<PressableProps, "title"> {
   checked?: boolean;

@@ -1,6 +1,11 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { Children, isValidElement } from "react";
+import { normalizeUIKitImageSrc } from "../../Frameworks/_shared/normalize";
+import { Size, type UIKitSizeValue } from "../../Frameworks/_shared/sizing";
+import View from "../../Frameworks/View/View";
+import Title from "../Title/Title";
+import type { TitleProps } from "../Title/Title.types";
 import styles from "./Layout.module.scss";
 import type {
   BackgroundImageValue,
@@ -8,14 +13,6 @@ import type {
   LayoutProps,
   LayoutSectionProps,
 } from "./Layout.types";
-import Title from "../Title/Title";
-import type { TitleProps } from "../Title/Title.types";
-import { normalizeUIKitImageSrc } from "../../Frameworks/_shared/normalize";
-import {
-  Size,
-  type UIKitSizeValue,
-} from "../../Frameworks/_shared/sizing";
-import View from "../../Frameworks/View/View";
 
 function resolveBgMargin(
   margin: NonNullable<BackgroundImageValue["margin"]>,

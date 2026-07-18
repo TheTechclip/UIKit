@@ -2,9 +2,9 @@
 
 import type { ReactNode } from "react";
 import Button from "../../../Components/Button/Button";
-import type { DialogFooterConfig } from "../Dialog.types";
 import Pressable from "../../Pressable/Pressable";
 import View from "../../View/View";
+import type { DialogFooterConfig } from "../Dialog.types";
 
 interface DialogFooterProps {
   config?: DialogFooterConfig;

@@ -1,4 +1,6 @@
 import clsx from "clsx";
+import Pressable from "../../Frameworks/Pressable/Pressable";
+import View from "../../Frameworks/View/View";
 import { IconInner } from "../Icon/Icon";
 import IconGroup from "../Icon/Icon.group";
 import Pill from "../Pill/Pill";
@@ -8,8 +10,6 @@ import type {
   TitleContextProps,
   TitleProps,
 } from "./Title.types";
-import Pressable from "../../Frameworks/Pressable/Pressable";
-import View from "../../Frameworks/View/View";
 
 const buildRenderKeys = <T,>(
   items: T[],

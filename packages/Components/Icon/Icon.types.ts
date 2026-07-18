@@ -1,6 +1,3 @@
-import type { SpinnerProps } from "../Spinner/Spinner.types";
-import type { TextProps } from "../Text/Text.types";
-import type { TitleProps } from "../Title/Title.types";
 import type { UIKitSizeValue } from "../../Frameworks/_shared/sizing";
 import type { PressableProps } from "../../Frameworks/Pressable/Pressable.types";
 import type { RadiusProps } from "../../Frameworks/Theme/Radius.types";
@@ -9,6 +6,9 @@ import type {
   ThemePaint,
   ThemeSystemProps,
 } from "../../Frameworks/Theme/Theme.types";
+import type { SpinnerProps } from "../Spinner/Spinner.types";
+import type { TextProps } from "../Text/Text.types";
+import type { TitleProps } from "../Title/Title.types";
 
 type SVGPathPaint = React.SVGProps<SVGPathElement>["fill"];
 type SVGPathStrokeWidth = React.SVGProps<SVGPathElement>["strokeWidth"];
