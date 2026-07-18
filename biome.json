@@ -13,7 +13,6 @@
       "!.next",
       "!dist",
       "!build",
-      "!**/coverage/**",
       "!types/validator.ts"
     ]
   },
