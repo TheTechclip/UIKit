@@ -14,5 +14,4 @@ export interface DocsLayoutProps {
   onlyHeaderTitleShown?: boolean;
   fontType?: TextProps["fontType"];
   bodyClassName?: string;
-  goTop?: boolean;
 }

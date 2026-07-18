@@ -131,6 +131,7 @@ export default function Pagination({
         themePreset={themePreset ?? "UIPrimary"}
         background={background}
         color={color}
+        border={border}
         themeInteractive={themeInteractive}
         pressable={pressable}
       />
@@ -184,6 +185,7 @@ export default function Pagination({
         <label style={{ width: "100%", height: "100%" }}>
           <View
             themePreset={themePreset ?? "UIPrimary"}
+            border={border}
             radius="Circle"
             alignItems="center"
             justifyContent="center"

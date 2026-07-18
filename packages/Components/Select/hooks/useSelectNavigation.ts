@@ -435,7 +435,7 @@ export function useSelectNavigation(
     toggleOpenFromTrigger();
   }, [toggleOpenFromTrigger, suppressClickUntilRef.current]);
   const handleTriggerPointerUp = useCallback(
-    (e: ReactPointerEvent<HTMLButtonElement>) => {
+    (e: ReactPointerEvent<Element>) => {
       if (e.pointerType !== "touch") return;
       e.preventDefault();
       suppressClickUntilRef.current = Date.now() + 400;

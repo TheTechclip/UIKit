@@ -1,10 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Icon from "../../packages/Components/Icon/Icon";
 import Label from "../../packages/Components/Label/Label";
-import Text from "../../packages/Components/Text/Text";
-import Pressable from "../../packages/Frameworks/Pressable/Pressable";
-import View from "../../packages/Frameworks/View/View";
 
 vi.mock("../../packages/Components/Icon/Icon.tsx", () => ({
   default: ({ icon, color }: { icon?: string; color?: string }) => (

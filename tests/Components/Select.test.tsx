@@ -1,12 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import ContextMenu from "../../packages/Components/ContextMenu/ContextMenu";
-import Icon from "../../packages/Components/Icon/Icon";
-import Label from "../../packages/Components/Label/Label";
 import Select from "../../packages/Components/Select/Select";
-import Text from "../../packages/Components/Text/Text";
-import Pressable from "../../packages/Frameworks/Pressable/Pressable";
-import View from "../../packages/Frameworks/View/View";
 
 vi.mock("../../packages/Components/ContextMenu/ContextMenu.tsx", () => ({
   default: ({ open, contents, listId }: any) =>

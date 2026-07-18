@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import Tooltip from "../../packages/Components/Tooltip/Tooltip";
-import View from "../../packages/Frameworks/View/View";
 
 vi.mock("../../packages/Frameworks/View/View.tsx", () => ({
   default: ({ children, role, ...rest }: any) => (

@@ -1,5 +1,5 @@
 "use client";
-import type { KeyboardEvent, ReactElement } from "react";
+import type { KeyboardEvent, PointerEvent, ReactElement } from "react";
 import Pressable from "../../Frameworks/Pressable/Pressable";
 import View from "../../Frameworks/View/View";
 import Text from "../Text/Text";
@@ -16,8 +16,8 @@ interface SelectTriggerProps {
   selectedLabel: string;
   placeholderText: string;
   handleTriggerClick: () => void;
-  handleTriggerPointerUp: (e: any) => void;
-  handleControlKeyDown: (e: KeyboardEvent, isControl: boolean) => void;
+  handleTriggerPointerUp: (e: PointerEvent<Element>) => void;
+  handleControlKeyDown: (e: KeyboardEvent<Element>, isControl: boolean) => void;
 }
 
 export default function SelectTrigger({
@@ -58,8 +58,8 @@ export default function SelectTrigger({
           style={{ cursor: "default" }}
           themeInteractive={false}
           onClick={handleTriggerClick}
-          onPointerUp={(e) => handleTriggerPointerUp(e as any)}
-          onKeyDown={(e) => handleControlKeyDown(e as any, true)}
+          onPointerUp={handleTriggerPointerUp}
+          onKeyDown={(e) => handleControlKeyDown(e, true)}
           disabled={isInteractionDisabled}
         >
           <Text type="Subheadline">{placeholderText}</Text>
@@ -76,8 +76,8 @@ export default function SelectTrigger({
           style={{ cursor: "default" }}
           themeInteractive={false}
           onClick={handleTriggerClick}
-          onPointerUp={(e) => handleTriggerPointerUp(e as any)}
-          onKeyDown={(e) => handleControlKeyDown(e as any, true)}
+          onPointerUp={handleTriggerPointerUp}
+          onKeyDown={(e) => handleControlKeyDown(e, true)}
           disabled={isInteractionDisabled}
         >
           <Text type="Subheadline">{selectedLabel}</Text>

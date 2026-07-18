@@ -1,9 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import Icon from "../../packages/Components/Icon/Icon";
 import Pill from "../../packages/Components/Pill/Pill";
-import Text from "../../packages/Components/Text/Text";
-import Pressable from "../../packages/Frameworks/Pressable/Pressable";
 
 vi.mock("../../packages/Components/Icon/Icon.tsx", () => ({
   default: ({ icon, spinner }: { icon?: string; spinner?: boolean }) => (

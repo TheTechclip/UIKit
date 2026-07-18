@@ -131,7 +131,6 @@ export default function DatePicker({
   endDate: endProp,
   defaultStartDate,
   defaultEndDate,
-  placeholder,
   onChange,
   onRangeChange,
   "data-color-mode": dataTheme,
@@ -158,7 +157,7 @@ export default function DatePicker({
 
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
-  const arrowRef = useRef<HTMLDivElement>(null);
+  const arrowRef = useRef<HTMLElement | null>(null);
   const popoverOwnerId = useId();
   const suppressOpenUntilRef = useRef(0);
 
@@ -191,7 +190,6 @@ export default function DatePicker({
     setSelected,
     setRangeStart,
     setRangeEnd,
-    displayText,
   } = useSelection({
     mode,
     isControlled,
@@ -760,7 +758,7 @@ export default function DatePicker({
           open={open}
           onOpenChange={setOpen}
           popover={{
-            anchorRef: arrowRef as any,
+            anchorRef: arrowRef,
             strategy: "anchored",
             placement: "bottom-end",
             recalcKey: `${viewYear}|${viewMonth}|${mode}`,
@@ -774,7 +772,7 @@ export default function DatePicker({
           mobileMode="sheet"
         >
           <Calendar
-            currentLocale={currentLocale as any}
+            currentLocale={currentLocale}
             viewYear={viewYear}
             viewMonth={viewMonth}
             prevMonth={prevMonth}

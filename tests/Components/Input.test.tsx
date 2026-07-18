@@ -1,9 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import Input from "../../packages/Components/Input/Input";
-import Label from "../../packages/Components/Label/Label";
-import Text from "../../packages/Components/Text/Text";
-import View from "../../packages/Frameworks/View/View";
 
 vi.mock("../../packages/Components/Label/Label.tsx", () => ({
   default: ({

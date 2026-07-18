@@ -279,7 +279,7 @@ export function useSheetDrag({
       const dy = e.clientY - contentDragPrevY.current;
       const velocity = (dy / dt) * 1000;
 
-      handleDragEnd(e as any, {
+      handleDragEnd(e.nativeEvent, {
         offset: { y: y.get() - contentDragSheetStartY.current },
         velocity: { y: velocity },
       });

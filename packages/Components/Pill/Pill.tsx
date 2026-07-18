@@ -51,6 +51,7 @@ export function Pill({
 
   return (
     <Pressable
+      data-render-key={renderKey}
       data-color-mode={dataColorMode}
       {...restPressable}
       themePreset={resolvedPreset}

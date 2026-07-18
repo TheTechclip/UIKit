@@ -19,7 +19,6 @@ export default function DocsLayout({
   onlyHeaderTitleShown,
   bodyClassName,
   "data-color-mode": dataTheme,
-  goTop,
 }: DocsLayoutProps) {
   const usePlainTextBody = typeof children === "string";
   const hasLayoutTitle = Boolean(title || caption);

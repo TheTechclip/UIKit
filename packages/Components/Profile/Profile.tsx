@@ -362,6 +362,7 @@ export default function Profile({
 
   return (
     <Pressable
+      id={id}
       padding={[4, 6]}
       style={{ transition: "var(--transition-surface)", margin: "-4px -6px" }}
       data-color-mode={dataColorMode}

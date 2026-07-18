@@ -180,13 +180,13 @@ export default function SelectInner(props: SelectProps<boolean>): ReactElement {
                 return (
                   style.display !== "none" &&
                   style.visibility !== "hidden" &&
-                  !(el as any).disabled
+                  !(el as HTMLButtonElement | HTMLInputElement).disabled
                 );
               }) as HTMLElement[];
 
               if (focusable.length > 0) {
                 const activeEl = document.activeElement as HTMLElement | null;
-                const index = focusable.indexOf(activeEl!);
+                const index = activeEl ? focusable.indexOf(activeEl) : -1;
 
                 if (e.shiftKey) {
                   if (index === 0 || index === -1) {

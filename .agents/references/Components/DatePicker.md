@@ -52,7 +52,6 @@ export interface DatePickerProps {
   defaultEndDate?: string;
   onRangeChange?: (start: string | null, end: string | null) => void;
 
-  placeholder?: string;
   minDate?: string;
   maxDate?: string;
   disabledDaysOfWeek?: number[];

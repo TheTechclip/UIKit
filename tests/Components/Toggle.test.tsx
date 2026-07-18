@@ -1,9 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import Spinner from "../../packages/Components/Spinner/Spinner";
-import Text from "../../packages/Components/Text/Text";
 import Toggle from "../../packages/Components/Toggle/Toggle";
-import View from "../../packages/Frameworks/View/View";
 
 vi.mock("../../packages/Components/Spinner/Spinner.tsx", () => ({
   default: () => <span data-testid="spinner" />,

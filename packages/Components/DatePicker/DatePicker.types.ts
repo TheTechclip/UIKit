@@ -22,8 +22,6 @@ export interface DatePickerProps {
   defaultStartDate?: string;
   defaultEndDate?: string;
 
-  placeholder?: string;
-
   minDate?: string;
   maxDate?: string;
   disabledDaysOfWeek?: number[];

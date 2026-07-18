@@ -1,6 +1,4 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { useRouter } from "next/navigation";
-import React from "react";
 import { describe, expect, it, vi } from "vitest";
 import Nav from "../../packages/Components/Nav/Nav";
 
