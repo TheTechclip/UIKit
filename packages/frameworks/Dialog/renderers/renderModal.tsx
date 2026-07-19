@@ -12,7 +12,7 @@ import DialogHeader from "../contents/Dialog.header";
 import BackgroundWrapper from "../Dialog.background";
 import { DialogPortal } from "../Dialog.portal";
 import type { DialogOutsideOptions, ModalConfig } from "../Dialog.types";
-import { useEscapeClose } from "../Dialog.useEscapeClose";
+import { useEscapeClose } from "../useEscapeClose";
 
 interface RenderModalProps {
   open: boolean;

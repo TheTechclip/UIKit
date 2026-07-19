@@ -13,7 +13,7 @@ import DialogHeader from "../contents/Dialog.header";
 import BackgroundWrapper from "../Dialog.background";
 import { DialogPortal } from "../Dialog.portal";
 import type { DialogOutsideOptions, PopoverConfig } from "../Dialog.types";
-import { useEscapeClose } from "../Dialog.useEscapeClose";
+import { useEscapeClose } from "../useEscapeClose";
 import { useDialogPosition } from "../hooks/useDialogPosition";
 
 interface RenderPopoverProps {

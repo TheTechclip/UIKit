@@ -6,6 +6,8 @@ export type ImageItem = {
   id: number;
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
   srcDialog?: string;
   blurDataURL?: string;
 };
@@ -19,6 +21,8 @@ export type ImageOverlay = ReactNode | ReactNode[];
 
 export interface ImageProps extends RadiusProps {
   src: string | string[] | ImageItem[];
+
+  renderer?: "next" | "native";
 
   alt?: string | string[];
 

@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { useImageDialog } from "../../packages/frameworks/View/ImageView/Image.useDialog";
+import { useImageDialog } from "../../packages/frameworks/View/ImageView/useImageDialog";
 
 describe("useImageDialog", () => {
   it("returns initial index and controls", () => {

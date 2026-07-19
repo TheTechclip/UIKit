@@ -52,12 +52,15 @@ function ImageGroupItem({
   overlay,
   groupWidth,
   priority,
+  renderer,
   openDialog,
 }: {
   item: {
     id: number;
     src: string;
     alt: string;
+    width?: number;
+    height?: number;
     srcDialog?: string;
     blurDataURL?: string;
   };
@@ -70,6 +73,7 @@ function ImageGroupItem({
   overlay?: ImageOverlay;
   groupWidth?: string;
   priority?: boolean;
+  renderer: "next" | "native";
   openDialog: (index: number) => void;
 }) {
   const resolvedWidth = resolveAtIndex(width, index);
@@ -80,13 +84,12 @@ function ImageGroupItem({
     <Pressable
       key={item.id}
       radius={radius ?? "Regular"}
-      background="Base3"
       onClick={dialog ? () => openDialog(index) : undefined}
       style={PRESSABLE_STYLE}
       width={resolvedWidth ?? "fit-content"}
       height={resolvedHeight}
     >
-      {(resolvedWidth ?? groupWidth) === "auto" ? (
+      {renderer === "native" ? (
         <img
           src={resolveImageSrc(item, "inline")}
           alt={item.alt}
@@ -96,7 +99,10 @@ function ImageGroupItem({
         />
       ) : (
         <NextImage
-          fill
+          {...(item.width && item.height
+            ? { width: item.width, height: item.height }
+            : { fill: true })}
+          sizes="auto"
           priority={priority && index === 0}
           src={resolveImageSrc(item, "inline")}
           alt={item.alt}
@@ -127,6 +133,7 @@ export default function Image({
   overlay,
   control,
   dialog,
+  renderer = "next",
 }: ImageProps) {
   const items = useMemo(() => resolveItems(src, alt), [src, alt]);
 
@@ -221,7 +228,7 @@ export default function Image({
             height={resolvedHeight}
           >
             {}
-            {(resolvedWidth ?? "auto") === "auto" ? (
+            {renderer === "native" ? (
               <img
                 src={resolveImageSrc(item, "inline")}
                 alt={item.alt}
@@ -236,7 +243,10 @@ export default function Image({
               />
             ) : (
               <NextImage
-                fill
+                {...(item.width && item.height
+                  ? { width: item.width, height: item.height }
+                  : { fill: true })}
+                sizes="auto"
                 priority={priority}
                 src={resolveImageSrc(item, "inline")}
                 alt={item.alt}
@@ -297,7 +307,7 @@ export default function Image({
         height={resolvedHeight}
       >
         {}
-        {(resolvedWidth ?? "auto") === "auto" ? (
+        {renderer === "native" ? (
           <img
             src={resolveImageSrc(item, "inline")}
             alt={item.alt}
@@ -307,7 +317,10 @@ export default function Image({
           />
         ) : (
           <NextImage
-            fill
+            {...(item.width && item.height
+              ? { width: item.width, height: item.height }
+              : { fill: true })}
+            sizes="auto"
             priority={priority}
             src={resolveImageSrc(item, "inline")}
             alt={item.alt}
@@ -352,6 +365,7 @@ export default function Image({
               overlay={overlay}
               groupWidth={groupWidth}
               priority={priority}
+              renderer={renderer}
               openDialog={openDialog}
             />
           ))}

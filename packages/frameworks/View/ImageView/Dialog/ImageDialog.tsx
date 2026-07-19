@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import View from "../../View";
 import { ImageLeftControl, ImageRightControl } from "../Image.controls";
 import type { ImageItem, ImageProps } from "../Image.types";
-import { useImageDialog } from "../Image.useDialog";
+import { useImageDialog } from "../useImageDialog";
 import { DialogImageFooter } from "./ImageDialog.footer";
 import { DialogImageHeader } from "./ImageDialog.header";
 import { DialogImageSlide } from "./ImageDialog.slide";

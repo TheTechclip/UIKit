@@ -8,9 +8,13 @@
 
 - `src: string` renders one image; use `alt` for meaningful alternative text.
 - `src: string[]` renders a group; `alt`, `width`, and `height` may also be arrays aligned by index.
-- `src: ImageItem[]` supplies stable `id`, `src`, required `alt`, optional `srcDialog`, and optional `blurDataURL` per image.
+- `src: ImageItem[]` supplies stable `id`, `src`, required `alt`, optional intrinsic `width`/`height`, `srcDialog`, and `blurDataURL` per image.
 
 `width` and `height` accept UIKit size values. `groupWidth`, `groupHeight`, `groupGap`, and `groupClassName` configure the multi-image layout. `priority` should be reserved for above-the-fold imagery.
+
+`renderer` selects the implementation independently of layout: it defaults to Next.js `Image` and accepts `"next"` or `"native"`. Use `renderer="native"` when a native `<img>` is required.
+
+When using the default Next.js renderer, provide intrinsic `width` and `height` on `ImageItem` when available. Otherwise the image uses `fill` and follows its parent layout.
 
 ## Gallery and dialog
 
