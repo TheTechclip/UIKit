@@ -1,0 +1,91 @@
+@use "../../styles/viewport" as viewport;
+
+.LayoutInner {
+  flex: 1 0 auto;
+
+  --layout-max-width: 1280px;
+  --layout-bleed: max(
+    var(--view-padding-page-inline),
+    calc(
+      (100vw - var(--layout-max-width)) / 2 + var(--view-padding-page-inline)
+    )
+  );
+
+  max-width: 1280px;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+  padding-inline: 3.6rem;
+  padding-top: 10.8rem;
+  padding-bottom: 3.6rem;
+  overflow: visible;
+
+  @include viewport.down(w3) {
+    --layout-max-width: 768px;
+
+    max-width: 768px;
+    padding-inline: 1.6rem;
+    padding-top: 10.8rem;
+  }
+}
+
+.LayoutTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  width: 100%;
+  min-width: 0;
+  padding-bottom: 2.4rem;
+  max-width: 76rem;
+  opacity: var(--layout-title-handoff-opacity, 1);
+  filter: blur(var(--layout-title-handoff-blur, 0));
+  transform: translateY(var(--layout-title-handoff-y, 0));
+  will-change: opacity, filter, transform;
+}
+
+.LayoutTitleText {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.LayoutTitleMobileOnly {
+  display: none !important;
+
+  @include viewport.down(w3) {
+    display: flex !important;
+  }
+}
+
+.LayoutGrid {
+  --layout-grid-ratio: minmax(0, 1fr) minmax(0, 1fr);
+  --layout-grid-active-ratio: var(--layout-grid-ratio);
+
+  gap: 4.8rem;
+  width: 100%;
+
+  .LayoutGridGroup {
+    gap: 3.6rem;
+  }
+
+  @include viewport.down(w3) {
+    --layout-grid-active-ratio: minmax(0, 1fr);
+
+    gap: 3.2rem;
+
+    .LayoutGridGroup {
+      display: contents !important;
+      gap: 3.2rem;
+    }
+  }
+}
+
+.LayoutGridGroup {
+  width: 100%;
+  min-width: 0;
+}

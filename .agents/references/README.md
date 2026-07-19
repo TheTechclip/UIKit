@@ -4,7 +4,7 @@ These documents describe the checked-in implementation of `@musecat/uikit`. They
 
 ## How to use the references
 
-1. Start with the framework references for [`View`](./Frameworks/View.md), [`Pressable`](./Frameworks/Pressable.md), [`Theme`](./Frameworks/Theme.md), and [`Squircle`](./Frameworks/Squircle.md).
+1. Start with the framework references for [`View`](./frameworks/View.md), [`Pressable`](./frameworks/Pressable.md), [`Theme`](./frameworks/Theme.md), and [`Squircle`](./frameworks/Squircle.md).
 2. Read the matching component reference and its `*.types.ts` source before changing or consuming a specialized component.
 3. Read the relevant Styles reference before adding SCSS or choosing tokens.
 4. Keep implementation, tests, exports, README examples, and the corresponding reference document in the same change.
@@ -15,7 +15,7 @@ These documents describe the checked-in implementation of `@musecat/uikit`. They
 - Design colors, spacing, borders, shadows, blur, and radius must use the token system. Avoid raw component-local visual values.
 - `radius` is a Squircle concern. Preserve the View/Pressable-to-Squircle path and do not directly animate Squircle width or height with a Motion animate object.
 - `disabled` and `readOnly` must be consumed by components before props reach DOM nodes.
-- UIKit exposes public APIs only through the root `index.ts`; there are no directory barrel files.
+- UIKit exposes public APIs only through the root `index.ts`; package exports do not expose wildcard deep-import paths, and there are no directory barrel files.
 
 ## Directory map
 
