@@ -1,0 +1,74 @@
+@use "../../styles/viewport" as viewport;
+
+.Wrapper {
+  max-width: 1280px;
+  width: 100%;
+  margin-top: 3.6rem;
+  padding-inline: 3.6rem;
+  height: 4rem;
+  position: relative;
+
+  @include viewport.down(w3) {
+    margin-top: 1.6rem;
+    padding-inline: 1.6rem;
+  }
+
+  .LeftGroup {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .LeftContent {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0.6rem 0.8rem;
+    margin: -0.8rem;
+    transition: var(--transition-surface);
+
+    @include viewport.down(w3) {
+      padding: 0.4rem 0.6rem;
+      margin: -0.4rem -0.6rem;
+    }
+  }
+
+  .LeftContentLink {
+    flex: 0 1 auto;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .LogoLink {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem;
+    margin: -0.4rem;
+  }
+
+  .RightContent {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0.2rem;
+    position: relative;
+    background: color-mix(in srgb, var(--color-base-light-1) 70%, transparent);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+}
+
+.LinearBlur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10.6rem;
+  width: 100%;
+  z-index: 1100;
+
+  @include viewport.down(w3) {
+    height: 7.2rem;
+  }
+}
