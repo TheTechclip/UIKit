@@ -24,7 +24,7 @@ export default nextConfig;
 Import the global stylesheet entry once from the application's root stylesheet or layout. It supplies color, typography, theme, reset, and viewport utility rules.
 
 ```scss
-@use "@musecat/uikit/packages/Styles/importer";
+@use "@musecat/uikit/packages/styles/importer";
 ```
 
 ## Core primitives
@@ -56,7 +56,7 @@ export function ProfileAction() {
 
 Numeric spacing and dimensions are converted through UIKit's sizing utility. Use design tokens such as `Base1`, `UIPrimary`, and `Regular` instead of hard-coded colors, radii, or component-local CSS values.
 
-For route-level composition, use `Layout` once as the page shell, `Layout.Grid` for multi-column content, and `Layout.Section` for titled grid blocks. Keep cards, stacks, and local alignment inside `View`; see the [Layout reference](./.agents/references/Components/Layout.md) for grouping, responsive ordering, and background-image behaviour.
+For route-level composition, use `Layout` once as the page shell, `Layout.Grid` for multi-column content, and `Layout.Section` for titled grid blocks. Keep cards, stacks, and local alignment inside `View`; see the [Layout reference](./.agents/references/components/Layout.md) for grouping, responsive ordering, and background-image behaviour.
 
 ## Theme scheme in App Router
 

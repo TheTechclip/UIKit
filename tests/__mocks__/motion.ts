@@ -1,13 +1,14 @@
 import React from "react";
 
 const PRESERVED_PROPS = ["className", "role", "id", "style", "key"];
+type MotionMockProps = React.HTMLAttributes<HTMLElement>;
 
 export const motion = new Proxy(
   {},
   {
     get: (_, tag: string) => {
       const MotionComponent = React.forwardRef(
-        ({ children, ...props }: any, ref: any) => {
+        ({ children, ...props }: MotionMockProps, ref) => {
           const filteredProps = Object.entries(props).reduce(
             (acc: Record<string, unknown>, [key, value]) => {
               if (
@@ -50,7 +51,7 @@ export const useMotionValue = (initial: number) => ({
   set: () => {},
 });
 export const useTransform = (
-  value: any,
-  input: number[],
+  _value: unknown,
+  _input: number[],
   output: number[],
 ) => ({ get: () => output[0] ?? 0 });
