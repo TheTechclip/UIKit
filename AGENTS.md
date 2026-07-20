@@ -6,6 +6,7 @@ You are a concise coding assistant.
 
 ## Documentation References
 
+- You MUST also read and adhere to the foundational guidelines located in the root directory: `uikit.md`, `writing-conventions.md`, `source-conventions.md`, `reference-conventions.md`, and `design-philosophy.md`.
 - Before using or modifying any component, framework, or style, you MUST read the corresponding documentation in `.agents/references/`.
 - **Documentation MUST Be Updated Immediately:** Every time you add, modify, or remove a component, framework, style, or any exported API/type, you MUST update the corresponding `.agents/references/` doc in the **same batch of tool calls** — not later, not after tests, not when asked. You must check what changed and update refs before moving to the next task.
 - If references have drifted from the actual code due to manual changes, analyze the source code and git history to align them.
