@@ -90,6 +90,10 @@ export {
   type ThemeBootstrapperProps,
   useTheme,
 } from "./packages/frameworks/Theme/Theme.boot";
+export {
+  default as UIKitProvider,
+  type UIKitProviderProps,
+} from "./packages/frameworks/UIKitProvider";
 // Theme
 export {
   BackgroundBlur,
