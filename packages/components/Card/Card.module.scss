@@ -1,7 +1,7 @@
 .Card {
   padding: 1.2rem 1.6rem;
 
-  &.Contained {
+  &.Standalone {
     padding: 1.6rem 2rem;
 
     @media (max-width: 409.98px) {
@@ -10,7 +10,7 @@
   }
 }
 
-.containedInnerChildren {
+.standaloneInnerChildren {
   padding: 1.6rem 2rem;
 
   @media (max-width: 409.98px) {

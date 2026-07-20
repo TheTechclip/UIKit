@@ -33,7 +33,7 @@ export interface CardBaseProps extends BorderProps, RadiusProps {
   className?: string;
   style?: React.CSSProperties;
   vertical?: boolean;
-  contained?: boolean;
+  standalone?: boolean;
 
   pressable?: PressableProps;
 
