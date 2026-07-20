@@ -9,17 +9,24 @@ import {
   useMemo,
   useState,
 } from "react";
+import {
+  type ThemeScheme,
+  type ResolvedThemeScheme,
+  THEME_SCHEME_STORAGE_KEY,
+  THEME_SCHEME_MEDIA_QUERY,
+  AVAILABLE_THEME_SCHEMES,
+  isThemeScheme,
+  resolveThemeScheme,
+} from "./Theme.shared";
 
-export type ThemeScheme = "system" | "light" | "dark";
-export type ResolvedThemeScheme = Exclude<ThemeScheme, "system">;
-
-export const THEME_SCHEME_STORAGE_KEY = "theme";
-export const THEME_SCHEME_MEDIA_QUERY = "(prefers-color-scheme: dark)";
-export const AVAILABLE_THEME_SCHEMES: readonly ThemeScheme[] = [
-  "system",
-  "dark",
-  "light",
-];
+export type { ThemeScheme, ResolvedThemeScheme };
+export {
+  THEME_SCHEME_STORAGE_KEY,
+  THEME_SCHEME_MEDIA_QUERY,
+  AVAILABLE_THEME_SCHEMES,
+  isThemeScheme,
+  resolveThemeScheme,
+};
 
 export interface ThemeBootstrapperProps {
   children: ReactNode;
@@ -37,18 +44,6 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 function getSystemTheme(): ResolvedThemeScheme {
   return window.matchMedia(THEME_SCHEME_MEDIA_QUERY).matches ? "dark" : "light";
-}
-
-export function isThemeScheme(
-  value: string | null | undefined,
-): value is ThemeScheme {
-  return value === "system" || value === "light" || value === "dark";
-}
-
-export function resolveThemeScheme(
-  theme: ThemeScheme | null | undefined,
-): ResolvedThemeScheme | undefined {
-  return theme === "light" || theme === "dark" ? theme : undefined;
 }
 
 function readStoredTheme(fallback: ThemeScheme): ThemeScheme {

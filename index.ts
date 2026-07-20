@@ -78,14 +78,16 @@ export type {
 export { Radius } from "./packages/frameworks/Theme/Radius.types";
 export {
   AVAILABLE_THEME_SCHEMES,
-  default as ThemeBootstrapper,
   isThemeScheme,
-  type ResolvedThemeScheme,
   resolveThemeScheme,
   THEME_SCHEME_MEDIA_QUERY,
   THEME_SCHEME_STORAGE_KEY,
-  type ThemeBootstrapperProps,
+  type ResolvedThemeScheme,
   type ThemeScheme,
+} from "./packages/frameworks/Theme/Theme.shared";
+export {
+  default as ThemeBootstrapper,
+  type ThemeBootstrapperProps,
   useTheme,
 } from "./packages/frameworks/Theme/Theme.boot";
 // Theme
