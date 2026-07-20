@@ -18,7 +18,7 @@ export default function CardDefault({
   border,
   shadow,
   vertical,
-  standalone = false,
+  standalone,
   radius,
   pressable,
   style,
@@ -35,7 +35,6 @@ export default function CardDefault({
 }: CardDefaultProps) {
   const shouldBlockHostDefault = Boolean(pressable) && !customRightAllowDefault;
 
-  const resolvedStandalone = standalone;
   const resolvedIcon = normalizeCardIcon(icon);
   const pillItems = Array.isArray(pill) ? pill : pill ? [pill] : [];
   const pillKeys = buildRenderKeys(
@@ -74,7 +73,7 @@ export default function CardDefault({
       fullWidth
       className={clsx(
         styles.Card,
-        resolvedStandalone && styles.Standalone,
+        standalone && styles.Standalone,
         className,
       )}
       style={style}

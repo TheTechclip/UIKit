@@ -88,7 +88,7 @@ export default function CardFoldable({
   color,
   border,
   shadow,
-  standalone = false,
+  standalone,
   radius,
   pressable,
   style,
@@ -106,7 +106,6 @@ export default function CardFoldable({
  }: CardFoldableProps) {
   const shouldBlockHostDefault = Boolean(pressable) && !customRightAllowDefault;
 
-  const resolvedStandalone = standalone;
   const resolvedIcon = normalizeCardIcon(icon);
   const pillItems = Array.isArray(pill) ? pill : pill ? [pill] : [];
   const pillKeys = buildRenderKeys(
@@ -256,7 +255,7 @@ export default function CardFoldable({
         fullWidth
         className={clsx(
           styles.Card,
-          resolvedStandalone && styles.Standalone,
+          standalone && styles.Standalone,
           className,
         )}
         style={style}
