@@ -1,6 +1,3 @@
-"use client";
-
-import { createContext, useContext } from "react";
 import Pressable from "../../frameworks/Pressable/Pressable";
 import View from "../../frameworks/View/View";
 import Divider from "../Divider/Divider";
@@ -8,12 +5,6 @@ import Icon from "../Icon/Icon";
 import Spinner from "../Spinner/Spinner";
 import Text from "../Text/Text";
 import type { BoxContentProps, BoxFooterProps, BoxProps } from "./Box.types";
-
-const BoxContentContext = createContext(false);
-
-export function useInBoxContent() {
-  return useContext(BoxContentContext);
-}
 
 export default function Box({
   themePreset,
@@ -85,22 +76,20 @@ export function BoxContent({
         </View>
       )}
       {children && (
-        <BoxContentContext.Provider value>
-          <View
-            column
-            gap={card ? 2 : undefined}
-            className={contentClassName}
-            data-color-mode={dataTheme}
-            padding={
-              padding !== undefined ? padding : card ? 0 : [6, 12, 12, 12]
-            }
-            paddingHorizontal={paddingHorizontal}
-            paddingVertical={paddingVertical}
-            style={contentStyle}
-          >
-            {children}
-          </View>
-        </BoxContentContext.Provider>
+        <View
+          column
+          gap={card ? 2 : undefined}
+          className={contentClassName}
+          data-color-mode={dataTheme}
+          padding={
+            padding !== undefined ? padding : card ? 0 : [6, 12, 12, 12]
+          }
+          paddingHorizontal={paddingHorizontal}
+          paddingVertical={paddingVertical}
+          style={contentStyle}
+        >
+          {children}
+        </View>
       )}
     </>
   );

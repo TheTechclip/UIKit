@@ -12,7 +12,6 @@ import {
 } from "../../frameworks/shared/sizing";
 import type { RadiusValue } from "../../frameworks/Theme/Radius.types";
 import View from "../../frameworks/View/View";
-import { useInBoxContent } from "../Box/Box";
 import Icon from "../Icon/Icon";
 import Pill from "../Pill/Pill";
 import Text from "../Text/Text";
@@ -89,7 +88,7 @@ export default function CardFoldable({
   color,
   border,
   shadow,
-  contained,
+  contained = true,
   radius,
   pressable,
   style,
@@ -104,10 +103,10 @@ export default function CardFoldable({
   accordion,
   children,
   "data-color-mode": dataTheme,
-}: CardFoldableProps) {
+ }: CardFoldableProps) {
   const shouldBlockHostDefault = Boolean(pressable) && !customRightAllowDefault;
-  const inBoxContent = useInBoxContent();
-  const resolvedContained = contained ?? !inBoxContent;
+
+  const resolvedContained = contained;
   const resolvedIcon = normalizeCardIcon(icon);
   const pillItems = Array.isArray(pill) ? pill : pill ? [pill] : [];
   const pillKeys = buildRenderKeys(

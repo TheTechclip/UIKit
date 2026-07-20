@@ -2,7 +2,6 @@ import clsx from "clsx";
 import Pressable from "../../frameworks/Pressable/Pressable";
 import StopParentInteraction from "../../frameworks/shared/StopParentInteraction";
 import View from "../../frameworks/View/View";
-import { useInBoxContent } from "../Box/Box";
 import Icon from "../Icon/Icon";
 import Pill from "../Pill/Pill";
 import Text from "../Text/Text";
@@ -19,7 +18,7 @@ export default function CardDefault({
   border,
   shadow,
   vertical,
-  contained,
+  contained = true,
   radius,
   pressable,
   style,
@@ -35,9 +34,8 @@ export default function CardDefault({
   "data-color-mode": dataTheme,
 }: CardDefaultProps) {
   const shouldBlockHostDefault = Boolean(pressable) && !customRightAllowDefault;
-  const inBoxContent = useInBoxContent();
 
-  const resolvedContained = contained ?? !inBoxContent;
+  const resolvedContained = contained;
   const resolvedIcon = normalizeCardIcon(icon);
   const pillItems = Array.isArray(pill) ? pill : pill ? [pill] : [];
   const pillKeys = buildRenderKeys(
