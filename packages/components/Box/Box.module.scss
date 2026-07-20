@@ -1,0 +1,28 @@
+.Box {
+  // Base padding in CSS to support media queries
+  padding: 0.4rem;
+
+  @media (max-width: 409.98px) {
+    padding: 0.2rem;
+  }
+}
+
+.BoxContent {
+  padding: 0.6rem 1.2rem 1.2rem 1.2rem;
+
+  @media (max-width: 409.98px) {
+    padding: 0.4rem 0.8rem 0.8rem 0.8rem;
+  }
+
+  &.CardMode {
+    padding: 0;
+  }
+}
+
+.BoxHeader {
+  padding: 0.8rem 1.2rem 0.4rem 1.2rem;
+
+  @media (max-width: 409.98px) {
+    padding: 0.6rem 0.8rem 0.3rem 0.8rem;
+  }
+}

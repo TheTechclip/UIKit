@@ -1,9 +1,11 @@
+import clsx from "clsx";
 import Pressable from "../../frameworks/Pressable/Pressable";
 import View from "../../frameworks/View/View";
 import Divider from "../Divider/Divider";
 import Icon from "../Icon/Icon";
 import Spinner from "../Spinner/Spinner";
 import Text from "../Text/Text";
+import styles from "./Box.module.scss";
 import type { BoxContentProps, BoxFooterProps, BoxProps } from "./Box.types";
 
 export default function Box({
@@ -24,8 +26,7 @@ export default function Box({
     <View
       column
       gap={0}
-      className={className}
-      padding={4}
+      className={clsx(styles.Box, className)}
       height="min-content"
       data-color-mode={dataTheme}
       border={border}
@@ -64,8 +65,8 @@ export function BoxContent({
           alignItems="center"
           data-color-mode={dataTheme}
           gap={6}
+          className={styles.BoxHeader}
           justifyContent="space-between"
-          padding={[8, 12, 4, 12]}
           fullWidth
         >
           <View alignItems="center" gap={6} data-color-mode={dataTheme}>
@@ -79,11 +80,13 @@ export function BoxContent({
         <View
           column
           gap={card ? 2 : undefined}
-          className={contentClassName}
+          className={clsx(
+            styles.BoxContent,
+            card && styles.CardMode,
+            contentClassName,
+          )}
           data-color-mode={dataTheme}
-          padding={
-            padding !== undefined ? padding : card ? 0 : [6, 12, 12, 12]
-          }
+          padding={padding}
           paddingHorizontal={paddingHorizontal}
           paddingVertical={paddingVertical}
           style={contentStyle}
