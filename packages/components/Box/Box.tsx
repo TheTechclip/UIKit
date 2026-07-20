@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useContext } from "react";
 import Pressable from "../../frameworks/Pressable/Pressable";
 import View from "../../frameworks/View/View";
